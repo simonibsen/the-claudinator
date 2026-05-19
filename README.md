@@ -26,7 +26,7 @@ git clone https://github.com/simonibsen/the-claudinator ~/.claude/skills/the-cla
 
 Open Claude Code, say *"Start the study plan"*, and follow along. See [`INSTALL.md`](INSTALL.md) for details.
 
-## How you talk to it
+## What you can ask
 
 | You say... | What happens |
 |---|---|

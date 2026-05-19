@@ -15,7 +15,7 @@ About 8-10 hours per week, for 12 weeks. You can go slower; the skill won't pena
 
 ```bash
 # 1. Clone this repo (or copy the directory) into Claude's skills dir
-git clone https://github.com/<you>/the-claudinator ~/.claude/skills/the-claudinator
+git clone https://github.com/simonibsen/the-claudinator ~/.claude/skills/the-claudinator
 
 # 2. Verify it's there
 ls ~/.claude/skills/the-claudinator/
@@ -28,7 +28,7 @@ That's it. Open Claude Code in any project and say:
 
 The skill will pick that up, walk you through a short intro, create `~/the-claudinator/progress.md` to track where you are, and offer to start week 1.
 
-## How you'll talk to it
+## What you can ask
 
 Natural-language phrases — say what you want, the skill picks the right mode:
 
