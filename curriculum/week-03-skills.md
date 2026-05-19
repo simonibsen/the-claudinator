@@ -1,20 +1,37 @@
 # Week 3 — Skills Deep Dive
 
-**Frame:** A skill is a contract: "when the user's intent looks like X, load this expertise into context." Get this right and the model invokes the right pattern automatically — without anyone retyping it.
+**Frame:** A skill is a unit of packaged expertise that becomes a slash command. The directory name becomes the command (`my-skill/` → `/my-skill`), and the `description` in frontmatter tells Claude when to load it automatically. Both invocation paths — user-typed slash command and model-auto-invocation from description — work simultaneously.
+
+**Important: custom commands have been merged into skills.** A file at `.claude/commands/deploy.md` and a skill at `.claude/skills/deploy/SKILL.md` both create `/deploy` and work the same way. Old `.claude/commands/` files still work; skills add features (supporting files, frontmatter for invocation control, model auto-load).
 
 ## Objectives
 
-1. Explain why model-invoked > slash-command-invoked for most expertise.
+1. Explain how skills are invoked: both `/skill-name` slash command and model-auto-invocation from description.
 2. Write a skill `description` that triggers at the right times and not the wrong ones.
 3. Design a multi-file skill that routes to sub-files instead of dumping everything in SKILL.md.
-4. Distribute a skill — how it gets onto another machine, how it gets versioned.
-5. Decide when *not* to write a skill (and what to write instead).
+4. Use frontmatter controls: `disable-model-invocation` (manual-only), `user-invocable: false` (Claude-only), `allowed-tools` (pre-approve tools).
+5. Distribute a skill — how it gets onto another machine, how it gets versioned.
+6. Decide when *not* to write a skill (and what to write instead).
 
 ## Readings
 
-- Anthropic's Skills documentation.
-- Read the SKILL.md of at least 3 production skills (yours, this `the-claudinator` skill, and one bundled one).
+- The skills documentation at `code.claude.com/docs/en/skills`.
+- Read the SKILL.md of at least 3 production skills (yours, this `the-claudinator` skill, and one bundled skill like `/simplify`, `/debug`, `/loop`, or `/claude-api`).
 - Skim Anthropic's "Engineering with Claude" posts on agentic patterns — search the blog.
+
+## Frontmatter you should know
+
+All fields are optional. `description` is recommended so Claude knows when to load it; `name` defaults to the directory name.
+
+| Field | Purpose |
+|---|---|
+| `description` | When Claude should auto-invoke (recommended) |
+| `name` | Display name (defaults to dir name) |
+| `disable-model-invocation: true` | Only you can invoke (via `/`) — Claude won't auto-load |
+| `user-invocable: false` | Only Claude can invoke — hides from `/` menu |
+| `allowed-tools` | Pre-approve tools when the skill is active |
+| `argument-hint` / `arguments` | Named positional args for `$ARGUMENTS` substitution |
+| `context: fork` + `agent: <type>` | Run the skill in a forked subagent |
 
 ## Exercises
 
@@ -37,10 +54,11 @@
 ## Self-assessment
 
 1. Why is the `description` more important than the body for triggering?
-2. When is a custom slash command better than a skill? (Hint: who invokes it.)
+2. What's the relationship between `.claude/commands/deploy.md` and `.claude/skills/deploy/SKILL.md`? When would you use each?
 3. Walk me through how your routing skill decides which sub-file to load.
 4. Your skill loads when it shouldn't. What do you change?
 5. Two teammates write conflicting skills with overlapping descriptions. What happens, and how do you avoid it?
+6. Name the four frontmatter fields you'd use to: (a) prevent Claude from auto-invoking, (b) hide from the `/` menu, (c) pre-approve some tools, (d) run the skill in a forked subagent.
 
 ## Common pitfalls
 

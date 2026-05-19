@@ -4,10 +4,12 @@ Canonical references for the curriculum. Read the docs before the tutorials. Tut
 
 ## Claude & agents (primary)
 
-- **Claude Code docs** — `claude.com/claude-code/docs`. Read top to bottom once. Refer back constantly.
-- **Anthropic API docs** — Messages, Tool Use, Structured Outputs, Prompt Caching, Batch.
-- **Skills documentation** — official Anthropic Skills docs.
-- **Agent SDK docs** — Anthropic's SDK reference.
+- **Claude Code docs** — `code.claude.com/docs/en/` (overview, settings, hooks, skills, sub-agents, permissions). Read top to bottom once. Refer back constantly.
+- **Anthropic API docs** — `docs.claude.com/en/docs/` — Messages, Tool Use, Prompt Caching, Batch.
+- **Skills documentation** — `code.claude.com/docs/en/skills`.
+- **Sub-agents documentation** — `code.claude.com/docs/en/sub-agents`.
+- **Agent SDK docs** — `docs.claude.com/en/api/agent-sdk/overview` (or `code.claude.com/docs/en/agent-sdk`).
+- **Model overview & current IDs** — `docs.claude.com/en/docs/about-claude/models/overview`.
 - **Anthropic engineering blog** — for posts on agentic patterns, multi-agent design, model behavior.
 
 ## Spec-driven dev
@@ -27,10 +29,11 @@ Canonical references for the curriculum. Read the docs before the tutorials. Tut
 ## Local LLMs / fine-tuning
 
 - **Ollama** — `ollama.com` and its GitHub — easiest path to running models locally.
-- **unsloth** — `github.com/unslothai/unsloth` — fastest accessible LoRA fine-tuning on CUDA.
-- **MLX** — `github.com/ml-explore/mlx` and `mlx-examples` — Apple Silicon native; best path on Mac.
+- **unsloth** — `github.com/unslothai/unsloth` — fastest accessible LoRA fine-tuning on CUDA (Apple Silicon training support in progress).
+- **MLX-LM** — `github.com/ml-explore/mlx-lm` — Apple Silicon native LLM inference and fine-tuning. Install with `pip install mlx-lm`.
+- **MLX core** — `github.com/ml-explore/mlx` — the underlying array framework.
 - **HuggingFace docs** — `huggingface.co/docs` — deepest reference for fine-tuning, datasets, model hub.
-- **Open LLM Leaderboard** — `huggingface.co/spaces/open-llm-leaderboard` — current OS model rankings.
+- **Open LLM Leaderboard** — `huggingface.co/spaces/open-llm-leaderboard` (note: classic leaderboard space is dormant; the **Model Comparator** space is the current alternative for head-to-head comparisons).
 - **mergekit** — `github.com/arcee-ai/mergekit` — model merging.
 
 ## Software engineering practice
@@ -39,7 +42,7 @@ Canonical references for the curriculum. Read the docs before the tutorials. Tut
 - **The Twelve-Factor App** — `12factor.net` — short, opinionated, still right.
 - **Will Larson** — `lethain.com` — "Scaling Engineering Teams via Writing Things Down" and many others.
 - **MCP spec** — `modelcontextprotocol.io`
-- **OWASP Top 10 for LLM Applications** — current version
+- **OWASP Top 10 for LLM Applications (2025 edition)** — `genai.owasp.org/llm-top-10/`. Categories: prompt injection, sensitive info disclosure, supply chain, data/model poisoning, improper output handling, excessive agency, system prompt leakage, vector/embedding weaknesses, misinformation, unbounded consumption.
 
 ## Books
 

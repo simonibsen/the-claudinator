@@ -4,6 +4,20 @@ Notable changes to the curriculum. Newest first.
 
 ## 2026-05-19
 
+**Comprehensive correctness audit pass.** Verified every behavioral claim against live docs (Claude Code, Anthropic API, MCP, Spec Kit, Ollama, MLX, OWASP, unsloth). Fixes:
+
+- **Week 5 (Spec Kit):** Commands now `/speckit.specify`, `/speckit.plan`, `/speckit.tasks`, `/speckit.implement` (previously bare). Added supporting commands (`/speckit.constitution`, `/speckit.clarify`, `/speckit.analyze`, `/speckit.checklist`, `/speckit.taskstoissues`). Install: `uv tool install specify-cli --from git+...`. Output paths updated.
+- **Week 6 (MCP):** Removed GitHub/Postgres from reference servers (archived); current list: Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking, Time. Python SDK: `FastMCP` from `mcp.server.fastmcp` via `uv add "mcp[cli]"`. TS SDK: `@modelcontextprotocol/sdk` + `zod`. Added the three primitives (tools/resources/prompts) and two transports (stdio/Streamable HTTP) with OAuth 2.1 for HTTP.
+- **Week 7 (Agent SDK):** Package is `claude-agent-sdk` (Python) / `@anthropic-ai/claude-agent-sdk` (TS), not the `anthropic` SDK. Uses `query()` async iterator, not a hand-rolled Messages loop. Added explicit distinction from the Client SDK (week 8's territory).
+- **Week 3 (Skills):** Custom commands have been merged into skills — `.claude/commands/X.md` and `.claude/skills/X/SKILL.md` both create `/X`. Only `description` is recommended in frontmatter; `name` defaults to dir name. Added frontmatter reference (disable-model-invocation, user-invocable, allowed-tools, argument-hint, context: fork).
+- **Week 4 (Subagents):** Subagent frontmatter `name` AND `description` ARE both required. Subagents CANNOT spawn subagents (only the main thread can). File-edited subagents need restart; `/agents`-created ones don't. Added awareness of "agent teams" and "background agents" as related concepts.
+- **Week 2 (Customization):** Hook event list expanded from 3 to the ~30 actual events (`SessionStart`, `UserPromptSubmit`, `PermissionRequest`, `SubagentStart/Stop`, `PreCompact`, `Elicitation`, etc.). Permissions section deepened: rule syntax (`Bash(git *)`, `Edit|Write`, `Skill(name *)`, `mcp__server__.*`), four scopes (managed/user/project/project-local), hook handler types.
+- **Week 8 (API):** Prompt caching detail added — two TTLs (5-min, 1-hour), cost ratios (1.25x/2x write, 0.1x read), 4 breakpoints max, 20-block lookback, minimum cacheable length per model.
+- **Week 11 (Security):** OWASP LLM Top 10 updated to 2025 edition (10 categories listed by ID).
+- **Local LLMs concentration:** Model tags refreshed (added phi4/phi4-mini, gemma3, qwen3, mistral-small3.2). MLX-LM moved from `ml-explore/mlx-examples` to `ml-explore/mlx-lm` (standalone repo, `pip install mlx-lm`). Open LLM Leaderboard noted as dormant; Model Comparator recommended instead.
+- **Doc base URLs:** `claude.com/claude-code/docs` → `code.claude.com/docs/en/` (Claude Code) and `docs.claude.com/en/docs/` (Anthropic API) throughout.
+- **Reading list:** All Claude/MCP/local-LLM links updated to current URLs.
+
 **Local LLMs concentration added.**
 - New `concentrations/local-llms.md` — post-curriculum, ~8-12 hours.
 - Framed not as "how to use local LLMs" but "how to use Claude as a force multiplier to develop your own local model."

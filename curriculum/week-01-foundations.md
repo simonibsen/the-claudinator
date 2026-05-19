@@ -13,8 +13,9 @@
 
 ## Readings
 
-- `claude.com/claude-code/docs` — read the Getting Started, Common Workflows, and Settings sections.
-- `claude.com/claude-code/docs/memory` — what CLAUDE.md actually does.
+- `code.claude.com/docs/en/overview` — Getting Started + Common Workflows.
+- `code.claude.com/docs/en/memory` — what CLAUDE.md actually does (project, user, nested, imports).
+- `code.claude.com/docs/en/settings` — the settings model.
 - Skim one mid-size OSS Python or TypeScript repo's top-level README + main entrypoint (e.g. `pallets/flask`, `tiangolo/fastapi`, `astral-sh/ruff`).
 
 ## Exercises

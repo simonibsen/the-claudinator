@@ -42,12 +42,13 @@ The curriculum makes claims about external things: URLs, API features, model nam
    - "Use Chroma / pgvector" — still good for week-9 RAG?
    - Reading-list blogs and books — still maintained?
 4. **Fetch current sources** with WebFetch:
-   - `claude.com/claude-code/docs` (root + relevant subpages)
-   - `docs.anthropic.com` (API docs)
-   - `modelcontextprotocol.io`
-   - `github.com/github/spec-kit` (README)
-   - Anthropic blog index (`anthropic.com/news` or `anthropic.com/engineering`)
-   - Any specific repo a week references
+   - Claude Code docs: `code.claude.com/docs/en/` (overview, hooks, skills, sub-agents, permissions, settings, etc.)
+   - Anthropic API docs: `docs.claude.com/en/docs/` and `platform.claude.com/docs/en/`
+   - Models reference: `docs.claude.com/en/docs/about-claude/models/overview`
+   - MCP: `modelcontextprotocol.io` (quickstart, examples, architecture)
+   - Spec Kit: `github.com/github/spec-kit` (README)
+   - Anthropic blog: `anthropic.com/news` or `anthropic.com/engineering`
+   - Any specific repo a week references (e.g. `github.com/ml-explore/mlx-lm`, `github.com/unslothai/unsloth`)
 5. **Diff claim-by-claim.** For each claim that has likely changed:
    - Show the current claim (file + line + text)
    - Show the new source-of-truth

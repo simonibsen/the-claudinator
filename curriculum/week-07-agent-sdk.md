@@ -1,28 +1,30 @@
 # Week 7 — Agent SDK: Build a Standalone Agent
 
-**Frame:** Claude Code is one agent built on the platform. Now build your own — a custom agent that runs without the Claude Code harness, with your own tools, system prompt, and control loop.
+**Frame:** Claude Code is one agent built on top of the Claude Agent SDK. Now build your own — a custom agent that runs outside the Claude Code harness, with your own tools, system prompt, and orchestration.
+
+**Important distinction:** the **Agent SDK** (`claude-agent-sdk` / `@anthropic-ai/claude-agent-sdk`) is a high-level wrapper that bundles the Claude Code binary and runs the agent loop *for you* — you call `query()` and iterate over messages. The lower-level **Client SDK** (`anthropic` / `@anthropic-ai/sdk`) gives you raw access to the Messages API and you write your own loop. This week is about the Agent SDK; week 8 covers the Client SDK directly.
 
 ## Objectives
 
-1. Explain how the Claude Agent SDK relates to Claude Code (Claude Code is built on it).
-2. Build a working CLI agent that uses tools and produces useful output.
-3. Implement the agent loop: model call → tool call → tool result → model call.
-4. Handle the things you took for granted in Claude Code: streaming, errors, retries, cost.
-5. Decide when an Agent SDK app is the right answer vs. just Claude Code.
+1. Explain how the Claude Agent SDK relates to Claude Code (Claude Code is built on it) and how it differs from the lower-level Client SDK (`anthropic` package).
+2. Build a working CLI agent using the Agent SDK's `query()` async iterator.
+3. Configure the agent's tools, system prompt, and permissions.
+4. Handle the things you took for granted in Claude Code: streaming output, errors, cost tracking.
+5. Decide when an Agent SDK app is the right answer vs. just Claude Code vs. the lower-level Client SDK.
 
 ## Readings
 
-- Claude Agent SDK docs at `claude.com/claude-code/docs` (or Anthropic API docs).
-- One reference Agent SDK project on GitHub.
-- Read `anthropic-cookbook` examples for tool use, if available.
+- Claude Agent SDK docs at `docs.claude.com/en/api/agent-sdk/overview` (or `code.claude.com/docs/en/agent-sdk`).
+- The official Python SDK repo: `github.com/anthropics/claude-agent-sdk-python`.
+- The TypeScript SDK: `@anthropic-ai/claude-agent-sdk` on npm.
 
 ## Exercises
 
-**1. Hello agent (1.5 hrs).** Build the smallest possible agent: one Python script, one tool (e.g. `read_file`), a loop that takes a user prompt and runs to completion. Make it work end to end.
+**1. Hello agent (1.5 hrs).** Install the SDK (`pip install claude-agent-sdk` or `npm install @anthropic-ai/claude-agent-sdk`). Build the smallest possible agent: one script that uses `query()` to get an answer with at least one tool available (e.g. `Read`). The SDK runs the agent loop for you — you iterate over its message stream.
 
 **2. Pick a useful target (30 min).** What should your agent *do*? Something concrete and personal: triage your inbox, grade your homework, summarize your Strava week, monitor a long-running build, scrape a syllabus and turn it into a study schedule. Write a 1-paragraph spec.
 
-**3. Build it (4-5 hrs).** Implement. Three tools minimum. Real input, real output. Push to GitHub with a README a stranger could follow.
+**3. Build it (4-5 hrs).** Implement. Use the SDK's built-in tool support and add at least one custom tool of your own. Real input, real output. Push to GitHub with a README a stranger could follow.
 
 **4. The polish pass (2 hrs).** Add: error handling (what if a tool fails?), streaming output (so the user sees progress), cost logging (print tokens and dollars per run), and a `--dry-run` flag.
 
@@ -36,11 +38,12 @@
 
 ## Self-assessment
 
-1. Walk through one iteration of the agent loop with a concrete example.
-2. Your agent gets stuck in a loop calling the same tool. Why might that happen, and how do you stop it?
-3. Streaming vs. non-streaming — when does each make sense?
-4. What's your agent's cost per run? How would you cut it in half?
-5. When is a standalone agent overkill compared to Claude Code + a custom skill?
+1. What's the difference between the Agent SDK (`claude-agent-sdk`) and the Client SDK (`anthropic`)? When would you pick each?
+2. Walk through what `query()` does internally — what loop is it running on your behalf?
+3. Your agent gets stuck in a loop calling the same tool. Why might that happen, and how do you stop it?
+4. Streaming vs. non-streaming — when does each make sense?
+5. What's your agent's cost per run? How would you cut it in half?
+6. When is a standalone agent overkill compared to Claude Code + a custom skill?
 
 ## Common pitfalls
 

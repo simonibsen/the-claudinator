@@ -4,7 +4,7 @@
 
 ## Objectives
 
-1. Explain the Spec Kit flow (`/specify` → `/plan` → `/tasks` → `/implement`) and when each phase matters.
+1. Explain the Spec Kit flow (`/speckit.specify` → `/speckit.plan` → `/speckit.tasks` → `/speckit.implement`) and when each phase matters. Know the supporting commands (`/speckit.constitution`, `/speckit.clarify`, `/speckit.analyze`, `/speckit.checklist`, `/speckit.taskstoissues`).
 2. Build one non-trivial feature entirely spec-first via Spec Kit.
 3. Read 3 real-world RFCs/design docs and identify the shared structure.
 4. Write a design doc for a feature, get feedback on it, and revise.
@@ -19,9 +19,20 @@
 
 ## Exercises
 
-**1. Spec Kit tour (1 hr).** Install Spec Kit. Run the quickstart. Look at what each phase outputs — read the spec, plan, and tasks artifacts.
+**1. Spec Kit install + tour (1 hr).** Install with:
 
-**2. The Spec-First Feature (4-5 hrs).** Pick a feature worth 1-2 days of work — non-trivial. Use Spec Kit end-to-end. Commit spec, plan, tasks, and implementation. The spec/plan files should be readable by a stranger.
+```bash
+uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
+```
+
+Run the quickstart. Spec Kit installs as `/speckit.*` slash commands inside Claude Code. Look at what each phase outputs:
+- `/speckit.constitution` → `.specify/memory/constitution.md` (project principles)
+- `/speckit.specify` → `specs/[feature-id]/spec.md` (requirements + user stories)
+- `/speckit.plan` → technical implementation details (data models, API specs, research)
+- `/speckit.tasks` → `tasks.md` (ordered, dependency-aware task breakdown)
+- `/speckit.implement` → executes the tasks
+
+**2. The Spec-First Feature (4-5 hrs).** Pick a feature worth 1-2 days of work — non-trivial. Use Spec Kit end-to-end via the `/speckit.*` commands. Commit spec, plan, tasks, and implementation. The spec/plan files should be readable by a stranger.
 
 **3. RFC reading (1.5 hrs).** Read the three docs from the readings. For each: (a) how is the problem framed? (b) what alternatives are considered? (c) what's the decision criterion? (d) what's left unspecified and why?
 
@@ -38,7 +49,7 @@
 
 1. When is Spec Kit overkill? When is ad-hoc prompting better?
 2. What goes in "Non-Goals" and why is that often the most important section?
-3. How is plan mode in Claude Code different from Spec Kit's `/plan`?
+3. How is plan mode in Claude Code different from Spec Kit's `/speckit.plan`?
 4. After feedback, what changed in your doc? What didn't change, and why?
 5. A skeptical reader reads your doc. What's the first objection they'd raise?
 

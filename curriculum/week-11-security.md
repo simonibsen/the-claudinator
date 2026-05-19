@@ -13,7 +13,17 @@
 ## Readings
 
 - Simon Willison's prompt-injection canon — start with "Prompt injection: what's the worst that can happen?" and follow the trail.
-- OWASP Top 10 for LLM Applications (current version).
+- **OWASP Top 10 for LLM Applications (2025 edition)** at `genai.owasp.org/llm-top-10/`. Categories:
+  - LLM01 — Prompt Injection
+  - LLM02 — Sensitive Information Disclosure
+  - LLM03 — Supply Chain
+  - LLM04 — Data and Model Poisoning
+  - LLM05 — Improper Output Handling
+  - LLM06 — Excessive Agency
+  - LLM07 — System Prompt Leakage
+  - LLM08 — Vector and Embedding Weaknesses
+  - LLM09 — Misinformation
+  - LLM10 — Unbounded Consumption
 - A postmortem of any AI-related security incident — search "prompt injection incident".
 - The 12-factor app section on configuration.
 

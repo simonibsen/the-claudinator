@@ -1,2 +1,2 @@
-never
-Initial authoring: 2026-05-19. Curriculum references Claude Code docs, Anthropic API docs, MCP, Spec Kit, and various blog canon. Run update-content mode to verify freshness.
+2026-05-19
+Comprehensive correctness audit completed. Verified against: code.claude.com/docs/en/ (overview, hooks, skills), platform.claude.com/docs/en/ (models, prompt caching), modelcontextprotocol.io, github.com/github/spec-kit, github.com/ml-explore/mlx-lm, github.com/unslothai/unsloth, ollama.com/library, genai.owasp.org/llm-top-10. Fixes applied across week files 1-8, 11, concentrations/local-llms.md, modes/update-content.md, and reading-list.md.
