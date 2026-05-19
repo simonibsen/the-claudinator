@@ -36,7 +36,7 @@ This isn't a curriculum week — it's a deliverable week. The tutor's job here i
 
 ## Scoping rules
 
-- **20-40 hours of work.** Less and it's a toy; more and it'll never ship.
+- **A small but real project, not a toy.** The right size is "I can describe it in one sentence and show it in 60 seconds." Smaller than that, it doesn't exercise enough material; much larger, it won't ship.
 - **Solves a real problem.** Your own counts. "Make my Strava data into a weekly digest." "Grade homework against a rubric." "Triage my dad's small-business inbox."
 - **Has an evaluatable success criterion.** Not "feels useful." Concrete: "summarizes X in under N seconds with >90% factual accuracy on a 30-case eval."
 - **Touches ≥5 weeks' material.** If you can't enumerate them, scope wider.

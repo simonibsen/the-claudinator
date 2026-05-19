@@ -19,11 +19,11 @@
 
 ## Exercises
 
-**1. Dockerize one app (2 hrs).** Pick a project (your agent from week 7 is a good candidate, but a web app is better). Write a Dockerfile. Multi-stage build. Run it locally. The image should be lean (<200MB if possible).
+**1. Dockerize one app.** Pick a project (your agent from week 7 is a good candidate, but a web app is better). Write a Dockerfile. Multi-stage build. Run it locally. The image should be lean (<200MB if possible).
 
-**2. Deploy it (2 hrs).** Push to Fly.io. Set env vars (including your Anthropic API key) via `flyctl secrets`. Visit the URL. Pat self on back.
+**2. Deploy it.** Push to Fly.io. Set env vars (including your Anthropic API key) via `flyctl secrets`. Visit the URL. Pat self on back.
 
-**3. RAG from scratch (4 hrs).** No frameworks. Build it yourself:
+**3. RAG from scratch.** No frameworks. Build it yourself:
    - Pick a corpus (your lecture notes work great)
    - Chunk it (start simple: ~500 token chunks, ~50 token overlap)
    - Embed each chunk (Anthropic embeddings or OpenAI, your choice)
@@ -31,7 +31,7 @@
    - Build a query function: embed query → retrieve top-k → put in prompt → generate answer
    - Wrap in a CLI or simple FastAPI endpoint
 
-**4. The retrieval problem (1.5 hrs).** Run 10 questions through your RAG. Where does retrieval fail? Try: different chunk sizes, different k values, query rewriting. Write down what helped and what didn't.
+**4. The retrieval problem.** Run 10 questions through your RAG. Where does retrieval fail? Try: different chunk sizes, different k values, query rewriting. Write down what helped and what didn't.
 
 ## Deliverable
 

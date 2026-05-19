@@ -92,6 +92,6 @@ For week 12. Four briefs at different shapes. Pick one — or invent one and val
 
 Whichever you pick, before starting, run it through:
 
-> I want to build [pitch]. Scope check: is this 20-40 hours? What's the smallest version that's still impressive? What would you cut first?
+> I want to build [pitch]. Scope check: what's the smallest version that's still impressive? What would you cut first?
 
 Then go.

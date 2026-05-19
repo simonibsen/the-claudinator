@@ -19,15 +19,15 @@
 
 ## Exercises
 
-**1. Hand-write 20 eval cases (2 hrs).** For your RAG (or another AI app you've built). Each case: input, expected behavior, why this is a good case. Cover happy path, edge cases, things you've seen go wrong.
+**1. Hand-write 20 eval cases.** For your RAG (or another AI app you've built). Each case: input, expected behavior, why this is a good case. Cover happy path, edge cases, things you've seen go wrong.
 
-**2. Deterministic evals (1.5 hrs).** What can you check with code, not a model? Format checks (valid JSON?), citations present, length bounds, refusal triggers, factual checks against known answers. Write code that scores each.
+**2. Deterministic evals.** What can you check with code, not a model? Format checks (valid JSON?), citations present, length bounds, refusal triggers, factual checks against known answers. Write code that scores each.
 
-**3. LLM-as-judge (2 hrs).** For cases where determinism isn't enough (quality of summary, helpfulness of answer): write a judge prompt. Cheaper model (Haiku) is usually right. Make the rubric explicit. Run it. Sanity-check by manually grading 10 and seeing if the judge agrees.
+**3. LLM-as-judge.** For cases where determinism isn't enough (quality of summary, helpfulness of answer): write a judge prompt. Cheaper model (Haiku) is usually right. Make the rubric explicit. Run it. Sanity-check by manually grading 10 and seeing if the judge agrees.
 
-**4. The eval harness (2 hrs).** Wire it up: one command runs all evals, prints pass/fail and rates. Commit results over time. Now every prompt change is graded automatically.
+**4. The eval harness.** Wire it up: one command runs all evals, prints pass/fail and rates. Commit results over time. Now every prompt change is graded automatically.
 
-**5. Cause a regression on purpose (1 hr).** Make a change you suspect will hurt quality. Run evals. Did they catch it? If not, why not, and what eval is missing?
+**5. Cause a regression on purpose.** Make a change you suspect will hurt quality. Run evals. Did they catch it? If not, why not, and what eval is missing?
 
 ## Deliverable
 

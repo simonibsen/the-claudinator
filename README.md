@@ -25,7 +25,7 @@ Someone with **real coding experience** but limited applied-AI / professional-de
 
 Roughly: a CS undergrad past the data-structures-and-algorithms stage, a bootcamp grad with a real project under their belt, or a working engineer pivoting into AI. **Not** a first-time programmer.
 
-Time commitment: ~8-10 hours/week, for 12 weeks. You can go slower; the skill won't penalize you for it.
+Time commitment: a rhythm of "a week per week" for 12 weeks. **Hours-per-week varies a lot** based on Claude Code fluency — exercises that pre-Claude would have been 5 hours can be 30 minutes with the tool, while the genuinely thinking-heavy parts (design, debugging, evals) take the same time as ever. Don't target hours. A week is *done* when the deliverable is in git and you can answer the self-assessment cold.
 
 ## How it works
 
@@ -105,11 +105,11 @@ Four scoped project options live in [`concentrations/capstone-options.md`](conce
 3. Eval-driven prompt optimizer
 4. Public-contribution streak (5 merged contributions in your domain of choice)
 
-20-40 hours of work. The artifact is what you point recruiters at.
+Plan it as a real project, not a homework set. The artifact is what you point recruiters at.
 
 ## Concentrations (after the 12 weeks)
 
-Post-curriculum deep dives, each ~8-12 hours:
+Post-curriculum deep dives, each scoped as a small project:
 
 - **[AI engineering](concentrations/ai-engineering.md)** — evals as a profession, prompt caching, embedding work, agent architectures, fine-tuning. The career leverage track for AI/ML eng jobs.
 - **[Local LLMs](concentrations/local-llms.md)** — running and *developing* local models with Claude as a force multiplier. Centerpiece is a real **distillation pipeline**: use Claude to teach a 7B local model your specific task, then stop paying for that task.

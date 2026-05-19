@@ -20,13 +20,13 @@
 
 ## Exercises
 
-**1. Install + tour (1 hr).** Install Claude Code. Run `/help`. Try plan mode (`shift+tab`). Try `!ls` and `# remember to use uv for installs`. Read your own keybindings via `/keybindings`.
+**1. Install + tour.** Install Claude Code. Run `/help`. Try plan mode (`shift+tab`). Try `!ls` and `# remember to use uv for installs`. Read your own keybindings via `/keybindings`.
 
-**2. The Real-Repo Run (4 hrs over the week).** Pick a personal repo (a class project works). Make every change for the week via Claude Code. After each session, commit. Tally: where did the tool save time? Where did it fight you?
+**2. The Real-Repo Run.** Pick a personal repo (a class project works). Make every change for the week via Claude Code. After each session, commit. Tally: where did the tool save time? Where did it fight you?
 
-**3. The Codebase Map (2-3 hrs).** Pick an OSS project you've used. Without reading any tutorials, navigate it and write `MAP.md`: what are the top 5 modules, what's the entrypoint, where does a request/command flow through, what's surprising? Use Claude Code to help you explore — but you write the doc.
+**3. The Codebase Map.** Pick an OSS project you've used. Without reading any tutorials, navigate it and write `MAP.md`: what are the top 5 modules, what's the entrypoint, where does a request/command flow through, what's surprising? Use Claude Code to help you explore — but you write the doc.
 
-**4. Productivity recipes (1 hr).** Try at least 3 of these workflows during the week — they're patterns that pay off daily:
+**4. Productivity recipes.** Try at least 3 of these workflows during the week — they're patterns that pay off daily:
 - **Bulk refactor.** "Rename X to Y across the codebase, update all imports." Verify the diff before accepting.
 - **Codebase archaeology.** "Why does this function exist? Trace back when it was added and what problem it solved."
 - **PR prep.** "Summarize my staged changes as a PR description, including a test plan."

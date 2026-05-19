@@ -35,15 +35,15 @@ All fields are optional. `description` is recommended so Claude knows when to lo
 
 ## Exercises
 
-**1. Skill anatomy reading (1 hr).** Pick 3 skills. For each, answer: when would the model load this? What's in the body? Does it route to sub-files? What scripts (if any) does it call?
+**1. Skill anatomy reading.** Pick 3 skills. For each, answer: when would the model load this? What's in the body? Does it route to sub-files? What scripts (if any) does it call?
 
-**2. The description game (1 hr).** Take an existing skill. Rewrite its `description` three ways: too vague, too narrow, just right. Test each — does the model load it at the right times? This is the single most underrated skill-design skill.
+**2. The description game.** Take an existing skill. Rewrite its `description` three ways: too vague, too narrow, just right. Test each — does the model load it at the right times? This is the single most underrated skill-design skill.
 
-**3. Build a routing skill (3 hrs).** Build a skill with: a SKILL.md (under 80 lines) that routes by intent + a `modes/` or `patterns/` subdirectory with the actual content. Topic of your choice — something you'd actually use. Verify the model picks the right sub-file based on phrasing.
+**3. Build a routing skill.** Build a skill with: a SKILL.md (under 80 lines) that routes by intent + a `modes/` or `patterns/` subdirectory with the actual content. Topic of your choice — something you'd actually use. Verify the model picks the right sub-file based on phrasing.
 
-**4. Distribution (1 hr).** Put your skill in a git repo. Write the README so a stranger could install it. Bonus: a one-line install command.
+**4. Distribution.** Put your skill in a git repo. Write the README so a stranger could install it. Bonus: a one-line install command.
 
-**5. The "don't" exercise (30 min).** Write down 3 things you almost made a skill for but shouldn't have — and what you'd write instead (a slash command? A CLAUDE.md note? A README?).
+**5. The "don't" exercise.** Write down 3 things you almost made a skill for but shouldn't have — and what you'd write instead (a slash command? A CLAUDE.md note? A README?).
 
 ## Deliverable
 

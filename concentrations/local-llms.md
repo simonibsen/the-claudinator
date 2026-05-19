@@ -1,6 +1,6 @@
 # Local LLMs — and how Claude makes them yours
 
-A post-curriculum concentration. ~8-12 hours of focused work. The centerpiece is a real distillation pipeline: take a task you've been paying Claude to do, use Claude to teach a small local model how to do it, and stop paying for that task.
+A post-curriculum concentration. Scoped as a small project — the centerpiece is a real distillation pipeline: take a task you've been paying Claude to do, use Claude to teach a small local model how to do it, and stop paying for that task.
 
 This is not "set up Ollama and play around." Anyone can do that. This is *use Claude as a force multiplier to develop your own local model* — a skill most engineers ten years older haven't done.
 
@@ -23,7 +23,7 @@ This is not "set up Ollama and play around." Anyone can do that. This is *use Cl
 
 ## Roadmap
 
-1. **Setup** — Ollama in 10 minutes (Claude Code does most of it)
+1. **Setup** — Ollama installed and running (Claude Code does most of it)
 2. **Integration** — swap local for API with one line of code
 3. **Compare** — port one Claude workload to local, run your week-10 evals on both
 4. **Distillation pipeline** ⭐ — the centerpiece
@@ -31,7 +31,7 @@ This is not "set up Ollama and play around." Anyone can do that. This is *use Cl
 
 ---
 
-## 1. Setup — Ollama in 10 minutes
+## 1. Setup — Ollama via Claude Code
 
 In Claude Code, ask:
 
@@ -85,7 +85,7 @@ resp = client.chat.completions.create(model="qwen2.5:7b-instruct", messages=[...
 
 > In `summarizer.py`, add a `--backend` flag that takes `claude-haiku-4-5`, `claude-sonnet-4-6`, `qwen2.5:7b-instruct`, or `llama3.2:3b`. Route to Anthropic for claude-* and to local Ollama for the rest. Keep the rest of the code unchanged.
 
-About 15 minutes. You now have a switchable backend.
+You now have a switchable backend.
 
 ## 3. The eval comparison rig
 
@@ -124,7 +124,7 @@ A task that's: (a) repeatable, (b) you'd happily pay Claude to do many times, (c
 - *Generate 3 pytest test cases for a given Python function signature*
 - *Rewrite a casual message into professional tone*
 
-Pick something *you would actually use*. The pipeline takes 6-10 hours; if the artifact is useless to you, you'll lose interest.
+Pick something *you would actually use*. The pipeline is a real project — non-trivial, but tractable. If the artifact is useless to you, you'll lose interest before it ships.
 
 ### Step 2: Generate synthetic training data
 
@@ -134,7 +134,7 @@ In Claude Code:
 
 > Write a script that uses the Anthropic API to generate 1000 training examples for `<your task>`. Each example should be an input and a high-quality output. Vary the inputs broadly (length, edge cases, common cases). Save to `data/synthetic_train.jsonl`. Use prompt caching to reduce costs. Show me a progress bar and the running cost.
 
-Cost: typically $3-10 for 1000 examples with Sonnet, less with caching. Time: 20-40 minutes.
+Cost: typically $3-10 for 1000 examples with Sonnet, less with caching.
 
 ### Step 3: Quality check
 
@@ -155,7 +155,7 @@ In Claude Code:
 
 (Or the MLX equivalent if on Mac.)
 
-Time: 30-90 minutes on a decent GPU; 1-3 hours on M-series with MLX; ~$2-5 if you rent.
+Cost: ~$2-5 if you rent. Wall-clock varies a lot by hardware — GPU is fastest, M-series MLX is workable, slower hardware works but is slow enough to be annoying for iteration.
 
 ### Step 5: Eval
 
@@ -196,7 +196,7 @@ In Claude Code:
 
 > Generate 500 (query, relevant document) and 500 (query, irrelevant document) pairs from my RAG corpus using Claude. Use them to fine-tune `sentence-transformers/all-MiniLM-L6-v2` with a contrastive loss. Compare retrieval@5 before and after on a held-out test set.
 
-Genuinely useful for your week-9 RAG. ~3-4 hours of work.
+Genuinely useful for your week-9 RAG.
 
 ## 6. Stretch — model merging
 

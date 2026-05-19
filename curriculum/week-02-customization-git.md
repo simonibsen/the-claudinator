@@ -23,14 +23,14 @@ By the end of this week, your `~/.claude/` directory should look meaningfully di
 
 ## Exercises
 
-**1. Settings audit (1 hr).** Open `~/.claude/settings.json`. Document each key with a comment explaining why. Set up the four scopes appropriately:
+**1. Settings audit.** Open `~/.claude/settings.json`. Document each key with a comment explaining why. Set up the four scopes appropriately:
 
 - `~/.claude/settings.json` — your personal defaults across all projects
 - `.claude/settings.json` — project defaults (shared, committed)
 - `.claude/settings.local.json` — your personal project overrides (gitignored)
 - Managed (enterprise) — set by your org, top priority
 
-**2. Permissions deep-dive (1 hr).** The `permissions.allow` and `permissions.deny` fields take rule strings, not just tool names. Practice writing rules:
+**2. Permissions deep-dive.** The `permissions.allow` and `permissions.deny` fields take rule strings, not just tool names. Practice writing rules:
 
 - `Bash(git *)` — allow any git command via Bash
 - `Bash(rm *)` — deny anything that looks like an rm
@@ -41,7 +41,7 @@ By the end of this week, your `~/.claude/` directory should look meaningfully di
 
 Write 5 allow rules and 3 deny rules for your own daily workflow. Commit to your dotfiles.
 
-**3. Hooks (2 hrs).** Write a `PostToolUse` hook that runs your linter or formatter after Edit/Write. Test it by editing a file and watching it run. Write a `Stop` hook that reminds you to commit if you've made >5 edits.
+**3. Hooks.** Write a `PostToolUse` hook that runs your linter or formatter after Edit/Write. Test it by editing a file and watching it run. Write a `Stop` hook that reminds you to commit if you've made >5 edits.
 
 **Awareness — the broader event list.** Beyond `PreToolUse`/`PostToolUse`/`Stop`, Claude Code supports many more hook events. Skim the list and pick one less-obvious event to experiment with:
 
@@ -55,11 +55,11 @@ Write 5 allow rules and 3 deny rules for your own daily workflow. Commit to your
 
 Hooks take handler types: `command` (shell), `http` (POST JSON), `mcp_tool`, `prompt` (model decision), `agent` (subagent verification). Don't try to use them all — just know they exist.
 
-**3. Custom slash commands (2 hrs).** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/review` (have the model critique the current diff), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this week*, not hypotheticals.
+**3. Custom slash commands.** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/review` (have the model critique the current diff), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this week*, not hypotheticals.
 
-**4. The OSS PR (3 hrs).** Find a project you actually use. Look at their issue tracker for `good-first-issue` or a typo/docs bug. Open the PR. Respond to review feedback. Get it merged.
+**4. The OSS PR.** Find a project you actually use. Look at their issue tracker for `good-first-issue` or a typo/docs bug. Open the PR. Respond to review feedback. Get it merged.
 
-**5. Bisect drill (1 hr).** In any repo with a non-trivial history, intentionally introduce a bug 10 commits back (or pick a known-fixed bug), then `git bisect` your way to it.
+**5. Bisect drill.** In any repo with a non-trivial history, intentionally introduce a bug 10 commits back (or pick a known-fixed bug), then `git bisect` your way to it.
 
 ## Deliverable
 
