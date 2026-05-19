@@ -63,3 +63,9 @@ You'll focus on subagents this week; the other two are good to be aware of and t
 ## Stretch
 
 Write a "code-review-agent" that takes a PR URL and returns a structured review. Compare its review to a human review of the same PR. What did each miss?
+
+## Sidebar — orchestrating local-LLM workers (preview)
+
+This week's pattern is Claude orchestrating *Claude subagents* — smart and expensive workers. The same architecture works with *local LLMs* as the workers — dumb and free. Useful when you have a large batch of medium-difficulty items where Claude-on-everything is overkill and a regex isn't enough.
+
+Full pattern (the *orchestrator pattern*) is in `concentrations/local-llms.md` section 5, after the curriculum. Worth knowing it exists before you encounter a "I need to process 5,000 of these" problem and reflexively reach for Claude.
