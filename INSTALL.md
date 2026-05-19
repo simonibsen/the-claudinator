@@ -36,7 +36,8 @@ Natural-language phrases — say what you want, the skill picks the right mode:
 
 | You say... | What happens |
 |---|---|
-| "Start the study plan" / "where am I" | First-run setup, or "you're on week N, want to continue?" |
+| "Use the-claudinator to start the study plan" *(first time only — names the skill)* | First-run setup |
+| "where am I" / "continue" | "You're on week N, want to continue?" |
 | "Teach me week 3" / "continue" | Walks you through the current/specified week |
 | "Quiz me on week 4" | 10-question interactive quiz |
 | "Review my work for week 5" | Senior-engineer-style code review of your deliverable |

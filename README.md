@@ -31,7 +31,7 @@ Time commitment: ~8-10 hours/week, for 12 weeks. You can go slower; the skill wo
 
 You install the skill in Claude Code, then talk to it like a tutor:
 
-- *"Start the study plan"* — first-run setup
+- *"Use the-claudinator to start the study plan"* — first-run setup (name the skill explicitly the first time so Claude Code loads it; after that, the skill stays in conversation context)
 - *"Teach me week 4"* — walks you through the week one step at a time
 - *"Quiz me on what I just learned"* — 10 interactive questions, honest grading
 - *"Review my work"* — senior-engineer-style code review of your deliverable
@@ -126,11 +126,13 @@ Each week's deliverable is built with Claude Code. By week 12, your `~/.claude/`
 git clone https://github.com/simonibsen/the-claudinator ~/.claude/skills/the-claudinator
 ```
 
-The skill will be available to Claude Code on next launch. To invoke it, open Claude Code in any working directory and say:
+Then open Claude Code in any working directory. **In your first message, name the skill explicitly** so Claude Code loads it:
 
 > Use the-claudinator to start the study plan.
 
-(Once invoked the first time, you can shorten — *"continue"*, *"quiz me on week 3"*, *"switch focus"* — the skill will already be in the conversation.)
+After that first invocation, the skill is loaded for the session — you can use shorter phrases like *"continue"*, *"quiz me on week 3"*, or *"switch focus"*, and Claude Code will route them back into the-claudinator.
+
+(If Claude Code was already running when you cloned the repo, you may need to start a new conversation for the skill to be discovered.)
 
 See [`INSTALL.md`](INSTALL.md) for details on prerequisites, tuning, and keeping content fresh.
 
