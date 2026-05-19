@@ -1,0 +1,245 @@
+# Local LLMs — and how Claude makes them yours
+
+A post-curriculum concentration. ~8-12 hours of focused work. The centerpiece is a real distillation pipeline: take a task you've been paying Claude to do, use Claude to teach a small local model how to do it, and stop paying for that task.
+
+This is not "set up Ollama and play around." Anyone can do that. This is *use Claude as a force multiplier to develop your own local model* — a skill most engineers ten years older haven't done.
+
+## Why care
+
+- **Cost.** Iterating on prompts and evals against the Claude API can run $10-50/week during the curriculum. Local models give you a free sandbox for dev work.
+- **Privacy.** Personal data, school records, medical, anything sensitive — never has to leave your machine.
+- **Latency.** A local 7-8B model on decent hardware responds faster than any API for short tasks. No network round-trip.
+- **Career signal.** Distillation, LoRA fine-tuning, model routing — these are *AI infrastructure / AI engineer* skills. Mentioning a working distillation pipeline in an interview separates you from 95% of CS-junior peers.
+- **Architecture literacy.** "Local vs. API" should be a deliberate choice. Knowing how to make that choice is the skill.
+
+## Prerequisites
+
+- **Week 10 (Evals) is non-negotiable.** Without a working eval harness, distillation is theater. You'll have no idea whether your local model is actually working.
+- **Claude Code installed and fluent.** This concentration *operates* through Claude Code — generating datasets, writing training scripts, running comparisons, debugging quantization. If you're not fluent in Claude Code, do the curriculum first.
+- **Hardware:**
+  - **Comfortable:** Apple Silicon M-series (M1+) with 16GB+ RAM, OR Linux/Windows with NVIDIA GPU (8GB+ VRAM)
+  - **Workable:** Any modern machine with 16GB RAM for inference of small (1-3B) models
+  - **For training:** M-series with 32GB+ RAM, OR rent a GPU on Modal / Replicate / Colab Pro / Lambda for ~$1-5/run
+
+## Roadmap
+
+1. **Setup** — Ollama in 10 minutes (Claude Code does most of it)
+2. **Integration** — swap local for API with one line of code
+3. **Compare** — port one Claude workload to local, run your week-10 evals on both
+4. **Distillation pipeline** ⭐ — the centerpiece
+5. **Stretch** — embedding fine-tuning, model merging, vLLM serving
+
+---
+
+## 1. Setup — Ollama in 10 minutes
+
+In Claude Code, ask:
+
+> Install Ollama on this machine. Pull `llama3.2:3b` and `qwen2.5:7b-instruct`. Verify they work with a one-shot prompt. Tell me what the disk and memory footprint is.
+
+Claude Code will:
+- Run the right install command for your OS
+- Pull the models
+- Test inference
+- Report back with footprint and any issues
+
+That's it. The 30-minute "follow the README" tutorial collapses to a one-shot Claude Code session.
+
+**Model selection (as of authoring — see `update-content` mode for refreshes):**
+
+| Model | Size | Best for |
+|---|---|---|
+| `llama3.2:3b` | ~2GB | Fast iteration, weak machines |
+| `qwen2.5:7b-instruct` | ~5GB | Best general 7B as of authoring |
+| `llama3.1:8b` | ~5GB | Reliable, well-supported |
+| `phi3:medium` | ~8GB | Microsoft's, strong reasoning for size |
+| `gemma2:9b` | ~6GB | Google's, very capable |
+| `qwen2.5:14b-instruct` | ~9GB | If you have the RAM, much smarter |
+
+The landscape moves monthly. Don't memorize. Build the *framework* for choosing: how much VRAM you have, what task class (chat / code / structured output), how much speed you need, and what the current OS leaderboard recommends (`huggingface.co/spaces/open-llm-leaderboard`).
+
+## 2. Integration — hot-swap local for API
+
+Ollama serves an OpenAI-compatible REST API on `localhost:11434`. That means:
+
+```python
+# Before
+from anthropic import Anthropic
+client = Anthropic()
+resp = client.messages.create(model="claude-haiku-4-5", messages=[...])
+
+# After (local)
+from openai import OpenAI
+client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+resp = client.chat.completions.create(model="qwen2.5:7b-instruct", messages=[...])
+```
+
+**Exercise:** Take one app from week 8 (your classifier or summarizer). Add a `--local` flag that swaps the backend. Ask Claude Code:
+
+> In `summarizer.py`, add a `--backend` flag that takes `claude-haiku-4-5`, `claude-sonnet-4-6`, `qwen2.5:7b-instruct`, or `llama3.2:3b`. Route to Anthropic for claude-* and to local Ollama for the rest. Keep the rest of the code unchanged.
+
+About 15 minutes. You now have a switchable backend.
+
+## 3. The eval comparison rig
+
+This is where week 10's harness pays off. Run the same eval set against:
+- The local model raw
+- Claude Haiku
+- Claude Sonnet
+- (Later: your fine-tuned local model)
+
+In Claude Code:
+
+> Extend my eval harness in `evals/run.py` so it can take a `--backend` arg and score outputs for each backend separately. Output a comparison table with: eval pass rate, P95 latency, $/call (or $0 for local), tokens-per-second.
+
+You'll typically see something like:
+
+| Backend | Pass rate | P95 latency | $/call |
+|---|---|---|---|
+| `llama3.2:3b` | 0.61 | 1.2s | $0.000 |
+| `qwen2.5:7b-instruct` | 0.78 | 2.1s | $0.000 |
+| `claude-haiku-4-5` | 0.91 | 0.9s | $0.002 |
+| `claude-sonnet-4-6` | 0.96 | 1.4s | $0.012 |
+
+This gap (61-78% vs. 91-96%) is the thing distillation closes.
+
+## 4. Distillation pipeline ⭐ (the centerpiece)
+
+**The premise:** Claude is too expensive to call 1M times a month for a specific task you've defined. But Claude is smart enough to *teach* a 7B local model how to do that specific task. Once trained, the local model handles it for free.
+
+### Step 1: Pick a task
+
+A task that's: (a) repeatable, (b) you'd happily pay Claude to do many times, (c) narrow enough that "good enough" is achievable. Examples:
+
+- *Summarize a Strava activity into 3 bullet points + an effort score*
+- *Classify a customer support ticket into one of 12 categories*
+- *Extract `{name, date, amount, category}` from an invoice text*
+- *Generate 3 pytest test cases for a given Python function signature*
+- *Rewrite a casual message into professional tone*
+
+Pick something *you would actually use*. The pipeline takes 6-10 hours; if the artifact is useless to you, you'll lose interest.
+
+### Step 2: Generate synthetic training data
+
+Use Claude (Sonnet or Opus — quality matters here) to generate 800-1500 high-quality input-output pairs.
+
+In Claude Code:
+
+> Write a script that uses the Anthropic API to generate 1000 training examples for `<your task>`. Each example should be an input and a high-quality output. Vary the inputs broadly (length, edge cases, common cases). Save to `data/synthetic_train.jsonl`. Use prompt caching to reduce costs. Show me a progress bar and the running cost.
+
+Cost: typically $3-10 for 1000 examples with Sonnet, less with caching. Time: 20-40 minutes.
+
+### Step 3: Quality check
+
+Two layers:
+
+- **Manual:** Read 30 random examples yourself. Are the outputs actually good? If not, fix the generation prompt and re-run.
+- **Automated:** Have Claude score each example for quality. Drop the bottom 10%. Ask Claude Code:
+
+> Score every example in `data/synthetic_train.jsonl` for output quality on a 1-5 scale using `claude-haiku-4-5`. Drop the bottom 10%. Save as `data/train_filtered.jsonl`.
+
+### Step 4: Train (LoRA)
+
+Use **unsloth** (Linux/CUDA) or **MLX** (Mac Silicon) for accessible LoRA fine-tuning. Both have great docs.
+
+In Claude Code:
+
+> Write me an unsloth training script that fine-tunes `qwen2.5:7b-instruct` on `data/train_filtered.jsonl` using LoRA (rank 16, alpha 32, 3 epochs). Save the adapter to `models/my-finetune/`. Use a 90/10 train/val split and print val loss every epoch.
+
+(Or the MLX equivalent if on Mac.)
+
+Time: 30-90 minutes on a decent GPU; 1-3 hours on M-series with MLX; ~$2-5 if you rent.
+
+### Step 5: Eval
+
+Run your comparison harness with the new fine-tuned model as a backend:
+
+| Backend | Pass rate |
+|---|---|
+| `qwen2.5:7b-instruct` (raw) | 0.78 |
+| `qwen2.5-finetuned` | **0.93** |
+| `claude-haiku-4-5` | 0.91 |
+| `claude-sonnet-4-6` | 0.96 |
+
+When this works, the fine-tuned 7B local model matches or beats Haiku on your specific task. That's the moment. Free, fast, yours.
+
+### Step 6: Deploy
+
+Convert the adapter to GGUF for Ollama, or serve via MLX:
+
+> Convert the LoRA adapter at `models/my-finetune/` to a GGUF format and create an Ollama Modelfile that uses it. Tag it as `my-task:latest`. Test that I can call it through Ollama's REST API.
+
+Now: `client.chat.completions.create(model="my-task:latest", ...)` — and the task no longer hits the Claude API.
+
+### Step 7: Document the result
+
+Add a `WRITEUP.md` to the repo:
+- The task and why it mattered
+- Cost of fine-tuning ($X) vs. cost of paying Claude for the same task over 6 months ($Y)
+- Eval results (before/after table)
+- What went wrong and what you'd try next
+
+**This writeup is the portfolio piece.** Title it something like "Fine-tuning Qwen 2.5 to handle [task] — a distillation experiment." Post to your blog. Link from your resume.
+
+## 5. Stretch — embedding fine-tuning
+
+For RAG workloads, often higher ROI than generative fine-tuning. The idea: train a small embedding model on your specific domain so retrieval actually works.
+
+In Claude Code:
+
+> Generate 500 (query, relevant document) and 500 (query, irrelevant document) pairs from my RAG corpus using Claude. Use them to fine-tune `sentence-transformers/all-MiniLM-L6-v2` with a contrastive loss. Compare retrieval@5 before and after on a held-out test set.
+
+Genuinely useful for your week-9 RAG. ~3-4 hours of work.
+
+## 6. Stretch — model merging
+
+Combining two fine-tuned models' weights to get capabilities from both. Tools: `mergekit`. Mostly experimental, sometimes magical. Ask Claude Code to walk you through a merge of your fine-tuned model with another task-specialized model — see if the result is better at both tasks.
+
+## 7. Stretch — vLLM serving
+
+For production-grade serving (high concurrency, batching, optimized inference). Ollama is great for dev; vLLM is what you'd run if your local model were behind a real service. Worth knowing exists.
+
+## When to use local vs. API — decision matrix
+
+| Scenario | Use |
+|---|---|
+| Iterating on a prompt, dev sandbox | Local |
+| Building/debugging a feature | Local until working, then promote |
+| Workload you call >100k times/month, narrow task | Distill to local |
+| Workload you call <10k times/month | Stay on API |
+| Anything user-facing in production right now | API (probably Haiku or Sonnet) |
+| Privacy-sensitive personal data | Local |
+| Need reasoning quality of frontier model | Opus |
+| Need cost of nothing | Local |
+| Multi-turn agentic work with tool use | API (local tool use is still shaky) |
+
+## Hardware honesty
+
+- **M-series Mac with 16GB RAM:** comfortable for 7B inference, slow but workable for 7B LoRA training via MLX
+- **M-series Mac with 32GB+ RAM:** comfortable for 14B inference, real training territory
+- **NVIDIA GPU 8GB VRAM:** comfortable for 7B inference, doable for LoRA training
+- **NVIDIA GPU 16GB+ VRAM:** comfortable for 14B inference, fast training
+- **Lower-end laptop:** 1-3B models for inference only; rent GPU for training. $1-5/run on Modal or Lambda.
+
+If your hardware is limiting you, *don't skip the distillation exercise* — rent a GPU for the training step. That's a normal AI engineering reality, not a workaround.
+
+## What to read next
+
+- **unsloth** documentation — `github.com/unslothai/unsloth`
+- **MLX-LM** — `github.com/ml-explore/mlx-examples` (the LLM examples directory)
+- **HuggingFace fine-tuning guide** — official docs, deepest reference
+- **Hamel Husain on fine-tuning** — his posts on when fine-tuning actually helps (and when it doesn't)
+- **Simon Willison on local LLMs** — practical posts on what's worth running
+- **Open LLM Leaderboard** — `huggingface.co/spaces/open-llm-leaderboard` for current model rankings
+
+## Self-assessment
+
+1. Walk through your distillation pipeline in 2 minutes — could you do this in an interview?
+2. Your fine-tuned model dropped from 0.93 → 0.80 after re-training. What are the first three things you check?
+3. Why doesn't anyone use local models for everything?
+4. When does fine-tuning beat prompt engineering? When does prompt engineering beat fine-tuning?
+5. What's the cost calculation that justified your specific distillation? (Be specific: $/month saved vs. one-time training cost vs. ongoing eval/maintenance.)
+
+## A note on what ages fast
+
+Specific model names (Llama 3.2, Qwen 2.5), tool names (unsloth, MLX), and version-specific commands in this file will be stale in 3-6 months. The *concepts* (distillation, LoRA, hybrid routing, eval-driven local development) age much slower. When something here doesn't work, ask Claude Code: "this command/model is from May 2026, what's the current equivalent?"
