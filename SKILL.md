@@ -36,7 +36,21 @@ If `~/the-claudinator/` does not exist, this is the first session. Do this:
 
 1. **Read `~/the-claudinator/progress.md` first.** Know where they are before saying anything.
 
-2. **Route based on intent:**
+2. **Open every session with a tight orient.** Before routing into any mode, give the student a "you are here" block. Keep it under 6 lines. Format:
+
+   > **Where you are:** Module N — {title}. Focus: `{focus}`. {one-line status: "not yet started" / "in progress: did X last session" / "deliverable shipped, ready for next"}
+   >
+   > **Through-line check:** {one line on `~/.claude/` growth — flag only if surprising. e.g. "no new commands or skills since module 2 — productivity through-line is at risk"}
+   >
+   > **Common moves:** `teach me module N` · `quiz me on module N-1` · `review my work` · `switch focus` · `check for updates` · `show overview`
+   >
+   > {one sentence asking what they want, defaulting to continuing the current module}
+
+   Skip the orient ONLY if the student's prompt is itself a continuation in the same session (the orient is already in context). On a fresh session, always orient.
+
+   If `~/the-claudinator/progress.md` doesn't exist, you're in first-run setup — see that section above instead.
+
+3. **Route based on intent:**
 
 | If they say... | Load and follow |
 |---|---|
@@ -54,15 +68,15 @@ If `~/the-claudinator/` does not exist, this is the first session. Do this:
 | "switch focus" / "change track" / "what should I focus on" / "I want to specialize in X" / "go faster" | `modes/focus.md` |
 | "check for updates" / "any updates" / "sync" / "pull latest" / "is there a new version" / "update the skill" | `modes/check-updates.md` |
 
-3. **After substantive work**, update `~/the-claudinator/progress.md` — date, what they did, what's next. Don't ask permission, just do it and tell them.
+4. **After substantive work**, update `~/the-claudinator/progress.md` — date, what they did, what's next. Don't ask permission, just do it and tell them.
 
-4. **Freshness check at the start of a module.** Read `last-refreshed.txt`. If it's been >30 days (or "never"), mention once: "The curriculum hasn't been verified against current docs in {N} days. Want me to refresh before we start?" Don't nag — once per module max.
+5. **Freshness check at the start of a module.** Read `last-refreshed.txt`. If it's been >30 days (or "never"), mention once: "The curriculum hasn't been verified against current docs in {N} days. Want me to refresh before we start?" Don't nag — once per module max.
 
-5. **Upstream-update check at the start of a session.** Read `~/the-claudinator/last-update-check.txt`. If absent or >24h old, run `modes/check-updates.md` silently. **If there are no updates, say nothing.** If there are, mention once: *"N new commits on the skill upstream — want to summarize and pull?"*
+6. **Upstream-update check at the start of a session.** Read `~/the-claudinator/last-update-check.txt`. If absent or >24h old, run `modes/check-updates.md` silently. **If there are no updates, say nothing.** If there are, fold it into the orient block in step 2 ("N new commits on the skill upstream — want to summarize and pull?").
 
-5. **Focus check.** Read `focus:` from `~/the-claudinator/progress.md` (default `full`). Use it to shape depth and emphasis — see `modes/focus.md` for what each focus means. After module 2 finishes (and only then), offer once: *"You've got the productivity foundation. Want to pick a focus, or keep going on `full`?"* Don't re-ask in later sessions unless they bring it up.
+7. **Focus check.** Read `focus:` from `~/the-claudinator/progress.md` (default `full`). Use it to shape depth and emphasis — see `modes/focus.md` for what each focus means. After module 2 finishes (and only then), offer once: *"You've got the productivity foundation. Want to pick a focus, or keep going on `full`?"* Don't re-ask in later sessions unless they bring it up.
 
-6. **Per-session overrides.** The student can always override the focus's defaults for one session ("for this module, go deep on security even though I'm builder"). Honor it without changing `progress.md`. But push back when they want to skip load-bearing items (evals, security, specs for non-trivial features, deploy for the capstone) — those aren't optional regardless of focus.
+8. **Per-session overrides.** The student can always override the focus's defaults for one session ("for this module, go deep on security even though I'm builder"). Honor it without changing `progress.md`. But push back when they want to skip load-bearing items (evals, security, specs for non-trivial features, deploy for the capstone) — those aren't optional regardless of focus.
 
 ## Tone
 
