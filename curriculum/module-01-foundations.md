@@ -1,12 +1,12 @@
-# Week 1 — Daily-Driver Fluency + Reading Codebases
+# Module 1 — Daily-Driver Fluency + Reading Codebases
 
 **Frame:** The moves that pay off Monday. Claude Code as your daily driver — and reading unfamiliar codebases (with Claude's help, not in spite of it).
 
-**Productivity through-line starts here.** Across the next 12 weeks, productively using Claude Code is *how* you do everything else. This week sets the foundation: the keyboard moves, the workflow patterns, the daily reflexes. The advanced topics later (skills, agents, MCP) only make sense after you've felt the friction this week's tools don't yet solve.
+**Productivity through-line starts here.** Across the next 12 modules, productively using Claude Code is *how* you do everything else. This module sets the foundation: the keyboard moves, the workflow patterns, the daily reflexes. The advanced topics later (skills, agents, MCP) only make sense after you've felt the friction this module's tools don't yet solve.
 
 ## Objectives
 
-1. Use Claude Code for every change to one repo for a week, including commits.
+1. Use Claude Code for every change to one repo for the duration of this module, including commits.
 2. Know plan mode, `!` bash prefix, `#` memory shortcut, `/` slash commands cold.
 3. Write a CLAUDE.md that another developer (or you in 3 months) could pick up.
 4. Navigate an unfamiliar mid-size codebase and produce a 1-page architecture summary.
@@ -22,11 +22,11 @@
 
 **1. Install + tour.** Install Claude Code. Run `/help`. Try plan mode (`shift+tab`). Try `!ls` and `# remember to use uv for installs`. Read your own keybindings via `/keybindings`.
 
-**2. The Real-Repo Run.** Pick a personal repo (a class project works). Make every change for the week via Claude Code. After each session, commit. Tally: where did the tool save time? Where did it fight you?
+**2. The Real-Repo Run.** Pick a personal repo (a class project works). Make every change for the module via Claude Code. After each session, commit. Tally: where did the tool save time? Where did it fight you?
 
 **3. The Codebase Map.** Pick an OSS project you've used. Without reading any tutorials, navigate it and write `MAP.md`: what are the top 5 modules, what's the entrypoint, where does a request/command flow through, what's surprising? Use Claude Code to help you explore — but you write the doc.
 
-**4. Productivity recipes.** Try at least 3 of these workflows during the week — they're patterns that pay off daily:
+**4. Productivity recipes.** Try at least 3 of these workflows during the module — they're patterns that pay off daily:
 - **Bulk refactor.** "Rename X to Y across the codebase, update all imports." Verify the diff before accepting.
 - **Codebase archaeology.** "Why does this function exist? Trace back when it was added and what problem it solved."
 - **PR prep.** "Summarize my staged changes as a PR description, including a test plan."
@@ -38,7 +38,7 @@
 
 A repo with:
 - A real `CLAUDE.md` (project-level)
-- At least 5 commits made via Claude Code that week
+- At least 5 commits made via Claude Code during this module
 - The `MAP.md` for an OSS project (can live in the same repo or a gist)
 
 ## Self-assessment
@@ -57,4 +57,4 @@ A repo with:
 
 ## Stretch
 
-Set up Claude Code on a second machine and sync your `~/.claude/settings.json` via dotfiles. (Future weeks reward having dotfiles already.)
+Set up Claude Code on a second machine and sync your `~/.claude/settings.json` via dotfiles. (Future modules reward having dotfiles already.)

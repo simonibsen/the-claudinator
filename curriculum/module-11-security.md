@@ -1,4 +1,4 @@
-# Week 11 — Prompt Injection, Red-Teaming, Secrets, Logging
+# Module 11 — Prompt Injection, Red-Teaming, Secrets, Logging
 
 **Frame:** Agents that use tools are a new kind of security surface. Prompt injection is the SQL injection of this decade. Plus: handle secrets like a grown-up and log enough to debug when things go sideways.
 
@@ -29,7 +29,7 @@
 
 ## Exercises
 
-**1. Attack your own agent.** Take your week-7 agent or week-9 RAG. Try to:
+**1. Attack your own agent.** Take your module-7 agent or module-9 RAG. Try to:
    - Make it ignore its system prompt (direct injection).
    - Put a malicious instruction in the corpus / a tool output (indirect injection).
    - Exfiltrate something it shouldn't have access to.

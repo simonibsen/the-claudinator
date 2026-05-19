@@ -58,7 +58,7 @@ Don't nag — at most once per session, and only when there's actually news.
    ```bash
    git -C <dir> pull --ff-only origin main
    ```
-   - Report success briefly: *"Updated. {N} commits applied. Notable: ..."* — call out anything user-facing (new mode, renamed command, new section in a week).
+   - Report success briefly: *"Updated. {N} commits applied. Notable: ..."* — call out anything user-facing (new mode, renamed command, new section in a module).
    - If pull fails (local changes, conflict, non-ff): explain and let the student decide. Don't force-resolve.
 
 8. **On "show details":**

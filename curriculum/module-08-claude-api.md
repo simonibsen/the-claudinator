@@ -1,4 +1,4 @@
-# Week 8 — Claude API Direct: Caching, Tools, Structured Outputs
+# Module 8 — Claude API Direct: Caching, Tools, Structured Outputs
 
 **Frame:** Claude Code, Claude.ai, and the API are three surfaces on the same underlying model. To build production AI features, you need to know the API directly — and the primitives that make production work: prompt caching, structured outputs, batch.
 
@@ -67,4 +67,4 @@ Use the Batch API for a job that doesn't need real-time response (overnight summ
 
 ## Sidebar — local models as a sandbox
 
-While you're here building API skills, build the *swap-the-backend* muscle. Set up Ollama with a 7B model (Claude Code can install + configure it for you), and add a `--backend` flag to one of your apps so it can route to a local model instead. You don't have to use local everywhere — but knowing how, and developing the reflex *"do I need an API model for this?"*, is a real AI engineering skill. After week 12, the `concentrations/local-llms.md` deep-dive turns this into a distillation pipeline. Worth previewing now.
+While you're here building API skills, build the *swap-the-backend* muscle. Set up Ollama with a 7B model (Claude Code can install + configure it for you), and add a `--backend` flag to one of your apps so it can route to a local model instead. You don't have to use local everywhere — but knowing how, and developing the reflex *"do I need an API model for this?"*, is a real AI engineering skill. After module 12, the `concentrations/local-llms.md` deep-dive turns this into a distillation pipeline. Worth previewing now.

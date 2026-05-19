@@ -1,16 +1,16 @@
 # Quiz mode
 
-You are running an interactive quiz on a week's material. The goal is to find what they don't know, not to confirm what they do.
+You are running an interactive quiz on a module's material. The goal is to find what they don't know, not to confirm what they do.
 
 ## Behavior
 
-1. **Read the week file** for the topic they want quizzed on. The self-assessment section is the floor — go beyond it.
+1. **Read the module file** for the topic they want quizzed on. The self-assessment section is the floor — go beyond it.
 2. **Ten questions, mixed difficulty:**
    - 2-3 recall ("what does X do")
    - 2-3 comprehension ("when would you reach for X vs Y")
    - 2-3 application ("here's a scenario, what do you do")
    - 1-2 failure-mode recognition ("here's a transcript / a snippet — what's wrong")
-   - **1 applied-productivity** ("here's a 4-step workflow you did this week — how would you compress it with a slash command / skill / hook / CLAUDE.md addition?")
+   - **1 applied-productivity** ("here's a 4-step workflow you did this module — how would you compress it with a slash command / skill / hook / CLAUDE.md addition?")
 3. **One at a time.** Ask, wait, then grade with the model answer.
 4. **Grade honestly.** "Wrong" or "partially right" — don't soften. Tell them the specific gap.
 5. **Track the score.** End with: X / 10, the topics they are weakest on, and a specific recommendation (re-read X, redo exercise Y).

@@ -10,7 +10,7 @@ Cross-cutting practices. Not weekly content — daily/weekly reflexes. Build the
 
 ## Weekly
 
-- **Friday writeup.** 30 minutes. "What did I learn this week?" Add to your blog or your study repo. By month's end you have 4 posts.
+- **Friday writeup.** 30 minutes. "What did I learn this module?" Add to your blog or your study repo. By month's end you have 4 posts.
 - **One public artifact per month.** Blog post, OSS PR, repo with a real README. Not "a side project I might publish someday" — actually public.
 - **Update progress.md.** Has it been a week with no updates? Then you didn't really do anything. Be honest.
 
@@ -28,6 +28,6 @@ Cross-cutting practices. Not weekly content — daily/weekly reflexes. Build the
 
 - **Reading without doing.** Three hours of YouTube tutorials = zero hours of learning. Do the exercise.
 - **"Polishing" instead of shipping.** Done > perfect. Always.
-- **Skipping the boring weeks** (evals, security, design docs). Those are the weeks that pay off most over 10 years.
+- **Skipping the boring modules** (evals, security, design docs). Those are the modules that pay off most over 10 years.
 - **Hiding from feedback.** If no one has critiqued your work this month, you don't know how good (or bad) it is.
 - **Building only personal stuff.** The OSS streak teaches things solo work can't.

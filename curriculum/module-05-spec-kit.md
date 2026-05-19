@@ -1,4 +1,4 @@
-# Week 5 — Spec Kit + Design Docs
+# Module 5 — Spec Kit + Design Docs
 
 **Frame:** The best engineers write before they code. Spec Kit operationalizes spec-driven development for AI-assisted work; design docs do the same thing for humans. Both teach the same underlying discipline.
 

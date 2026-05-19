@@ -1,10 +1,10 @@
 # AI Engineering Concentration
 
-After week 12. This is where the career leverage is for the next 3-5 years. Six topics, each ~1-2 weeks of focused work.
+After module 12. This is where the career leverage is for the next 3-5 years. Six topics, each scoped as a small focused project.
 
 ## 1. Evals as a profession
 
-You started this in week 10. The real skill is *operationalizing* it: eval-driven development, regression suites, A/B testing prompt changes, eval data flywheels (capturing prod failures back into the eval set).
+You started this in module 10. The real skill is *operationalizing* it: eval-driven development, regression suites, A/B testing prompt changes, eval data flywheels (capturing prod failures back into the eval set).
 
 **Read:** Hamel Husain's eval canon (every post). Eugene Yan's evals series.
 **Build:** Take one of your projects from production-quality. Set up: nightly eval runs, dashboards, automatic failure capture, regression alerts.
@@ -61,6 +61,6 @@ Most teams shouldn't fine-tune. Knowing *when to* — and how — is the differe
 ## What "done with the concentration" looks like
 
 - One public artifact per topic (post, repo, or contribution)
-- Six topics × ~1-2 weeks = a quarter of focused work
+- Six topics, scoped to fill roughly a quarter
 - Your blog has six posts about AI engineering work you've actually shipped
 - You can hold a 30-minute conversation with a senior AI engineer without bluffing

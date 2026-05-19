@@ -1,20 +1,20 @@
-# Week 12 — Capstone: Ship an Agent
+# Module 12 — Capstone: Ship an Agent
 
-**Frame:** A real, useful agent that combines at least 5 weeks of material. This is the portfolio piece for internship interviews. Open-ended — but with a high bar.
+**Frame:** A real, useful agent that combines at least 5 modules of material. This is the portfolio piece for internship interviews. Open-ended — but with a high bar.
 
 ## Why this is the capstone
 
-The previous 11 weeks teach pieces. The capstone tests whether you can *integrate*. Five things only this week teaches:
+The previous 11 modules teach pieces. The capstone tests whether you can *integrate*. Five things only this module teaches:
 
 1. **Scoping under constraint.** Real engineering is "make decisions you can't unmake quickly." Open-ended scope forces you to cut, defer, and ship. No exercise can simulate this.
 2. **End-to-end ownership.** Spec → build → eval → secure → deploy → write up → support a user. Coursework usually stops at "code compiles." Real work doesn't.
-3. **A portfolio artifact recruiters can actually see.** Internship interviews are won by candidates who can say "look at this thing I shipped" and link to a repo + a live URL + a writeup. Coursework is invisible. This week makes you visible.
-4. **The "is it good?" judgment.** With evals from week 10 and a real user, you get the only feedback that matters: did it work for someone other than you? That feedback shapes you more than any tutor can.
-5. **Proof the curriculum stuck.** If you can't combine 5 weeks of material into one project, the previous weeks were entertainment, not learning. The capstone is the regression test.
+3. **A portfolio artifact recruiters can actually see.** Internship interviews are won by candidates who can say "look at this thing I shipped" and link to a repo + a live URL + a writeup. Coursework is invisible. This module makes you visible.
+4. **The "is it good?" judgment.** With evals from module 10 and a real user, you get the only feedback that matters: did it work for someone other than you? That feedback shapes you more than any tutor can.
+5. **Proof the curriculum stuck.** If you can't combine 5 modules of material into one project, the previous modules were entertainment, not learning. The capstone is the regression test.
 
 **Why "ship an agent" specifically, not "ship anything":**
 - Aligns with current hiring signal — companies are hiring people who can build agents, not people who've read about them.
-- Forces synthesis of the load-bearing weeks (skills, subagents, MCP, Agent SDK, evals, security) into one artifact instead of six separate toys.
+- Forces synthesis of the load-bearing modules (skills, subagents, MCP, Agent SDK, evals, security) into one artifact instead of six separate toys.
 - An agent that uses tools and is evaluated is qualitatively harder than a CRUD app — the difficulty itself is the signal.
 - It's also the most demoable thing you could possibly build at this point in your career. Demoable wins interviews.
 
@@ -26,9 +26,9 @@ The previous 11 weeks teach pieces. The capstone tests whether you can *integrat
 4. Open-source it under a real license, with a README a stranger can use.
 5. Get one real user (you don't count) — peer, sibling, parent, online stranger.
 
-## How this week works
+## How this module works
 
-This isn't a curriculum week — it's a deliverable week. The tutor's job here is to:
+This isn't a learning module — it's a shipping module. The tutor's job here is to:
 - Help you scope (capstone options in `concentrations/capstone-options.md`)
 - Run the spec-kit flow for the project
 - Review your work as you go (use the `critique` mode)
@@ -39,9 +39,9 @@ This isn't a curriculum week — it's a deliverable week. The tutor's job here i
 - **A small but real project, not a toy.** The right size is "I can describe it in one sentence and show it in 60 seconds." Smaller than that, it doesn't exercise enough material; much larger, it won't ship.
 - **Solves a real problem.** Your own counts. "Make my Strava data into a weekly digest." "Grade homework against a rubric." "Triage my dad's small-business inbox."
 - **Has an evaluatable success criterion.** Not "feels useful." Concrete: "summarizes X in under N seconds with >90% factual accuracy on a 30-case eval."
-- **Touches ≥5 weeks' material.** If you can't enumerate them, scope wider.
+- **Touches ≥5 modules' material.** If you can't enumerate them, scope wider.
 
-## The week's flow
+## The capstone flow
 
 1. **Day 1: Spec.** Use Spec Kit. Commit `spec.md`, `plan.md`, `tasks.md`. Get the tutor to review the spec before coding.
 2. **Days 2-4: Build.** Track time. Push commits at least daily.

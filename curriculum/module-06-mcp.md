@@ -1,4 +1,4 @@
-# Week 6 — MCP: Use, Then Build a Server
+# Module 6 — MCP: Use, Then Build a Server
 
 **Frame:** Model Context Protocol is how an agent reaches outside its sandbox — to your tools, your data, your APIs. Using an MCP server is easy; building one teaches you how agents *actually* work.
 

@@ -1,6 +1,6 @@
-# Week 9 — Containers + Deploy + RAG Fundamentals
+# Module 9 — Containers + Deploy + RAG Fundamentals
 
-**Frame:** Two things this week: ship something to the internet (containers + a PaaS), and learn the foundational pattern of applied AI (retrieval-augmented generation).
+**Frame:** Two things this module: ship something to the internet (containers + a PaaS), and learn the foundational pattern of applied AI (retrieval-augmented generation).
 
 ## Objectives
 
@@ -19,7 +19,7 @@
 
 ## Exercises
 
-**1. Dockerize one app.** Pick a project (your agent from week 7 is a good candidate, but a web app is better). Write a Dockerfile. Multi-stage build. Run it locally. The image should be lean (<200MB if possible).
+**1. Dockerize one app.** Pick a project (your agent from module 7 is a good candidate, but a web app is better). Write a Dockerfile. Multi-stage build. Run it locally. The image should be lean (<200MB if possible).
 
 **2. Deploy it.** Push to Fly.io. Set env vars (including your Anthropic API key) via `flyctl secrets`. Visit the URL. Pat self on back.
 
@@ -52,7 +52,7 @@
 - **`FROM ubuntu:latest`-everything.** Use small base images (`python:3.12-slim`, `alpine` if you can manage).
 - **Secrets baked into the image.** Use the platform's secrets store.
 - **Chunking by character count blindly.** Sentence/paragraph boundaries matter for quality.
-- **No retrieval evaluation.** "It feels right" is not a metric — that's next week.
+- **No retrieval evaluation.** "It feels right" is not a metric — that's the next module.
 - **Reaching for LangChain too early.** Build it once from scratch so you know what's happening.
 
 ## Stretch

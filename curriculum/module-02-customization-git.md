@@ -1,8 +1,8 @@
-# Week 2 — Customization & Hooks + Git at Team Scale
+# Module 2 — Customization & Hooks + Git at Team Scale
 
 **Frame:** Productivity scaffolding — the investments that pay you back daily for the next year. Plus the git workflow that real teams use.
 
-By the end of this week, your `~/.claude/` directory should look meaningfully different from when you started. Settings deliberately set, at least one hook running, 2-3 custom slash commands for tasks you actually do. *That's* the productivity playbook — code, not prose.
+By the end of this module, your `~/.claude/` directory should look meaningfully different from when you started. Settings deliberately set, at least one hook running, 2-3 custom slash commands for tasks you actually do. *That's* the productivity playbook — code, not prose.
 
 ## Objectives
 
@@ -55,7 +55,7 @@ Write 5 allow rules and 3 deny rules for your own daily workflow. Commit to your
 
 Hooks take handler types: `command` (shell), `http` (POST JSON), `mcp_tool`, `prompt` (model decision), `agent` (subagent verification). Don't try to use them all — just know they exist.
 
-**3. Custom slash commands.** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/review` (have the model critique the current diff), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this week*, not hypotheticals.
+**3. Custom slash commands.** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/review` (have the model critique the current diff), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this module*, not hypotheticals.
 
 **4. The OSS PR.** Find a project you actually use. Look at their issue tracker for `good-first-issue` or a typo/docs bug. Open the PR. Respond to review feedback. Get it merged.
 
@@ -66,7 +66,7 @@ Hooks take handler types: `command` (shell), `http` (POST JSON), `mcp_tool`, `pr
 - `~/.claude/settings.json` checked into a dotfiles repo, with comments
 - At least one custom hook running on your main project
 - A merged PR (URL in `progress.md`)
-- A short writeup (`week-02.md` in your study repo) of what your hooks do and why
+- A short writeup (`module-02.md` in your study repo) of what your hooks do and why
 
 ## Self-assessment
 

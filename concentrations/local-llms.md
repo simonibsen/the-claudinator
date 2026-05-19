@@ -14,7 +14,7 @@ This is not "set up Ollama and play around." Anyone can do that. This is *use Cl
 
 ## Prerequisites
 
-- **Week 10 (Evals) is non-negotiable.** Without a working eval harness, distillation is theater. You'll have no idea whether your local model is actually working.
+- **Module 10 (Evals) is non-negotiable.** Without a working eval harness, distillation is theater. You'll have no idea whether your local model is actually working.
 - **Claude Code installed and fluent.** This concentration *operates* through Claude Code — generating datasets, writing training scripts, running comparisons, debugging quantization. If you're not fluent in Claude Code, do the curriculum first.
 - **Hardware:**
   - **Comfortable:** Apple Silicon M-series (M1+) with 16GB+ RAM, OR Linux/Windows with NVIDIA GPU (8GB+ VRAM)
@@ -25,7 +25,7 @@ This is not "set up Ollama and play around." Anyone can do that. This is *use Cl
 
 1. **Setup** — Ollama installed and running (Claude Code does most of it)
 2. **Integration** — swap local for API with one line of code
-3. **Compare** — port one Claude workload to local, run your week-10 evals on both
+3. **Compare** — port one Claude workload to local, run your module-10 evals on both
 4. **Distillation pipeline** ⭐ — the centerpiece
 5. **The orchestrator pattern** — Claude conducts, local LLMs work the volume
 6. **Stretch** — embedding fine-tuning, model merging, vLLM serving
@@ -82,7 +82,7 @@ client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 resp = client.chat.completions.create(model="qwen2.5:7b-instruct", messages=[...])
 ```
 
-**Exercise:** Take one app from week 8 (your classifier or summarizer). Add a `--local` flag that swaps the backend. Ask Claude Code:
+**Exercise:** Take one app from module 8 (your classifier or summarizer). Add a `--local` flag that swaps the backend. Ask Claude Code:
 
 > In `summarizer.py`, add a `--backend` flag that takes `claude-haiku-4-5`, `claude-sonnet-4-6`, `qwen2.5:7b-instruct`, or `llama3.2:3b`. Route to Anthropic for claude-* and to local Ollama for the rest. Keep the rest of the code unchanged.
 
@@ -90,7 +90,7 @@ You now have a switchable backend.
 
 ## 3. The eval comparison rig
 
-This is where week 10's harness pays off. Run the same eval set against:
+This is where module 10's harness pays off. Run the same eval set against:
 - The local model raw
 - Claude Haiku
 - Claude Sonnet
@@ -239,9 +239,9 @@ If the worker accuracy comes in under 90%, the task probably doesn't fit — eit
 
 This is the production pattern at companies running AI at scale: cheap workers handle volume, expensive orchestrator handles judgment. Most engineers haven't built one. If you can describe one of these in an interview — concrete task, real cost savings, eval results — you sound several years older than you are.
 
-### How this relates to week 4
+### How this relates to module 4
 
-Week 4 covers Claude orchestrating *Claude subagents*. The orchestrator pattern is the same shape with *local LLMs* as the workers. The trade-off: Claude-subagent workers are smart and expensive; local-LLM workers are dumb and free. Pick based on task difficulty and volume.
+Module 4 covers Claude orchestrating *Claude subagents*. The orchestrator pattern is the same shape with *local LLMs* as the workers. The trade-off: Claude-subagent workers are smart and expensive; local-LLM workers are dumb and free. Pick based on task difficulty and volume.
 
 ## 6. Stretch — embedding fine-tuning
 
@@ -251,7 +251,7 @@ In Claude Code:
 
 > Generate 500 (query, relevant document) and 500 (query, irrelevant document) pairs from my RAG corpus using Claude. Use them to fine-tune `sentence-transformers/all-MiniLM-L6-v2` with a contrastive loss. Compare retrieval@5 before and after on a held-out test set.
 
-Genuinely useful for your week-9 RAG.
+Genuinely useful for your module-9 RAG.
 
 ## 7. Stretch — model merging
 

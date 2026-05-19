@@ -1,12 +1,12 @@
 # The Claudinator
 
-A self-paced, 12-week curriculum for going from *"I can code"* to *"I can ship agents."*
+A self-paced, 12-module curriculum for going from *"I can code"* to *"I can ship agents."*
 
-It lives as a Claude Code skill — you install it once, then talk to it in natural language. It tracks your progress, walks you through weeks, quizzes you, critiques your work, runs mock interviews, and keeps itself fresh against the latest Claude / MCP / API docs.
+It lives as a Claude Code skill — you install it once, then talk to it in natural language. It tracks your progress, walks you through modules, quizzes you, critiques your work, runs mock interviews, and keeps itself fresh against the latest Claude / MCP / API docs.
 
 ## What you'll come out with
 
-By the end of the 12 weeks, you'll have:
+By the end of the 12 modules, you'll have:
 
 - **A real agent you've shipped** — with a public repo, a working URL or installable CLI, an eval harness, structured logging, and a writeup someone would actually read.
 - **A personal Claude Code playbook in code** — your `~/.claude/commands/`, `~/.claude/skills/`, hooks, and project `CLAUDE.md` files measurably richer than they were day 1. Productivity moves encoded, not journaled.
@@ -25,14 +25,14 @@ Someone with **real coding experience** but limited applied-AI / professional-de
 
 Roughly: a CS undergrad past the data-structures-and-algorithms stage, a bootcamp grad with a real project under their belt, or a working engineer pivoting into AI. **Not** a first-time programmer.
 
-Time commitment: a rhythm of "a week per week" for 12 weeks. **Hours-per-week varies a lot** based on Claude Code fluency — exercises that pre-Claude would have been 5 hours can be 30 minutes with the tool, while the genuinely thinking-heavy parts (design, debugging, evals) take the same time as ever. Don't target hours. A week is *done* when the deliverable is in git and you can answer the self-assessment cold.
+Time commitment: a rhythm of Twelve modules, no fixed duration. **Hours per module varies a lot** based on Claude Code fluency — exercises that pre-Claude would have been 5 hours can be 30 minutes with the tool, while the genuinely thinking-heavy parts (design, debugging, evals) take the same time as ever. Don't target hours. A module is *done* when the deliverable is in git and you can answer the self-assessment cold.
 
 ## How it works
 
 You install the skill in Claude Code, then talk to it like a tutor:
 
 - `/the-claudinator` — first-run setup, or pick up where you left off
-- *"Teach me week 4"* — walks you through the week one step at a time
+- *"Teach me module 4"* — walks you through the module one step at a time
 - *"Quiz me on what I just learned"* — 10 interactive questions, honest grading
 - *"Review my work"* — senior-engineer-style code review of your deliverable
 - *"Mock interview me on AI engineering"* — 20-30 minutes, with debrief
@@ -41,7 +41,7 @@ You install the skill in Claude Code, then talk to it like a tutor:
 
 The tutor reads your `~/the-claudinator/progress.md` every session to know where you are. It's strict-but-encouraging: it will tell you if a deliverable is shallow, push back when you try to skip the parts that matter (evals, security, specs), and not soften feedback you'd benefit from hearing straight.
 
-## The 12 weeks
+## The 12 modules
 
 Three parallel tracks, weighted toward Claude and agents:
 
@@ -51,7 +51,7 @@ Three parallel tracks, weighted toward Claude and agents:
 | **C — AI engineering** | ~25% | RAG, evals, prompt injection, prompt caching, cost engineering |
 | **B — SWE essentials** | ~15% | Just enough git, specs, containers, deploy, secrets, logging — the gap between coursework and a real job |
 
-Week by week:
+Module by module:
 
 | Wk | Topic | Deliverable |
 |---|---|---|
@@ -68,34 +68,34 @@ Week by week:
 | 11 | **Prompt injection, red-teaming, secrets, logging** | Attack writeup + mitigations + structured logs |
 | 12 | **Capstone — ship a real agent** | Public repo, evals passing, one real user |
 
-Full details: [`curriculum/overview.md`](curriculum/overview.md) — and each week's file in [`curriculum/`](curriculum/).
+Full details: [`curriculum/overview.md`](curriculum/overview.md) — and each module's file in [`curriculum/`](curriculum/).
 
 ## Focus paths
 
-The curriculum has five focuses you can pick (after week 2, when you know what you want):
+The curriculum has five focuses you can pick (after module 2, when you know what you want):
 
 | Focus | What changes |
 |---|---|
-| **`full`** *(default)* | All 12 weeks, full depth — pick this if undecided |
+| **`full`** *(default)* | All 12 modules, full depth — pick this if undecided |
 | **`builder`** | Compress theory, skip stretches, ~2x time on building; for hackathon/internship application speed |
-| **`ai-engineer`** | Light on weeks 4-6, heavy on 8-11; for AI/ML eng job signal |
-| **`productivity`** | Stop at week 5; replace capstone with "use Claude Code daily on a real project for a month" |
-| **`oss`** | Replace weeks 6-12 with a public-contribution streak (5 substantive contributions in code, music, hardware, games, datasets — anything with a community) |
+| **`ai-engineer`** | Light on modules 4-6, heavy on 8-11; for AI/ML eng job signal |
+| **`productivity`** | Stop at module 5; replace capstone with "use Claude Code daily on a real project for a month" |
+| **`oss`** | Replace modules 6-12 with a public-contribution streak (5 substantive contributions in code, music, hardware, games, datasets — anything with a community) |
 
-Focus is a *default*, not a contract. You can override per-session ("for this week, go deep on security even though I'm `builder`"). The tutor pushes back if you try to skip load-bearing items like evals or specs.
+Focus is a *default*, not a contract. You can override per-session ("for this module, go deep on security even though I'm `builder`"). The tutor pushes back if you try to skip load-bearing items like evals or specs.
 
 Details: [`modes/focus.md`](modes/focus.md).
 
 ## The capstone
 
-Week 12 is where pieces become a project. You ship a real, useful agent that combines at least 5 weeks of material:
+Module 12 is where pieces become a project. You ship a real, useful agent that combines at least 5 modules of material:
 
-- Spec'd via Spec Kit (week 5)
-- Built with the Agent SDK or as a Claude Code skill (weeks 3, 7)
-- Often using MCP for external tools (week 6) and RAG for context (week 9)
-- Evaluated with a real harness (week 10)
-- Security-aware (week 11)
-- Deployed at a public URL or installable repo (week 9)
+- Spec'd via Spec Kit (module 5)
+- Built with the Agent SDK or as a Claude Code skill (modules 3, 7)
+- Often using MCP for external tools (module 6) and RAG for context (module 9)
+- Evaluated with a real harness (module 10)
+- Security-aware (module 11)
+- Deployed at a public URL or installable repo (module 9)
 - With a blog-post-quality writeup
 - And **one real user** other than you
 
@@ -107,7 +107,7 @@ Four scoped project options live in [`concentrations/capstone-options.md`](conce
 
 Plan it as a real project, not a homework set. The artifact is what you point recruiters at.
 
-## Concentrations (after the 12 weeks)
+## Concentrations (after the 12 modules)
 
 Post-curriculum deep dives, each scoped as a small project:
 
@@ -116,9 +116,9 @@ Post-curriculum deep dives, each scoped as a small project:
 
 ## The through-line: productive Claude use
 
-This isn't "learn Claude in weeks 1-2 then move on." Across every week and every focus, productively using Claude Code is *how* you do the work. The "playbook" is code — your accumulating `~/.claude/commands/`, `~/.claude/skills/`, hooks, and `CLAUDE.md` files — not a journal.
+This isn't "learn Claude in modules 1-2 then move on." Across every module and every focus, productively using Claude Code is *how* you do the work. The "playbook" is code — your accumulating `~/.claude/commands/`, `~/.claude/skills/`, hooks, and `CLAUDE.md` files — not a journal.
 
-Each week's deliverable is built with Claude Code. By week 12, your `~/.claude/` directory should look visibly different than it did week 1. That accumulation is itself a portfolio piece.
+Each module's deliverable is built with Claude Code. By module 12, your `~/.claude/` directory should look visibly different than it did module 1. That accumulation is itself a portfolio piece.
 
 ## Install
 
@@ -134,8 +134,8 @@ Then open Claude Code in any working directory and run the slash command:
 
 The skill appears in the `/` menu and walks you through first-run setup. After that, you can use either:
 
-- The slash command — `/the-claudinator quiz me on week 3`
-- Natural language — *"quiz me on week 3"*, *"continue"*, *"switch focus"* — Claude Code will route phrases that match the skill's description back into it.
+- The slash command — `/the-claudinator quiz me on module 3`
+- Natural language — *"quiz me on module 3"*, *"continue"*, *"switch focus"* — Claude Code will route phrases that match the skill's description back into it.
 
 **Restart caveat:** if `~/.claude/skills/` didn't exist before you cloned this in, restart Claude Code so the skills directory gets watched. If the directory was already there, no restart needed — the skill is picked up immediately.
 
@@ -146,7 +146,7 @@ See [`INSTALL.md`](INSTALL.md) for details on prerequisites, tuning, and keeping
 ```
 the-claudinator/
 ├── SKILL.md              # entry point — the model loads this first
-├── curriculum/           # 12 week files + the overview
+├── curriculum/           # 12 module files + the overview
 ├── modes/                # teach, quiz, critique, interview, coach, focus, update-content
 ├── concentrations/       # AI engineering, local LLMs, capstone briefs
 ├── habits.md             # daily/weekly/monthly practices
@@ -168,7 +168,7 @@ The tutor checks the major sources, proposes edits where claims have gone stale,
 
 ## Tuning
 
-Everything is plain markdown — edit anything that doesn't fit. Pace, track weighting, tone, exercises, week order. See [`INSTALL.md`](INSTALL.md#tuning-it-for-yourself).
+Everything is plain markdown — edit anything that doesn't fit. Pace, track weighting, tone, exercises, module order. See [`INSTALL.md`](INSTALL.md#tuning-it-for-yourself).
 
 ## License
 
