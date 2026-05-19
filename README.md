@@ -2,21 +2,123 @@
 
 A self-paced, 12-week curriculum for going from *"I can code"* to *"I can ship agents."*
 
-It lives as a Claude Code skill — you install it once, then talk to it in natural language inside Claude Code. It tracks your progress, walks you through weeks, quizzes you, critiques your work, runs mock interviews, and keeps itself fresh against the latest Claude / MCP / API docs.
+It lives as a Claude Code skill — you install it once, then talk to it in natural language. It tracks your progress, walks you through weeks, quizzes you, critiques your work, runs mock interviews, and keeps itself fresh against the latest Claude / MCP / API docs.
+
+## What you'll come out with
+
+By the end of the 12 weeks, you'll have:
+
+- **A real agent you've shipped** — with a public repo, a working URL or installable CLI, an eval harness, structured logging, and a writeup someone would actually read.
+- **A personal Claude Code playbook in code** — your `~/.claude/commands/`, `~/.claude/skills/`, hooks, and project `CLAUDE.md` files measurably richer than they were day 1. Productivity moves encoded, not journaled.
+- **Working fluency with the core stack** — Claude Code daily-driver use, custom skills and subagents, Spec Kit, MCP (using *and* building servers), the Agent SDK, the Anthropic API directly (caching, structured outputs, tool use).
+- **Real AI engineering muscle** — RAG from scratch, an eval harness you trust, prompt injection awareness, prompt caching as production craft.
+- **Just enough professional SWE practice** — design docs, containers + deploy, secrets handling, structured logging, git/PR hygiene.
+- **A public artifact per month** — by end of curriculum: 3 substantive things shipped (blog posts, PRs, repos) that recruiters can find.
+
+## Who this is for
+
+Someone with **real coding experience** but limited applied-AI / professional-dev exposure. The intended baseline:
+
+- You write code fluently in at least one language (Python or TypeScript work best for the exercises).
+- You're comfortable with git, the command line, and reading docs.
+- You haven't built much that runs in production, written a design doc, or evaluated an AI system.
+
+Roughly: a CS undergrad past the data-structures-and-algorithms stage, a bootcamp grad with a real project under their belt, or a working engineer pivoting into AI. **Not** a first-time programmer.
+
+Time commitment: ~8-10 hours/week, for 12 weeks. You can go slower; the skill won't penalize you for it.
+
+## How it works
+
+You install the skill in Claude Code, then talk to it like a tutor:
+
+- *"Start the study plan"* — first-run setup
+- *"Teach me week 4"* — walks you through the week one step at a time
+- *"Quiz me on what I just learned"* — 10 interactive questions, honest grading
+- *"Review my work"* — senior-engineer-style code review of your deliverable
+- *"Mock interview me on AI engineering"* — 20-30 minutes, with debrief
+- *"Switch focus to builder"* — change the path you're on (more below)
+- *"Update the curriculum"* — refresh content against current Claude / MCP / API docs
+
+The tutor reads your `~/the-claudinator/progress.md` every session to know where you are. It's strict-but-encouraging: it will tell you if a deliverable is shallow, push back when you try to skip the parts that matter (evals, security, specs), and not soften feedback you'd benefit from hearing straight.
 
 ## The 12 weeks
 
-The curriculum runs three parallel tracks:
+Three parallel tracks, weighted toward Claude and agents:
 
 | Track | Weight | What it gets you |
 |---|---|---|
-| **A — Claude & agents** | ~60% | Skills, subagents, MCP, Agent SDK, Spec Kit, the API directly |
+| **A — Claude & agents** | ~60% | Skills, subagents, MCP, Agent SDK, Spec Kit, the Anthropic API directly |
 | **C — AI engineering** | ~25% | RAG, evals, prompt injection, prompt caching, cost engineering |
-| **B — SWE essentials** | ~15% | Just enough git, specs, containers, deploy, secrets, logging |
+| **B — SWE essentials** | ~15% | Just enough git, specs, containers, deploy, secrets, logging — the gap between coursework and a real job |
 
-Each week ends with a deliverable you push to git. The capstone (week 12) is a real agent you ship — the portfolio piece for internship interviews.
+Week by week:
 
-Full week-by-week map: [`curriculum/overview.md`](curriculum/overview.md)
+| Wk | Topic | Deliverable |
+|---|---|---|
+| 1 | **Daily-driver fluency + reading codebases** — moves that pay off Monday | `CLAUDE.md` + an OSS codebase map |
+| 2 | **Customization, hooks, slash commands + git at team scale** | `~/.claude/` set up + a merged OSS PR |
+| 3 | **Skills deep dive** — packaging, distribution, model-invoked design | A routing skill on GitHub |
+| 4 | **Subagents & multi-agent orchestration** | A custom subagent + writeup on when it helped vs. hurt |
+| 5 | **Spec Kit + plan mode + RFC writing** | A feature built spec-first + a design doc |
+| 6 | **MCP — use existing servers, then build one** | Your own MCP server, repo + README |
+| 7 | **Agent SDK — build a standalone agent** | A CLI agent in your terminal + writeup |
+| 8 | **Claude API directly** — tool use, structured outputs, prompt caching | 3 small API apps + cost analysis |
+| 9 | **Containers + deploy + RAG fundamentals** | A dockerized RAG app at a real URL |
+| 10 | **Evals as a discipline** | An eval harness with ≥20 cases on your RAG |
+| 11 | **Prompt injection, red-teaming, secrets, logging** | Attack writeup + mitigations + structured logs |
+| 12 | **Capstone — ship a real agent** | Public repo, evals passing, one real user |
+
+Full details: [`curriculum/overview.md`](curriculum/overview.md) — and each week's file in [`curriculum/`](curriculum/).
+
+## Focus paths
+
+The curriculum has five focuses you can pick (after week 2, when you know what you want):
+
+| Focus | What changes |
+|---|---|
+| **`full`** *(default)* | All 12 weeks, full depth — pick this if undecided |
+| **`builder`** | Compress theory, skip stretches, ~2x time on building; for hackathon/internship application speed |
+| **`ai-engineer`** | Light on weeks 4-6, heavy on 8-11; for AI/ML eng job signal |
+| **`productivity`** | Stop at week 5; replace capstone with "use Claude Code daily on a real project for a month" |
+| **`oss`** | Replace weeks 6-12 with a public-contribution streak (5 substantive contributions in code, music, hardware, games, datasets — anything with a community) |
+
+Focus is a *default*, not a contract. You can override per-session ("for this week, go deep on security even though I'm `builder`"). The tutor pushes back if you try to skip load-bearing items like evals or specs.
+
+Details: [`modes/focus.md`](modes/focus.md).
+
+## The capstone
+
+Week 12 is where pieces become a project. You ship a real, useful agent that combines at least 5 weeks of material:
+
+- Spec'd via Spec Kit (week 5)
+- Built with the Agent SDK or as a Claude Code skill (weeks 3, 7)
+- Often using MCP for external tools (week 6) and RAG for context (week 9)
+- Evaluated with a real harness (week 10)
+- Security-aware (week 11)
+- Deployed at a public URL or installable repo (week 9)
+- With a blog-post-quality writeup
+- And **one real user** other than you
+
+Four scoped project options live in [`concentrations/capstone-options.md`](concentrations/capstone-options.md):
+1. Personal study copilot
+2. Domain-specific MCP server + agent
+3. Eval-driven prompt optimizer
+4. Public-contribution streak (5 merged contributions in your domain of choice)
+
+20-40 hours of work. The artifact is what you point recruiters at.
+
+## Concentrations (after the 12 weeks)
+
+Post-curriculum deep dives, each ~8-12 hours:
+
+- **[AI engineering](concentrations/ai-engineering.md)** — evals as a profession, prompt caching, embedding work, agent architectures, fine-tuning. The career leverage track for AI/ML eng jobs.
+- **[Local LLMs](concentrations/local-llms.md)** — running and *developing* local models with Claude as a force multiplier. Centerpiece is a real **distillation pipeline**: use Claude to teach a 7B local model your specific task, then stop paying for that task.
+
+## The through-line: productive Claude use
+
+This isn't "learn Claude in weeks 1-2 then move on." Across every week and every focus, productively using Claude Code is *how* you do the work. The "playbook" is code — your accumulating `~/.claude/commands/`, `~/.claude/skills/`, hooks, and `CLAUDE.md` files — not a journal.
+
+Each week's deliverable is built with Claude Code. By week 12, your `~/.claude/` directory should look visibly different than it did week 1. That accumulation is itself a portfolio piece.
 
 ## Install
 
@@ -24,19 +126,13 @@ Full week-by-week map: [`curriculum/overview.md`](curriculum/overview.md)
 git clone https://github.com/simonibsen/the-claudinator ~/.claude/skills/the-claudinator
 ```
 
-Open Claude Code, say *"Start the study plan"*, and follow along. See [`INSTALL.md`](INSTALL.md) for details.
+The skill will be available to Claude Code on next launch. To invoke it, open Claude Code in any working directory and say:
 
-## What you can ask
+> Use the-claudinator to start the study plan.
 
-| You say... | What happens |
-|---|---|
-| "Start the study plan" / "where am I" | First-run setup, or "you're on week N, want to continue?" |
-| "Teach me week 3" / "continue" | Walks through the current/specified week |
-| "Quiz me on week 4" | 10-question interactive quiz |
-| "Review my work for week 5" | Senior-engineer-style code review |
-| "Mock interview me on AI engineering" | 20-30 minute mock interview with debrief |
-| "Show me capstone options" | Capstone project briefs |
-| "Update the curriculum" | Audits the content against current docs and proposes edits |
+(Once invoked the first time, you can shorten — *"continue"*, *"quiz me on week 3"*, *"switch focus"* — the skill will already be in the conversation.)
+
+See [`INSTALL.md`](INSTALL.md) for details on prerequisites, tuning, and keeping content fresh.
 
 ## What's inside
 
@@ -44,28 +140,28 @@ Open Claude Code, say *"Start the study plan"*, and follow along. See [`INSTALL.
 the-claudinator/
 ├── SKILL.md              # entry point — the model loads this first
 ├── curriculum/           # 12 week files + the overview
-├── modes/                # teach, quiz, critique, interview, coach, update-content
-├── concentrations/       # AI engineering deep dive + capstone briefs
+├── modes/                # teach, quiz, critique, interview, coach, focus, update-content
+├── concentrations/       # AI engineering, local LLMs, capstone briefs
 ├── habits.md             # daily/weekly/monthly practices
 ├── reading-list.md       # canonical sources (docs, blogs, books, people)
-├── state-template.md     # template for your progress.md
+├── state-template.md     # template for your ~/the-claudinator/progress.md
 ├── INSTALL.md            # detailed install + tuning guide
 └── CHANGELOG.md          # curriculum revisions over time
 ```
 
-Your progress lives in `~/the-claudinator/` (created on first run). Push it to a private repo — a year of tracked learning is a portfolio in itself.
+Your progress lives in `~/the-claudinator/` (created on first run). Push it to a private repo — a year of tracked learning is itself a portfolio.
 
 ## Keeping it fresh
 
-The Claude/MCP/API surface area moves fast. Run:
+The Claude / MCP / API surface area moves fast. Ask:
 
 > Update the curriculum
 
-The tutor will check the major sources, propose edits where claims have gone stale, and (with your approval) apply them. It tracks `last-refreshed.txt` so you don't have to remember.
+The tutor checks the major sources, proposes edits where claims have gone stale, and (with your approval) applies them. Tracked in `last-refreshed.txt`.
 
 ## Tuning
 
-Everything is plain markdown — edit anything that doesn't fit you. Pace, track weighting, tone, exercises, week order. See the "Tuning" section in [`INSTALL.md`](INSTALL.md).
+Everything is plain markdown — edit anything that doesn't fit. Pace, track weighting, tone, exercises, week order. See [`INSTALL.md`](INSTALL.md#tuning-it-for-yourself).
 
 ## License
 
@@ -73,4 +169,4 @@ MIT. Fork it, adapt it, share it.
 
 ## Contributing
 
-PRs welcome — especially for keeping content current, adding capstone options, or improving any of the modes. Open an issue first for larger changes.
+PRs welcome — especially for keeping content current, adding capstone options, refining mode prompts, or improving the local-LLM and AI-engineering concentrations. Open an issue first for larger changes.

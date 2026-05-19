@@ -22,9 +22,11 @@ ls ~/.claude/skills/the-claudinator/
 # Should show: SKILL.md, curriculum/, modes/, concentrations/, etc.
 ```
 
-That's it. Open Claude Code in any project and say:
+That's it. Open Claude Code in any working directory and invoke the skill explicitly the first time:
 
-> Start the study plan
+> Use the-claudinator to start the study plan.
+
+Naming the skill in your first prompt makes sure Claude Code loads it. After that, the skill stays in conversation context and you can shorten — *"continue"*, *"quiz me on week 3"*, *"switch focus"* all work.
 
 The skill will pick that up, walk you through a short intro, create `~/the-claudinator/progress.md` to track where you are, and offer to start week 1.
 
