@@ -21,7 +21,7 @@ Full week-by-week map: [`curriculum/overview.md`](curriculum/overview.md)
 ## Install
 
 ```bash
-git clone https://github.com/<you>/the-claudinator ~/.claude/skills/the-claudinator
+git clone https://github.com/simonibsen/the-claudinator ~/.claude/skills/the-claudinator
 ```
 
 Open Claude Code, say *"Start the study plan"*, and follow along. See [`INSTALL.md`](INSTALL.md) for details.
