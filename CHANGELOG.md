@@ -4,6 +4,12 @@ Notable changes to the curriculum. Newest first.
 
 ## 2026-05-19
 
+**Orchestrator pattern added** (Claude conducts, local LLMs work).
+- New section 5 in `concentrations/local-llms.md`: full pattern, when it fits, hard parts, exercise, career-signal framing, relationship to week 4.
+- Closes the gap where the curriculum covered Claude-orchestrating-Claude-subagents (week 4) but not Claude-orchestrating-local-LLM-workers.
+- Sidebar added to week 4 pointing forward to it.
+- Renumbered subsequent sections of the concentration (5→6 embedding fine-tuning, 6→7 model merging, 7→8 vLLM serving).
+
 **Dropped per-exercise hour estimates and softened week-level framing.**
 - Hour annotations like `(1 hr)`, `(30 min)`, `(4-5 hrs)` removed from all 12 week files. Estimates were inflated post-Claude-Code (parts that pre-Claude took hours can now take minutes; parts that are thinking-heavy didn't get faster). Annotations created false precision and a wrong success signal.
 - Week-level "~8-10 hrs/week" softened across `curriculum/overview.md`, `README.md`, `INSTALL.md`. New framing: "a rhythm of a week per week, hours-per-week varies a lot — a week is *done* when the deliverable is in git and the self-assessment is passed cold."

@@ -27,7 +27,8 @@ This is not "set up Ollama and play around." Anyone can do that. This is *use Cl
 2. **Integration** — swap local for API with one line of code
 3. **Compare** — port one Claude workload to local, run your week-10 evals on both
 4. **Distillation pipeline** ⭐ — the centerpiece
-5. **Stretch** — embedding fine-tuning, model merging, vLLM serving
+5. **The orchestrator pattern** — Claude conducts, local LLMs work the volume
+6. **Stretch** — embedding fine-tuning, model merging, vLLM serving
 
 ---
 
@@ -188,7 +189,61 @@ Add a `WRITEUP.md` to the repo:
 
 **This writeup is the portfolio piece.** Title it something like "Fine-tuning Qwen 2.5 to handle [task] — a distillation experiment." Post to your blog. Link from your resume.
 
-## 5. Stretch — embedding fine-tuning
+## 5. The orchestrator pattern — Claude conducts, local LLMs work
+
+A complementary pattern to distillation. Distillation collapses *one Claude task* into *one local model*. The orchestrator pattern keeps Claude in the loop — but only for the parts that need it — and dispatches the *volume* to local workers.
+
+**The premise:** Claude is too expensive to call N times when N is large. But Claude is *smart* enough to direct local-LLM workers that handle the volume. You get Claude's reasoning where it matters and near-zero-cost execution everywhere else.
+
+### The shape
+
+1. **Claude plans** — given the task, designs the worker prompt and the validation criteria
+2. **Local LLM executes** — runs the same prompt against every item in the batch
+3. **Claude sample-validates** — checks ~5% of worker outputs, catches systematic errors
+4. **Claude synthesizes** — takes the worker outputs and produces the final result, handling edge cases the workers flagged
+
+### When it fits
+
+- Input is large (1k+ items, a long document with many chunks, a batch of files)
+- Each item needs *medium-difficulty* work — too hard for a regex, not hard enough to justify $0.012 per Claude Sonnet call
+- Output needs aggregation, validation, or synthesis at the end — where Claude shines
+
+### Use cases worth building
+
+- Extracting structured fields from 5,000 invoices or receipts
+- Summarizing each chunk of a long document before final synthesis
+- First-pass classification of support tickets, with Claude handling the ambiguous middle
+- Generating exam questions or flashcards from a corpus
+- Tagging or categorizing a large media library
+
+### Hard parts (where students screw this up)
+
+- **Worker prompts need to be air-tight.** A local model has less context-recovery than Claude; a vague prompt gets you a lot of bad batched output.
+- **Validation is non-optional.** Sampling 5% of worker outputs and grading them is the difference between "this works" and "I think this works."
+- **Edge cases need a fallback to Claude.** Design routing so the worker can flag "I don't know" and the orchestrator handles those cases with a Claude call.
+- **Eval the pipeline, not just the workers.** A worker can score 0.85 individually and produce a 0.4 pipeline output if the synthesis step is brittle.
+
+### Exercise
+
+Take a real batch task you have. Build the pipeline in Claude Code:
+
+1. **Design the worker prompt** with Claude against 10 hand-checked examples. Iterate until the local model gets all 10 right.
+2. **Run the local worker on the full batch.** Cheap.
+3. **Have Claude sample-validate** 50 outputs against the original criteria. Calculate worker accuracy.
+4. **Have Claude synthesize** the batch outputs into the final result, handling worker uncertainty.
+5. **Compare end-to-end cost** vs. "Claude does it all." Typical: 10-100× savings if the task fits the pattern.
+
+If the worker accuracy comes in under 90%, the task probably doesn't fit — either distill a fine-tuned worker (section 4), or accept that this is a Claude-all-the-way job.
+
+### Why this is career signal
+
+This is the production pattern at companies running AI at scale: cheap workers handle volume, expensive orchestrator handles judgment. Most engineers haven't built one. If you can describe one of these in an interview — concrete task, real cost savings, eval results — you sound several years older than you are.
+
+### How this relates to week 4
+
+Week 4 covers Claude orchestrating *Claude subagents*. The orchestrator pattern is the same shape with *local LLMs* as the workers. The trade-off: Claude-subagent workers are smart and expensive; local-LLM workers are dumb and free. Pick based on task difficulty and volume.
+
+## 6. Stretch — embedding fine-tuning
 
 For RAG workloads, often higher ROI than generative fine-tuning. The idea: train a small embedding model on your specific domain so retrieval actually works.
 
@@ -198,11 +253,11 @@ In Claude Code:
 
 Genuinely useful for your week-9 RAG.
 
-## 6. Stretch — model merging
+## 7. Stretch — model merging
 
 Combining two fine-tuned models' weights to get capabilities from both. Tools: `mergekit`. Mostly experimental, sometimes magical. Ask Claude Code to walk you through a merge of your fine-tuned model with another task-specialized model — see if the result is better at both tasks.
 
-## 7. Stretch — vLLM serving
+## 8. Stretch — vLLM serving
 
 For production-grade serving (high concurrency, batching, optimized inference). Ollama is great for dev; vLLM is what you'd run if your local model were behind a real service. Worth knowing exists.
 
