@@ -16,7 +16,7 @@
 
 ## Current state
 
-- **Week:** 1
+- **Module:** 1
 - **Status:** not started
 - **Focus:** full
 - **Deliverable repo:** {url-when-it-exists}

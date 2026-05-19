@@ -1,8 +1,8 @@
-# Week 7 — Agent SDK: Build a Standalone Agent
+# Module 7 — Agent SDK: Build a Standalone Agent
 
 **Frame:** Claude Code is one agent built on top of the Claude Agent SDK. Now build your own — a custom agent that runs outside the Claude Code harness, with your own tools, system prompt, and orchestration.
 
-**Important distinction:** the **Agent SDK** (`claude-agent-sdk` / `@anthropic-ai/claude-agent-sdk`) is a high-level wrapper that bundles the Claude Code binary and runs the agent loop *for you* — you call `query()` and iterate over messages. The lower-level **Client SDK** (`anthropic` / `@anthropic-ai/sdk`) gives you raw access to the Messages API and you write your own loop. This week is about the Agent SDK; week 8 covers the Client SDK directly.
+**Important distinction:** the **Agent SDK** (`claude-agent-sdk` / `@anthropic-ai/claude-agent-sdk`) is a high-level wrapper that bundles the Claude Code binary and runs the agent loop *for you* — you call `query()` and iterate over messages. The lower-level **Client SDK** (`anthropic` / `@anthropic-ai/sdk`) gives you raw access to the Messages API and you write your own loop. This module is about the Agent SDK; module 8 covers the Client SDK directly.
 
 ## Objectives
 

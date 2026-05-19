@@ -1,13 +1,13 @@
-# Week 4 — Subagents, Agent Teams & Multi-Agent Orchestration
+# Module 4 — Subagents, Agent Teams & Multi-Agent Orchestration
 
 **Frame:** A subagent is a fresh context running independently. Used well: parallelism, context isolation, specialized expertise. Used poorly: token bonfire that produces nothing.
 
 **Three related concepts the docs distinguish:**
-- **Subagents** — spawned in-session via the `Agent` tool, run with isolated context, return results to the main thread. The focus of this week.
+- **Subagents** — spawned in-session via the `Agent` tool, run with isolated context, return results to the main thread. The focus of this module.
 - **Agent teams** — multiple agents running simultaneously on different parts of a task, with a lead agent coordinating. Built on subagents but framed as a team pattern.
 - **Background agents** — independent parallel sessions you can view side-by-side (see `/en/agent-view`). Useful when you want multiple long-running tasks visible at once.
 
-You'll focus on subagents this week; the other two are good to be aware of and try once.
+You'll focus on subagents this module; the other two are good to be aware of and try once.
 
 ## Objectives
 
@@ -41,7 +41,7 @@ You'll focus on subagents this week; the other two are good to be aware of and t
 ## Deliverable
 
 - 2 custom agents in `.claude/agents/`, with documented system prompts
-- A short writeup (`week-04.md` in your study repo): one task where multi-agent helped, one where it hurt, what you'd do differently
+- A short writeup (`module-04.md` in your study repo): one task where multi-agent helped, one where it hurt, what you'd do differently
 - A "subagent brief template" — the format you'll use to spec a subagent task
 
 ## Self-assessment
@@ -66,6 +66,6 @@ Write a "code-review-agent" that takes a PR URL and returns a structured review.
 
 ## Sidebar — orchestrating local-LLM workers (preview)
 
-This week's pattern is Claude orchestrating *Claude subagents* — smart and expensive workers. The same architecture works with *local LLMs* as the workers — dumb and free. Useful when you have a large batch of medium-difficulty items where Claude-on-everything is overkill and a regex isn't enough.
+This module's pattern is Claude orchestrating *Claude subagents* — smart and expensive workers. The same architecture works with *local LLMs* as the workers — dumb and free. Useful when you have a large batch of medium-difficulty items where Claude-on-everything is overkill and a regex isn't enough.
 
 Full pattern (the *orchestrator pattern*) is in `concentrations/local-llms.md` section 5, after the curriculum. Worth knowing it exists before you encounter a "I need to process 5,000 of these" problem and reflexively reach for Claude.

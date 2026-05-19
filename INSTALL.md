@@ -1,15 +1,15 @@
 # Install — The Claudinator
 
-A self-paced, 12-week curriculum for going from "I can code" to "I can ship agents." Lives as a Claude Code skill, so you talk to it in natural language inside Claude Code.
+A self-paced, 12-module curriculum for going from "I can code" to "I can ship agents." Lives as a Claude Code skill, so you talk to it in natural language inside Claude Code.
 
 ## What you'll need
 
 - **Claude Code** installed and working. (`claude.com/claude-code`)
-- An **Anthropic API key** — you'll use it directly starting in week 8.
-- A **GitHub account** — most weeks end with a deliverable you push.
+- An **Anthropic API key** — you'll use it directly starting in module 8.
+- A **GitHub account** — most modules end with a deliverable you push.
 - Your own **dev environment** — Python or TypeScript, your call. Most exercises are language-agnostic but examples lean Python.
 
-A rhythm of "a week per week" for 12 weeks. **Hours-per-week varies a lot** based on Claude Code fluency — don't target a fixed number. A week is *done* when the deliverable is in git and you can answer the self-assessment cold.
+A rhythm of Twelve modules, no fixed duration. **Hours per module varies a lot** based on Claude Code fluency — don't target a fixed number. A module is *done* when the deliverable is in git and you can answer the self-assessment cold.
 
 ## Install
 
@@ -28,11 +28,11 @@ That's it. Open Claude Code in any working directory and run:
 /the-claudinator
 ```
 
-The skill appears in the `/` menu and the slash command kicks off first-run setup — a short intro, creating `~/the-claudinator/progress.md`, and offering to start week 1.
+The skill appears in the `/` menu and the slash command kicks off first-run setup — a short intro, creating `~/the-claudinator/progress.md`, and offering to start module 1.
 
 **Restart caveat:** if `~/.claude/skills/` didn't exist before you cloned this in, restart Claude Code so the skills directory gets watched. If the directory was already there, no restart needed.
 
-After the first invocation, you can use the slash command (`/the-claudinator quiz me on week 3`) or just natural language (`"quiz me on week 3"`, `"continue"`, etc.) — Claude Code routes both back into the skill.
+After the first invocation, you can use the slash command (`/the-claudinator quiz me on module 3`) or just natural language (`"quiz me on module 3"`, `"continue"`, etc.) — Claude Code routes both back into the skill.
 
 ## What you can ask
 
@@ -40,10 +40,10 @@ Either via the `/the-claudinator` slash command, or in natural language once the
 
 | You say... | What happens |
 |---|---|
-| `/the-claudinator` | First-run setup, or "you're on week N, want to continue?" |
-| "Teach me week 3" / "continue" | Walks you through the current/specified week |
-| "Quiz me on week 4" | 10-question interactive quiz |
-| "Review my work for week 5" | Senior-engineer-style code review of your deliverable |
+| `/the-claudinator` | First-run setup, or "you're on module N, want to continue?" |
+| "Teach me module 3" / "continue" | Walks you through the current/specified module |
+| "Quiz me on module 4" | 10-question interactive quiz |
+| "Review my work for module 5" | Senior-engineer-style code review of your deliverable |
 | "Mock interview me on AI engineering" | 20-30 minute mock interview with debrief |
 | "Show me capstone options" | Loads the capstone briefs |
 | "Update the curriculum" | Audits the content against current Claude/MCP/API docs |
@@ -57,10 +57,10 @@ the-claudinator/
 ├── last-refreshed.txt           # when the content was last verified vs current docs
 ├── CHANGELOG.md                 # curriculum changes over time
 ├── curriculum/
-│   ├── overview.md              # the 12-week map
-│   └── week-01..12-*.md         # the weeks themselves
+│   ├── overview.md              # the 12-module map
+│   └── module-01..12-*.md         # the modules themselves
 ├── modes/
-│   ├── teach.md                 # walk through a week
+│   ├── teach.md                 # walk through a module
 │   ├── quiz.md                  # interactive quiz
 │   ├── critique.md              # code review your deliverable
 │   ├── interview.md             # mock interview
@@ -83,11 +83,11 @@ the-claudinator/
 
 Everything is markdown — edit anything that doesn't fit you.
 
-- **Pace.** 12 weeks is the rhythm. Hours-per-week varies a lot based on your Claude Code fluency and the week — don't target a fixed number. A week is *done* when the deliverable is in git and you can answer the self-assessment cold, not when a clock has hit some number.
-- **Track weighting.** Currently ~60% Claude/agents, ~25% AI engineering, ~15% SWE essentials. To rebalance, edit `curriculum/overview.md` and the relevant week files.
+- **Pace.** 12 modules is the rhythm. Hours per module varies a lot based on your Claude Code fluency and the module — don't target a fixed number. A module is *done* when the deliverable is in git and you can answer the self-assessment cold, not when a clock has hit some number.
+- **Track weighting.** Currently ~60% Claude/agents, ~25% AI engineering, ~15% SWE essentials. To rebalance, edit `curriculum/overview.md` and the relevant module files.
 - **Tone.** The tutor is "strict-but-encouraging" by default. If you want softer or harder, edit the **Tone** section in `SKILL.md`.
-- **Skip / reorder weeks.** Tell the skill "skip to week 6" or "I'm starting from week 4 — I've already done the earlier stuff." It will adjust.
-- **Add a week.** Drop a new `week-NN-*.md` in `curriculum/` and add a row to `overview.md`. The skill picks it up automatically.
+- **Skip / reorder modules.** Tell the skill "skip to module 6" or "I'm starting from module 4 — I've already done the earlier stuff." It will adjust.
+- **Add a module.** Drop a new `module-NN-*.md` in `curriculum/` and add a row to `overview.md`. The skill picks it up automatically.
 
 ## Keeping content fresh
 

@@ -5,16 +5,16 @@ The curriculum makes claims about external things: URLs, API features, model nam
 ## When to invoke
 
 - User says: *"update the curriculum"*, *"refresh content"*, *"check for stale stuff"*, *"is this still current"*, *"run an audit"*, *"verify the instructions"*, *"correctness check"*, *"deep audit"*.
-- Automatically at the start of any week: glance at `last-refreshed.txt`. If >30 days old, mention it once and offer to refresh before teaching.
+- Automatically at the start of any module: glance at `last-refreshed.txt`. If >30 days old, mention it once and offer to refresh before teaching.
 - Anytime the student pushes back on something the curriculum claims and the claim isn't obvious from current docs — audit that specific claim before defending it.
 
 ## Behavior
 
 1. **Read `last-refreshed.txt`** at the skill root. If missing, treat as "never refreshed."
 2. **Identify the scope:**
-   - "Update everything" → all weeks + concentrations + reading-list
-   - "Update week N" → that week's file only
-   - "Check the API stuff" → weeks 6-8 (MCP, Agent SDK, API direct) + reading list
+   - "Update everything" → all modules + concentrations + reading-list
+   - "Update module N" → that module's file only
+   - "Check the API stuff" → modules 6-8 (MCP, Agent SDK, API direct) + reading list
 3. **For each file in scope, extract auditable claims in three categories:**
 
    **A. Citations (freshness)** — easy diffs against fetched sources:
@@ -39,7 +39,7 @@ The curriculum makes claims about external things: URLs, API features, model nam
    - "Use unsloth for LoRA" — still the leader, or has it been replaced?
    - "Use Ollama for local serving" — same question
    - "Use Fly.io for deploy" — still student-friendly?
-   - "Use Chroma / pgvector" — still good for week-9 RAG?
+   - "Use Chroma / pgvector" — still good for module-9 RAG?
    - Reading-list blogs and books — still maintained?
 4. **Fetch current sources** with WebFetch:
    - Claude Code docs: `code.claude.com/docs/en/` (overview, hooks, skills, sub-agents, permissions, settings, etc.)
@@ -48,7 +48,7 @@ The curriculum makes claims about external things: URLs, API features, model nam
    - MCP: `modelcontextprotocol.io` (quickstart, examples, architecture)
    - Spec Kit: `github.com/github/spec-kit` (README)
    - Anthropic blog: `anthropic.com/news` or `anthropic.com/engineering`
-   - Any specific repo a week references (e.g. `github.com/ml-explore/mlx-lm`, `github.com/unslothai/unsloth`)
+   - Any specific repo a module references (e.g. `github.com/ml-explore/mlx-lm`, `github.com/unslothai/unsloth`)
 5. **Diff claim-by-claim.** For each claim that has likely changed:
    - Show the current claim (file + line + text)
    - Show the new source-of-truth
@@ -64,9 +64,9 @@ The curriculum makes claims about external things: URLs, API features, model nam
 
 - **Wrong behavioral claims** — if the curriculum says "X happens when you do Y" and the docs say otherwise, this is the most damaging kind of error. Flag aggressively. A student doing exactly what the curriculum says and getting a different result will lose trust in the whole curriculum.
 - **Incomplete enumerations** — when the curriculum lists "the X are A, B, C" and docs list more, flag as incomplete (not necessarily wrong, but worth fixing).
-- **New API features** — if the API now exposes something that materially changes a week's content (e.g. a new batch endpoint, a new caching tier, a new model tier), flag it.
+- **New API features** — if the API now exposes something that materially changes a module's content (e.g. a new batch endpoint, a new caching tier, a new model tier), flag it.
 - **Renamed/moved docs** — broken URLs are an easy diff.
-- **Deprecated features** — if a week teaches something that's been deprecated, flag aggressively. A student wasting a week on dead syntax is a worse failure than a missing new feature.
+- **Deprecated features** — if a module teaches something that's been deprecated, flag aggressively. A student wasting a module on dead syntax is a worse failure than a missing new feature.
 - **New canonical resources** — if Anthropic has published a new official guide that supersedes the current readings, prefer the official source.
 - **New skills/agents/MCP servers worth mentioning** — bundled or otherwise canonical.
 - **Tool succession** — if a recommended tool has been replaced by a better/more-active alternative, flag and propose the swap.
@@ -92,7 +92,7 @@ Sources fetched: {n} ({list})
 ### Correctness issues (high priority — {n} total)
 *Claims about how things work that are wrong or incomplete.*
 
-**1. curriculum/week-01-foundations.md — line 8**
+**1. curriculum/module-01-foundations.md — line 8**
 - Current claim: "Know plan mode, `!` bash prefix, `#` memory shortcut, `/` slash commands cold."
 - Implied: `shift+tab` toggles plan mode (line 20).
 - Source: docs.claude.com/... — `shift+tab` cycles through modes (auto-accept / plan / default).
@@ -101,7 +101,7 @@ Sources fetched: {n} ({list})
 ### Freshness issues (medium priority — {n} total)
 *Citations and names that have drifted.*
 
-**N. curriculum/week-08-claude-api.md — line 27**
+**N. curriculum/module-08-claude-api.md — line 27**
 - Current: model ID `claude-sonnet-4-6`
 - Source: docs.anthropic.com/... — current is `claude-sonnet-4-X`
 - Proposal: bump model ID.
@@ -125,4 +125,4 @@ Apply all / apply some / discard?
 
 ## After applying
 
-Tell the student briefly what changed and why. If a change affects a week they are already done, note that — they may want to re-read the relevant section.
+Tell the student briefly what changed and why. If a change affects a module they are already done, note that — they may want to re-read the relevant section.

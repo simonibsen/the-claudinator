@@ -1,10 +1,10 @@
 # Curriculum Overview
 
-A 12-week curriculum. Heavy on Claude & agents (Track A), serious on AI engineering (Track C), light on SWE practice (Track B) — just the essentials that close the coursework-to-job gap (spec kit, design docs, deploy, secrets).
+A 12-module curriculum. Heavy on Claude & agents (Track A), serious on AI engineering (Track C), light on SWE practice (Track B) — just the essentials that close the coursework-to-job gap (spec kit, design docs, deploy, secrets).
 
-**The through-line is productive Claude use.** Not a topic taught in week 1 and graduated from — the *operating mode* for every week. Each deliverable is built with Claude Code. Each week, your `~/.claude/commands/`, `~/.claude/skills/`, and project `CLAUDE.md` files should get a bit richer. That's the playbook, accumulated as code instead of journaled as prose.
+**The through-line is productive Claude use.** Not a topic taught in module 1 and graduated from — the *operating mode* for every module. Each deliverable is built with Claude Code. Each module, your `~/.claude/commands/`, `~/.claude/skills/`, and project `CLAUDE.md` files should get a bit richer. That's the playbook, accumulated as code instead of journaled as prose.
 
-**On pacing:** "a week" is the rhythm, not a contract. With Claude Code as a force multiplier, the time per exercise varies hugely — and unevenly. Scaffolding, navigation, boilerplate: minutes. Design decisions, debugging, evaluating tradeoffs: same as ever. **Don't aim for hours-per-week targets.** A week is *done* when the deliverable is in git and you can answer the self-assessment cold — see the four rules below.
+**On pacing:** Twelve modules, no fixed duration. With Claude Code as a force multiplier, the time per exercise varies hugely — and unevenly. Scaffolding, navigation, boilerplate: minutes. Design decisions, debugging, evaluating tradeoffs: same as ever. **Don't aim for hours-per-module targets.** A module is *done* when the deliverable is in git and you can answer the self-assessment cold — see the four rules below.
 
 | Track | Weight | Why |
 |---|---|---|
@@ -12,7 +12,7 @@ A 12-week curriculum. Heavy on Claude & agents (Track A), serious on AI engineer
 | **C — AI engineering** | ~25% | Where the field is going; differentiator |
 | **B — SWE essentials** | ~15% | Just enough to ship and not embarrass yourself |
 
-## Week map
+## Module map
 
 | Wk | A — Claude & Agents | B — SWE essentials | C — AI engineering |
 |---|---|---|---|
@@ -31,22 +31,22 @@ A 12-week curriculum. Heavy on Claude & agents (Track A), serious on AI engineer
 
 ## Four rules
 
-1. **Every week has a deliverable in git.** Time spent without an artifact does not count.
-2. **Every week ends with a self-assessment.** If you can't answer cold, the week is not done.
-3. **Every week grows your `~/.claude/`.** A new slash command, skill, hook, or CLAUDE.md line — *something*. If you went a week without encoding a single productivity move, the through-line snapped. Fix it before moving on.
+1. **Every module has a deliverable in git.** Time spent without an artifact does not count.
+2. **Every module ends with a self-assessment.** If you can't answer cold, the module is not done.
+3. **Every module grows your `~/.claude/`.** A new slash command, skill, hook, or CLAUDE.md line — *something*. If you went a module without encoding a single productivity move, the through-line snapped. Fix it before moving on.
 4. **One public artifact per month.** Blog post, OSS PR, or public repo with a real README.
 
 ## How to use this with the skill
 
-- "Start week 3" / "teach me week 3" / "continue" — opens that week's file and walks through it
-- "Quiz me on week 3" — runs the self-assessment as an interactive quiz
-- "Review my work on week 3" — critiques the deliverable
+- "Start module 3" / "teach me module 3" / "continue" — opens during this module's file and walks through it
+- "Quiz me on module 3" — runs the self-assessment as an interactive quiz
+- "Review my work on module 3" — critiques the deliverable
 - "Where am I" — reads `~/the-claudinator/progress.md` and tells you
 
-## After the 12 weeks
+## After the 12 modules
 
 Two paths, not mutually exclusive:
 - **AI engineering concentration** — see `concentrations/ai-engineering.md`
 - **OSS contribution streak** — pick a project, land 5 PRs over a quarter
 
-The capstone (week 12) is the portfolio piece for internship interviews.
+The capstone (module 12) is the portfolio piece for internship interviews.

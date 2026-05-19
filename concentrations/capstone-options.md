@@ -1,6 +1,6 @@
 # Capstone Options
 
-For week 12. Four briefs at different shapes. Pick one — or invent one and validate the scope with the tutor.
+For module 12. Four briefs at different shapes. Pick one — or invent one and validate the scope with the tutor.
 
 ## 1. Personal study copilot ("Notebook Copilot")
 
@@ -12,7 +12,7 @@ For week 12. Four briefs at different shapes. Pick one — or invent one and val
 - Quiz generator: select chunks → generate question → store in `srs.json` for spaced repetition
 - Eval harness: 30 hand-written Q&A pairs from your real materials
 
-**Touches:** RAG (week 9), evals (week 10), Agent SDK (week 7), Skills (week 3), API direct (week 8), security/secrets (week 11). Optional: MCP server (week 6) if you want Claude Code integration.
+**Touches:** RAG (module 9), evals (module 10), Agent SDK (module 7), Skills (module 3), API direct (module 8), security/secrets (module 11). Optional: MCP server (module 6) if you want Claude Code integration.
 
 **Hard parts:** Retrieval quality on mixed PDF/slide content, spaced-repetition scheduling, quiz quality.
 **Easy parts:** The CLI scaffolding, basic RAG.
@@ -32,7 +32,7 @@ For week 12. Four briefs at different shapes. Pick one — or invent one and val
 - Agent or UI: a workflow that uses the tools to do something useful
 - Evals on the workflow, not just the tools
 
-**Touches:** MCP (week 6), Agent SDK or Claude Code (week 7), Skills (week 3), evals (week 10), security (week 11), containers/deploy (week 9).
+**Touches:** MCP (module 6), Agent SDK or Claude Code (module 7), Skills (module 3), evals (module 10), security (module 11), containers/deploy (module 9).
 
 **Hard parts:** API auth, rate limits, designing the right tool boundary.
 **Easy parts:** The MCP scaffolding itself.
@@ -46,12 +46,12 @@ For week 12. Four briefs at different shapes. Pick one — or invent one and val
 **Pitch:** A tool that, given a prompt + an eval set, mutates the prompt and finds variants that score higher. Open source. Like a fuzzer for prompts.
 
 **Architecture sketch:**
-- Eval runner (you mostly built this in week 10)
+- Eval runner (you mostly built this in module 10)
 - Prompt mutator: small set of strategies (rephrase, restructure, add few-shot examples)
 - Orchestrator: try variants, score, keep the best
 - Reporting: shows you what changes helped and why
 
-**Touches:** Evals (week 10), API direct + prompt caching for cost (week 8), Agent SDK (week 7), security (week 11) — your tool runs untrusted prompts.
+**Touches:** Evals (module 10), API direct + prompt caching for cost (module 8), Agent SDK (module 7), security (module 11) — your tool runs untrusted prompts.
 
 **Hard parts:** Useful mutation strategies, avoiding overfitting to the eval set, cost control.
 **Easy parts:** None, really. This is the most ambitious option.
@@ -66,18 +66,18 @@ For week 12. Four briefs at different shapes. Pick one — or invent one and val
 
 **Start with a conversation, not an issue tracker.** The tutor should walk you through: what projects you use day-to-day, what domains pull you (code, music, hardware, games, science, education, art), what annoyances you've hit. Pick from passion, not from convenience — the resulting contributions are better and the learning sticks.
 
-**Use Claude Code throughout.** Navigate unfamiliar codebases / projects with it, draft contributions with it, prep PR or submission descriptions with it, respond to maintainer review with it. The streak doubles as a real-world test of weeks 1-2's productivity foundation.
+**Use Claude Code throughout.** Navigate unfamiliar codebases / projects with it, draft contributions with it, prep PR or submission descriptions with it, respond to maintainer review with it. The streak doubles as a real-world test of modules 1-2's productivity foundation.
 
 **Architecture sketch:** N/A. The artifact is the merged PR list, the conversations with maintainers, and a writeup of what you learned navigating unfamiliar codebases.
 
-**Touches:** Reading codebases (week 1), git (week 2), Claude Code productivity throughout, maybe spec/RFC writing (week 5) for larger PRs.
+**Touches:** Reading codebases (module 1), git (module 2), Claude Code productivity throughout, maybe spec/RFC writing (module 5) for larger PRs.
 
 **Hard parts:** Picking the right projects, maintainer responsiveness, the long tail of small judgment calls.
 **Easy parts:** No deploy, no infra.
 
 **Why this is good:** Interviewers love it. Demonstrates judgment, communication, and humility. Different signal than personal projects.
 
-**Note:** This is the same as the `oss` focus's structural replacement for weeks 6-12. If you've been on `oss` focus, you're already doing this — capstone counts as the completion of the streak.
+**Note:** This is the same as the `oss` focus's structural replacement for modules 6-12. If you've been on `oss` focus, you're already doing this — capstone counts as the completion of the streak.
 
 ---
 

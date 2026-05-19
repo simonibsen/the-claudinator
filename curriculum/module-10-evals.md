@@ -1,11 +1,11 @@
-# Week 10 — Evaluating Your Own Agent
+# Module 10 — Evaluating Your Own Agent
 
-**Frame:** This is the highest-ROI week. Most teams shipping AI products are terrible at evals. The ones that aren't, dominate. Learn this and you'll be ahead of 90% of your peers, including most engineers ten years your senior.
+**Frame:** This is the highest-ROI module. Most teams shipping AI products are terrible at evals. The ones that aren't, dominate. Learn this and you'll be ahead of 90% of your peers, including most engineers ten years your senior.
 
 ## Objectives
 
 1. Articulate why "it feels right" is the failure mode of AI product teams.
-2. Build an eval set for an existing project (last week's RAG is the easy target).
+2. Build an eval set for an existing project (the previous module's RAG is the easy target).
 3. Implement at least 3 eval types: deterministic checks, code-graded, LLM-as-judge.
 4. Run evals on every change to your agent/prompt — make them part of the loop.
 5. Diagnose a regression using your evals.

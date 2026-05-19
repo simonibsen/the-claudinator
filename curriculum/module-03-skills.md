@@ -1,4 +1,4 @@
-# Week 3 — Skills Deep Dive
+# Module 3 — Skills Deep Dive
 
 **Frame:** A skill is a unit of packaged expertise that becomes a slash command. The directory name becomes the command (`my-skill/` → `/my-skill`), and the `description` in frontmatter tells Claude when to load it automatically. Both invocation paths — user-typed slash command and model-auto-invocation from description — work simultaneously.
 

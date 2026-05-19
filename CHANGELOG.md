@@ -4,6 +4,16 @@ Notable changes to the curriculum. Newest first.
 
 ## 2026-05-19
 
+**Renamed: "week" → "module" throughout.** The "12-week curriculum" framing was misleading — Claude Code makes pacing wildly uneven and the calendar-week unit fights the deliverable-driven success criterion. Twelve modules, no fixed duration; a module is done when the deliverable is in git and the self-assessment is passed cold.
+
+- All 12 curriculum files renamed: `curriculum/week-NN-*.md` → `curriculum/module-NN-*.md` (via `git mv` so blame history follows).
+- Headings: `# Week N — X` → `# Module N — X`.
+- Cross-references swept: ~100+ references across curriculum, modes, concentrations, README, INSTALL, SKILL.md, overview, habits, state-template.
+- Pacing language in `overview.md`, `README.md`, `INSTALL.md` rewritten to match: no "8-10 hrs/week" or "a week per week" framing; "twelve modules, no fixed duration" instead.
+- Self-template `Week: 1` → `Module: 1`.
+- SKILL.md routing accepts both "module N" and "week N" phrasings as backward-compat alias — the description prefers "module" but the routing won't break for students who already think in week-terms.
+- Kept where genuinely real-time: cost-per-week (real money over real time), habit cadences (daily/weekly/monthly), OSS streak duration ("over 4-6 weeks"), publication cadence ("Import AI weekly roundup"), real-time observations in coach mode ("no commits in 2+ weeks").
+
 **Check-updates mode added.**
 - New `modes/check-updates.md` — checks `~/.claude/skills/the-claudinator` against `origin/main`, summarizes new commits, offers a fast-forward pull.
 - Auto-runs at session start with a 24-hour floor (silent when in sync; one-line mention when behind; never nags).
