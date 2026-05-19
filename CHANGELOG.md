@@ -4,6 +4,19 @@ Notable changes to the curriculum. Newest first.
 
 ## 2026-05-19
 
+**Check-updates mode added.**
+- New `modes/check-updates.md` — checks `~/.claude/skills/the-claudinator` against `origin/main`, summarizes new commits, offers a fast-forward pull.
+- Auto-runs at session start with a 24-hour floor (silent when in sync; one-line mention when behind; never nags).
+- Handles symlinked installs by resolving `readlink -f` first.
+- Non-destructive: read + fetch + propose; pull only on explicit consent; never auto-resolves conflicts.
+- Stamps `~/the-claudinator/last-update-check.txt` to respect the floor.
+
+**Week 5 — SDD deepened.**
+- New exercise 6: the constitution. 5-10 disagree-able principles, each expressing a real trade-off. Loaded into `.specify/memory/constitution.md` via `/speckit.constitution`.
+- New exercise 7: the iteration loop (when the spec is wrong). Practice updating the spec, re-running `/speckit.plan`, and rederiving tasks — the realistic SDD case, not pure waterfall.
+- Deliverable expanded to require a constitution + a visible spec revision in git history.
+- Self-assessment grew from 5 to 7 questions covering the new exercises.
+
 **Orchestrator pattern added** (Claude conducts, local LLMs work).
 - New section 5 in `concentrations/local-llms.md`: full pattern, when it fits, hard parts, exercise, career-signal framing, relationship to week 4.
 - Closes the gap where the curriculum covered Claude-orchestrating-Claude-subagents (week 4) but not Claude-orchestrating-local-LLM-workers.
