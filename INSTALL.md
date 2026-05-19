@@ -22,22 +22,25 @@ ls ~/.claude/skills/the-claudinator/
 # Should show: SKILL.md, curriculum/, modes/, concentrations/, etc.
 ```
 
-That's it. Open Claude Code in any working directory and invoke the skill explicitly the first time:
+That's it. Open Claude Code in any working directory and run:
 
-> Use the-claudinator to start the study plan.
+```
+/the-claudinator
+```
 
-Naming the skill in your first prompt makes sure Claude Code loads it. After that, the skill stays in conversation context and you can shorten — *"continue"*, *"quiz me on week 3"*, *"switch focus"* all work.
+The skill appears in the `/` menu and the slash command kicks off first-run setup — a short intro, creating `~/the-claudinator/progress.md`, and offering to start week 1.
 
-The skill will pick that up, walk you through a short intro, create `~/the-claudinator/progress.md` to track where you are, and offer to start week 1.
+**Restart caveat:** if `~/.claude/skills/` didn't exist before you cloned this in, restart Claude Code so the skills directory gets watched. If the directory was already there, no restart needed.
+
+After the first invocation, you can use the slash command (`/the-claudinator quiz me on week 3`) or just natural language (`"quiz me on week 3"`, `"continue"`, etc.) — Claude Code routes both back into the skill.
 
 ## What you can ask
 
-Natural-language phrases — say what you want, the skill picks the right mode:
+Either via the `/the-claudinator` slash command, or in natural language once the skill is in the conversation:
 
 | You say... | What happens |
 |---|---|
-| "Use the-claudinator to start the study plan" *(first time only — names the skill)* | First-run setup |
-| "where am I" / "continue" | "You're on week N, want to continue?" |
+| `/the-claudinator` | First-run setup, or "you're on week N, want to continue?" |
 | "Teach me week 3" / "continue" | Walks you through the current/specified week |
 | "Quiz me on week 4" | 10-question interactive quiz |
 | "Review my work for week 5" | Senior-engineer-style code review of your deliverable |
