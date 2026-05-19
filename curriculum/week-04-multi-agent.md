@@ -1,18 +1,28 @@
-# Week 4 — Subagents & Multi-Agent Orchestration
+# Week 4 — Subagents, Agent Teams & Multi-Agent Orchestration
 
 **Frame:** A subagent is a fresh context running independently. Used well: parallelism, context isolation, specialized expertise. Used poorly: token bonfire that produces nothing.
+
+**Three related concepts the docs distinguish:**
+- **Subagents** — spawned in-session via the `Agent` tool, run with isolated context, return results to the main thread. The focus of this week.
+- **Agent teams** — multiple agents running simultaneously on different parts of a task, with a lead agent coordinating. Built on subagents but framed as a team pattern.
+- **Background agents** — independent parallel sessions you can view side-by-side (see `/en/agent-view`). Useful when you want multiple long-running tasks visible at once.
+
+You'll focus on subagents this week; the other two are good to be aware of and try once.
 
 ## Objectives
 
 1. Explain when a subagent saves context vs. when it wastes it.
-2. Define custom subagents in `.claude/agents/` with tight system prompts and minimal tool allowlists.
-3. Run a multi-agent workflow: plan → fan-out → review.
-4. Brief a subagent well (the prompt-as-ticket pattern).
-5. Recognize when a multi-agent pattern is overengineering.
+2. Define custom subagents in `.claude/agents/<name>.md` with **`name` + `description` required** in frontmatter, plus system prompt and tool allowlist (`tools:` field).
+3. Know that **subagents are loaded at session start** — adding a new one via file edit requires restarting; using `/agents` to create one takes effect immediately.
+4. Know that **subagents cannot spawn subagents** — only the main thread can. If you need recursion-like behavior, plan it at the main level.
+5. Run a multi-agent workflow: plan → fan-out → review.
+6. Brief a subagent well (the prompt-as-ticket pattern).
+7. Recognize when a multi-agent pattern is overengineering.
 
 ## Readings
 
-- The subagents section of the Claude Code docs.
+- The subagents docs at `code.claude.com/docs/en/sub-agents`.
+- Background agents / agent-view docs (for awareness): `code.claude.com/docs/en/agent-view`.
 - Anthropic's posts on multi-agent patterns (search the blog for "multi-agent" or "orchestrator").
 - Skim 2-3 public `.claude/agents/` directories on GitHub (search `path:.claude/agents`).
 
@@ -20,7 +30,7 @@
 
 **1. Subagent triage drill (1 hr).** Take 10 recent tasks you did. For each, decide: should this have been a subagent? Why or why not? Build intuition for the trade-off.
 
-**2. Custom agent (2 hrs).** Define `.claude/agents/code-reviewer.md` (or `homework-grader`, `paper-summarizer`, `bug-reporter` — pick one you'd actually use). Tight system prompt. Read-only tool allowlist if it's review-focused.
+**2. Custom agent (2 hrs).** Define `.claude/agents/code-reviewer.md` (or `homework-grader`, `paper-summarizer`, `bug-reporter` — pick one you'd actually use). Required frontmatter: `name` + `description`. Tight system prompt. Read-only `tools:` allowlist if it's review-focused. Create it via `/agents` if you want it loaded without restarting.
 
 **3. The fan-out (3 hrs).** Pick a task that has independent sub-problems (e.g., "find every place we handle errors inconsistently across these 8 files"). Use a Plan subagent to enumerate, then spawn parallel Explore subagents — one per file. Compare results.
 
@@ -47,7 +57,8 @@
 - **Reflexive fan-out.** "Just spawn 5 agents" is not a strategy. Ask: are these truly independent?
 - **Vague briefs.** Subagents don't see your conversation — every prompt must be self-contained.
 - **No verification.** A subagent's report tells you what it *intended*. Always check the actual artifacts.
-- **Subagents inside subagents.** Possible, but usually a smell. Flatten when you can.
+- **Trying to spawn subagents from inside a subagent.** Not possible — only the main thread can spawn subagents. If you need that pattern, flatten the plan at the main level.
+- **Forgetting the restart rule.** File-edited subagent definitions don't take effect until session restart; `/agents`-created ones do. If your new agent isn't showing up, that's why.
 
 ## Stretch
 

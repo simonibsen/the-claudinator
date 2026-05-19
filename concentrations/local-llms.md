@@ -45,18 +45,25 @@ Claude Code will:
 
 That's it. The 30-minute "follow the README" tutorial collapses to a one-shot Claude Code session.
 
-**Model selection (as of authoring — see `update-content` mode for refreshes):**
+**Model selection (current generation — refresh with the `update-content` mode):**
 
 | Model | Size | Best for |
 |---|---|---|
-| `llama3.2:3b` | ~2GB | Fast iteration, weak machines |
-| `qwen2.5:7b-instruct` | ~5GB | Best general 7B as of authoring |
-| `llama3.1:8b` | ~5GB | Reliable, well-supported |
-| `phi3:medium` | ~8GB | Microsoft's, strong reasoning for size |
-| `gemma2:9b` | ~6GB | Google's, very capable |
-| `qwen2.5:14b-instruct` | ~9GB | If you have the RAM, much smarter |
+| `llama3.2:3b` | ~2GB | Fast iteration, weak machines (still useful) |
+| `phi4-mini:3.8b` | ~2.5GB | Microsoft's current small model, strong reasoning |
+| `gemma3:4b` | ~3GB | Google's current small model |
+| `qwen3:8b` | ~5GB | Alibaba's current default 8B (replaces qwen2.5:7b-instruct) |
+| `llama3.3:8b`-ish or `llama3.1:8b` | ~5GB | Reliable, well-supported |
+| `gemma3:12b` | ~8GB | Google's strong mid-size |
+| `phi4:14b` | ~9GB | Microsoft's reasoning-strong mid |
+| `qwen3:14b` | ~9GB | If you have the RAM, much smarter |
+| `mistral-small3.2:24b` | ~14GB | If you have a serious GPU |
 
-The landscape moves monthly. Don't memorize. Build the *framework* for choosing: how much VRAM you have, what task class (chat / code / structured output), how much speed you need, and what the current OS leaderboard recommends (`huggingface.co/spaces/open-llm-leaderboard`).
+The landscape moves monthly — newer Llama (3.3+), Qwen (3.x), Gemma (3+), and Phi (4) generations have arrived. Don't memorize tags. Build the *framework* for choosing: how much VRAM you have, what task class (chat / code / structured output / vision), how much speed you need, and what's currently strong on the OS leaderboards.
+
+**Where to check current rankings:**
+- The classic `huggingface.co/spaces/open-llm-leaderboard` exists but the actual leaderboard space has been dormant since early 2025. Look for the **Model Comparator** space on Hugging Face for a current alternative.
+- LMSys-style arenas and the various `lmarena.ai`-flavored sites for head-to-head comparisons.
 
 ## 2. Integration — hot-swap local for API
 
@@ -225,8 +232,8 @@ If your hardware is limiting you, *don't skip the distillation exercise* — ren
 
 ## What to read next
 
-- **unsloth** documentation — `github.com/unslothai/unsloth`
-- **MLX-LM** — `github.com/ml-explore/mlx-examples` (the LLM examples directory)
+- **unsloth** documentation — `github.com/unslothai/unsloth` (CUDA-primary; MLX training support in progress)
+- **MLX-LM** — `github.com/ml-explore/mlx-lm` (standalone repo). Install with `pip install mlx-lm`.
 - **HuggingFace fine-tuning guide** — official docs, deepest reference
 - **Hamel Husain on fine-tuning** — his posts on when fine-tuning actually helps (and when it doesn't)
 - **Simon Willison on local LLMs** — practical posts on what's worth running

@@ -27,6 +27,14 @@
 
 **3. Prompt caching (2 hrs).** Take one of the apps where you reuse a long system prompt. Add caching. Measure: tokens before/after, cost before/after. Document the savings.
 
+Key facts to know:
+- **Two TTLs:** 5-minute (default, `{"type": "ephemeral"}`) and 1-hour (`{"type": "ephemeral", "ttl": "1h"}`).
+- **Cost ratios:** cache *write* is 1.25× base input (5-min) or 2× (1-hour); cache *read* is 0.1× base input.
+- **Cache hit requires 100% exact prefix match** up to the breakpoint. Lookback window is 20 blocks.
+- **Up to 4 breakpoints per request.** Hierarchy: `tools` → `system` → `messages` — a change at any level invalidates that level and below.
+- **Minimum cacheable length:** 4,096 tokens (Opus 4.7/4.6/4.5, Haiku 4.5); 1,024 tokens (Sonnet).
+- Track via `usage.cache_creation_input_tokens` and `usage.cache_read_input_tokens` in the response.
+
 **4. Model routing (1.5 hrs).** For each of your three apps, run with Haiku, Sonnet, and Opus. Compare quality, latency, cost. Pick the right one. Justify in writing.
 
 **5. Cost dashboard (1 hr).** Add a simple cost logger to your apps: tokens in, tokens out, cache hits, $ per call. Print at the end of every run. (Make this a habit going forward.)

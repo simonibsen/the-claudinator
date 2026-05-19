@@ -6,24 +6,54 @@ By the end of this week, your `~/.claude/` directory should look meaningfully di
 
 ## Objectives
 
-1. Configure `settings.json` (user + project) deliberately, with a written reason for each setting.
-2. Write at least one hook that catches a class of mistakes you've made.
-3. Write 2-3 custom slash commands for tasks you do weekly.
-4. Open a PR on an OSS project, navigate review, and merge it.
-5. Use `git bisect` to find a regression in a real repo.
+1. Configure `settings.json` (user + project + project-local) deliberately, with a written reason for each setting.
+2. Understand the permissions system: rule syntax (`Bash(git *)`, `Edit|Write`, `Skill(name *)`, `mcp__server__.*`), the four scopes, and conditional permissions in hooks.
+3. Write at least one hook that catches a class of mistakes you've made. Know the **complete event list** (not just `PreToolUse`/`PostToolUse`/`Stop`).
+4. Write 2-3 custom slash commands for tasks you do weekly.
+5. Open a PR on an OSS project, navigate review, and merge it.
+6. Use `git bisect` to find a regression in a real repo.
 
 ## Readings
 
-- `claude.com/claude-code/docs/settings` and the hooks section.
+- `code.claude.com/docs/en/settings` and `code.claude.com/docs/en/hooks` — the full hook event list and matcher syntax.
+- `code.claude.com/docs/en/permissions` — rule syntax, four scopes, conditional rules.
 - `git-scm.com/book` Ch 3 (branching) and Ch 7 (rebasing, bisect, reflog).
 - "How to write a good PR description" (search; multiple good posts exist — pick one).
 - One open-source project's `CONTRIBUTING.md`.
 
 ## Exercises
 
-**1. Settings audit (1 hr).** Open `~/.claude/settings.json`. Document each key with a comment explaining why. Add `permissions.allow` entries for tools you use without prompts and `permissions.deny` for anything you never want auto-run.
+**1. Settings audit (1 hr).** Open `~/.claude/settings.json`. Document each key with a comment explaining why. Set up the four scopes appropriately:
 
-**2. Hooks (2 hrs).** Write a `PostToolUse` hook that runs your linter or formatter after Edit/Write. Test it by editing a file and watching it run. Write a `Stop` hook that reminds you to commit if you've made >5 edits.
+- `~/.claude/settings.json` — your personal defaults across all projects
+- `.claude/settings.json` — project defaults (shared, committed)
+- `.claude/settings.local.json` — your personal project overrides (gitignored)
+- Managed (enterprise) — set by your org, top priority
+
+**2. Permissions deep-dive (1 hr).** The `permissions.allow` and `permissions.deny` fields take rule strings, not just tool names. Practice writing rules:
+
+- `Bash(git *)` — allow any git command via Bash
+- `Bash(rm *)` — deny anything that looks like an rm
+- `Edit|Write` — allow both Edit and Write
+- `Skill(deploy *)` — allow the deploy skill (and any args)
+- `mcp__memory__.*` — match all tools from one MCP server
+- `WebFetch(domain:docs.anthropic.com)` — domain-scoped matchers (where supported)
+
+Write 5 allow rules and 3 deny rules for your own daily workflow. Commit to your dotfiles.
+
+**3. Hooks (2 hrs).** Write a `PostToolUse` hook that runs your linter or formatter after Edit/Write. Test it by editing a file and watching it run. Write a `Stop` hook that reminds you to commit if you've made >5 edits.
+
+**Awareness — the broader event list.** Beyond `PreToolUse`/`PostToolUse`/`Stop`, Claude Code supports many more hook events. Skim the list and pick one less-obvious event to experiment with:
+
+- Session lifecycle: `SessionStart`, `SessionEnd`, `Setup`
+- Prompt flow: `UserPromptSubmit`, `UserPromptExpansion`
+- Tools: `PreToolUse`, `PermissionRequest`, `PermissionDenied`, `PostToolUse`, `PostToolUseFailure`, `PostToolBatch`
+- Agents: `SubagentStart`, `SubagentStop`, `TaskCreated`, `TaskCompleted`
+- Context: `PreCompact`, `PostCompact`, `InstructionsLoaded`, `ConfigChange`, `CwdChanged`, `FileChanged`
+- MCP: `Elicitation`, `ElicitationResult`
+- Other: `Notification`, `Stop`, `StopFailure`, `TeammateIdle`
+
+Hooks take handler types: `command` (shell), `http` (POST JSON), `mcp_tool`, `prompt` (model decision), `agent` (subagent verification). Don't try to use them all — just know they exist.
 
 **3. Custom slash commands (2 hrs).** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/review` (have the model critique the current diff), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this week*, not hypotheticals.
 
