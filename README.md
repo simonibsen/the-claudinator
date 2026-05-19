@@ -2,8 +2,6 @@
 
 A self-paced, 12-week curriculum for going from *"I can code"* to *"I can ship agents."*
 
-*(Yes, the name is a nod to Dr. Doofenshmirtz.)*
-
 It lives as a Claude Code skill — you install it once, then talk to it in natural language inside Claude Code. It tracks your progress, walks you through weeks, quizzes you, critiques your work, runs mock interviews, and keeps itself fresh against the latest Claude / MCP / API docs.
 
 ## The 12 weeks
