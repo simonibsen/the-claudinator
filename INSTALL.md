@@ -9,7 +9,7 @@ A self-paced, 12-week curriculum for going from "I can code" to "I can ship agen
 - A **GitHub account** — most weeks end with a deliverable you push.
 - Your own **dev environment** — Python or TypeScript, your call. Most exercises are language-agnostic but examples lean Python.
 
-About 8-10 hours per week, for 12 weeks. You can go slower; the skill won't penalize you for it.
+A rhythm of "a week per week" for 12 weeks. **Hours-per-week varies a lot** based on Claude Code fluency — don't target a fixed number. A week is *done* when the deliverable is in git and you can answer the self-assessment cold.
 
 ## Install
 
@@ -83,7 +83,7 @@ the-claudinator/
 
 Everything is markdown — edit anything that doesn't fit you.
 
-- **Pace.** 12 weeks at ~8-10 hrs/week is the default. Half-pace is fine.
+- **Pace.** 12 weeks is the rhythm. Hours-per-week varies a lot based on your Claude Code fluency and the week — don't target a fixed number. A week is *done* when the deliverable is in git and you can answer the self-assessment cold, not when a clock has hit some number.
 - **Track weighting.** Currently ~60% Claude/agents, ~25% AI engineering, ~15% SWE essentials. To rebalance, edit `curriculum/overview.md` and the relevant week files.
 - **Tone.** The tutor is "strict-but-encouraging" by default. If you want softer or harder, edit the **Tone** section in `SKILL.md`.
 - **Skip / reorder weeks.** Tell the skill "skip to week 6" or "I'm starting from week 4 — I've already done the earlier stuff." It will adjust.

@@ -29,25 +29,25 @@
 
 ## Exercises
 
-**1. Attack your own agent (2 hrs).** Take your week-7 agent or week-9 RAG. Try to:
+**1. Attack your own agent.** Take your week-7 agent or week-9 RAG. Try to:
    - Make it ignore its system prompt (direct injection).
    - Put a malicious instruction in the corpus / a tool output (indirect injection).
    - Exfiltrate something it shouldn't have access to.
    - Get it to call a dangerous tool with bad arguments.
    Write up what worked.
 
-**2. Mitigations (2 hrs).** For each attack that worked, design a mitigation:
+**2. Mitigations.** For each attack that worked, design a mitigation:
    - Confirmation gates for destructive tools
    - Input sanitization (where it helps)
    - Output validation (especially for tool calls)
    - Privilege separation (different agents with different tool sets)
    Implement at least two.
 
-**3. Secrets audit (1.5 hrs).** Grep your repos for: `API_KEY`, `SECRET`, `password`, `token`. Anything found in code = compromised. Move to `.env` + a real secrets manager (1Password CLI, Doppler, SOPS, or your cloud provider's). Verify with `git log --all -p -S 'API_KEY'` that no key is in history.
+**3. Secrets audit.** Grep your repos for: `API_KEY`, `SECRET`, `password`, `token`. Anything found in code = compromised. Move to `.env` + a real secrets manager (1Password CLI, Doppler, SOPS, or your cloud provider's). Verify with `git log --all -p -S 'API_KEY'` that no key is in history.
 
-**4. Structured logging (1.5 hrs).** Pick an agent or app. Add structured logs (JSON lines): timestamp, run_id, event, payload. Log: every tool call (name, args, result, duration), every model call (tokens in/out, cost, latency). Make sure secrets are never logged.
+**4. Structured logging.** Pick an agent or app. Add structured logs (JSON lines): timestamp, run_id, event, payload. Log: every tool call (name, args, result, duration), every model call (tokens in/out, cost, latency). Make sure secrets are never logged.
 
-**5. The fire drill (1 hr).** Pretend an API key leaked. Walk through: revoke, rotate, audit usage, communicate. Write the runbook so you don't have to think during a real incident.
+**5. The fire drill.** Pretend an API key leaked. Walk through: revoke, rotate, audit usage, communicate. Write the runbook so you don't have to think during a real incident.
 
 ## Deliverable
 

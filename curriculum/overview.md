@@ -1,8 +1,10 @@
 # Curriculum Overview
 
-A 12-week, ~8-10 hrs/week curriculum. Heavy on Claude & agents (Track A), serious on AI engineering (Track C), light on SWE practice (Track B) — just the essentials that close the coursework-to-job gap (spec kit, design docs, deploy, secrets).
+A 12-week curriculum. Heavy on Claude & agents (Track A), serious on AI engineering (Track C), light on SWE practice (Track B) — just the essentials that close the coursework-to-job gap (spec kit, design docs, deploy, secrets).
 
 **The through-line is productive Claude use.** Not a topic taught in week 1 and graduated from — the *operating mode* for every week. Each deliverable is built with Claude Code. Each week, your `~/.claude/commands/`, `~/.claude/skills/`, and project `CLAUDE.md` files should get a bit richer. That's the playbook, accumulated as code instead of journaled as prose.
+
+**On pacing:** "a week" is the rhythm, not a contract. With Claude Code as a force multiplier, the time per exercise varies hugely — and unevenly. Scaffolding, navigation, boilerplate: minutes. Design decisions, debugging, evaluating tradeoffs: same as ever. **Don't aim for hours-per-week targets.** A week is *done* when the deliverable is in git and you can answer the self-assessment cold — see the four rules below.
 
 | Track | Weight | Why |
 |---|---|---|

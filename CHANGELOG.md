@@ -4,6 +4,13 @@ Notable changes to the curriculum. Newest first.
 
 ## 2026-05-19
 
+**Dropped per-exercise hour estimates and softened week-level framing.**
+- Hour annotations like `(1 hr)`, `(30 min)`, `(4-5 hrs)` removed from all 12 week files. Estimates were inflated post-Claude-Code (parts that pre-Claude took hours can now take minutes; parts that are thinking-heavy didn't get faster). Annotations created false precision and a wrong success signal.
+- Week-level "~8-10 hrs/week" softened across `curriculum/overview.md`, `README.md`, `INSTALL.md`. New framing: "a rhythm of a week per week, hours-per-week varies a lot — a week is *done* when the deliverable is in git and the self-assessment is passed cold."
+- Capstone "20-40 hours of work" replaced with project-shape framing ("small but real project, not a toy; one-sentence pitch, 60-second demo").
+- Local LLMs concentration: time promises stripped (Ollama setup, pipeline duration, embedding fine-tuning); cost-of-rental retained where useful for decision-making.
+- Project artifacts (deliverable, self-assessment, slash-commands grown) remain the success measure — they always were, the hour annotations were just clutter.
+
 **Comprehensive correctness audit pass.** Verified every behavioral claim against live docs (Claude Code, Anthropic API, MCP, Spec Kit, Ollama, MLX, OWASP, unsloth). Fixes:
 
 - **Week 5 (Spec Kit):** Commands now `/speckit.specify`, `/speckit.plan`, `/speckit.tasks`, `/speckit.implement` (previously bare). Added supporting commands (`/speckit.constitution`, `/speckit.clarify`, `/speckit.analyze`, `/speckit.checklist`, `/speckit.taskstoissues`). Install: `uv tool install specify-cli --from git+...`. Output paths updated.

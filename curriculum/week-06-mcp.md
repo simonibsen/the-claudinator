@@ -22,21 +22,21 @@
 
 ## Exercises
 
-**1. Install + use (1.5 hrs).** Install 2-3 of the current reference servers: Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking, or Time. Use them for real tasks. Notice latency, where it shines, where it's awkward.
+**1. Install + use.** Install 2-3 of the current reference servers: Everything, Fetch, Filesystem, Git, Memory, Sequential Thinking, or Time. Use them for real tasks. Notice latency, where it shines, where it's awkward.
 
 > Note: GitHub and Postgres are no longer maintained as reference servers — they're in `modelcontextprotocol/servers-archived`. GitHub now has an official integration maintained by GitHub itself; database access typically goes through specialized servers.
 
-**2. Server design sketch (1 hr).** Pick a tool/API you wish Claude could use natively — your school's API, a personal API, Strava, Anki, whatever. Sketch the tool surface on paper: what 4-6 tools should it expose? What's each tool's name, args, returns? Consider whether any belong as **resources** (read-only data) or **prompts** (templates) instead of tools.
+**2. Server design sketch.** Pick a tool/API you wish Claude could use natively — your school's API, a personal API, Strava, Anki, whatever. Sketch the tool surface on paper: what 4-6 tools should it expose? What's each tool's name, args, returns? Consider whether any belong as **resources** (read-only data) or **prompts** (templates) instead of tools.
 
-**3. Build the server (4 hrs).** Implement the sketch using:
+**3. Build the server.** Implement the sketch using:
 - **Python:** `uv add "mcp[cli]"`, build with the `FastMCP` class from `mcp.server.fastmcp` (the high-level pattern shown in the official quickstart).
 - **TypeScript:** `npm install @modelcontextprotocol/sdk zod`, build with the official SDK.
 
 Start with 2 tools. Test by wiring into Claude Code and using it. Default to **stdio transport** for local development.
 
-**4. Schema iteration (1.5 hrs).** Watch how the model uses your tools. Where does it get confused? Refine descriptions, arg names, return shapes. This is the real work.
+**4. Schema iteration.** Watch how the model uses your tools. Where does it get confused? Refine descriptions, arg names, return shapes. This is the real work.
 
-**5. Auth & permissions (1 hr).** For stdio servers: env vars or a token file, never hardcoded. For HTTP-transport (remote) servers: implement **OAuth 2.1** per the MCP spec. Document the install flow.
+**5. Auth & permissions.** For stdio servers: env vars or a token file, never hardcoded. For HTTP-transport (remote) servers: implement **OAuth 2.1** per the MCP spec. Document the install flow.
 
 ## Deliverable
 

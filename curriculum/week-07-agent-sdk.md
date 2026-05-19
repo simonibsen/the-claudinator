@@ -20,15 +20,15 @@
 
 ## Exercises
 
-**1. Hello agent (1.5 hrs).** Install the SDK (`pip install claude-agent-sdk` or `npm install @anthropic-ai/claude-agent-sdk`). Build the smallest possible agent: one script that uses `query()` to get an answer with at least one tool available (e.g. `Read`). The SDK runs the agent loop for you — you iterate over its message stream.
+**1. Hello agent.** Install the SDK (`pip install claude-agent-sdk` or `npm install @anthropic-ai/claude-agent-sdk`). Build the smallest possible agent: one script that uses `query()` to get an answer with at least one tool available (e.g. `Read`). The SDK runs the agent loop for you — you iterate over its message stream.
 
-**2. Pick a useful target (30 min).** What should your agent *do*? Something concrete and personal: triage your inbox, grade your homework, summarize your Strava week, monitor a long-running build, scrape a syllabus and turn it into a study schedule. Write a 1-paragraph spec.
+**2. Pick a useful target.** What should your agent *do*? Something concrete and personal: triage your inbox, grade your homework, summarize your Strava week, monitor a long-running build, scrape a syllabus and turn it into a study schedule. Write a 1-paragraph spec.
 
-**3. Build it (4-5 hrs).** Implement. Use the SDK's built-in tool support and add at least one custom tool of your own. Real input, real output. Push to GitHub with a README a stranger could follow.
+**3. Build it.** Implement. Use the SDK's built-in tool support and add at least one custom tool of your own. Real input, real output. Push to GitHub with a README a stranger could follow.
 
-**4. The polish pass (2 hrs).** Add: error handling (what if a tool fails?), streaming output (so the user sees progress), cost logging (print tokens and dollars per run), and a `--dry-run` flag.
+**4. The polish pass.** Add: error handling (what if a tool fails?), streaming output (so the user sees progress), cost logging (print tokens and dollars per run), and a `--dry-run` flag.
 
-**5. The honest tradeoff writeup (30 min).** When would Claude Code have been a better answer than your standalone agent? When wouldn't it?
+**5. The honest tradeoff writeup.** When would Claude Code have been a better answer than your standalone agent? When wouldn't it?
 
 ## Deliverable
 

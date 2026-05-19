@@ -19,7 +19,7 @@
 
 ## Exercises
 
-**1. Spec Kit install + tour (1 hr).** Install with:
+**1. Spec Kit install + tour.** Install with:
 
 ```bash
 uv tool install specify-cli --from git+https://github.com/github/spec-kit.git
@@ -32,13 +32,13 @@ Run the quickstart. Spec Kit installs as `/speckit.*` slash commands inside Clau
 - `/speckit.tasks` → `tasks.md` (ordered, dependency-aware task breakdown)
 - `/speckit.implement` → executes the tasks
 
-**2. The Spec-First Feature (4-5 hrs).** Pick a feature worth 1-2 days of work — non-trivial. Use Spec Kit end-to-end via the `/speckit.*` commands. Commit spec, plan, tasks, and implementation. The spec/plan files should be readable by a stranger.
+**2. The Spec-First Feature.** Pick a feature worth 1-2 days of work — non-trivial. Use Spec Kit end-to-end via the `/speckit.*` commands. Commit spec, plan, tasks, and implementation. The spec/plan files should be readable by a stranger.
 
-**3. RFC reading (1.5 hrs).** Read the three docs from the readings. For each: (a) how is the problem framed? (b) what alternatives are considered? (c) what's the decision criterion? (d) what's left unspecified and why?
+**3. RFC reading.** Read the three docs from the readings. For each: (a) how is the problem framed? (b) what alternatives are considered? (c) what's the decision criterion? (d) what's left unspecified and why?
 
-**4. Write your own (2 hrs).** Pick a real change to one of your projects (auth, caching, schema migration — something with trade-offs). Write a 1-2 page design doc: Problem / Goals / Non-Goals / Proposal / Alternatives / Risks / Rollout. Commit it to the repo.
+**4. Write your own.** Pick a real change to one of your projects (auth, caching, schema migration — something with trade-offs). Write a 1-2 page design doc: Problem / Goals / Non-Goals / Proposal / Alternatives / Risks / Rollout. Commit it to the repo.
 
-**5. Get feedback (1 hr).** Share the doc — with a peer, a TA, or run it through this skill's `critique` mode. Take notes. Revise. The git history should show the revision.
+**5. Get feedback.** Share the doc — with a peer, a TA, or run it through this skill's `critique` mode. Take notes. Revise. The git history should show the revision.
 
 ## Deliverable
 

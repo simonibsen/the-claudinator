@@ -28,15 +28,15 @@ You'll focus on subagents this week; the other two are good to be aware of and t
 
 ## Exercises
 
-**1. Subagent triage drill (1 hr).** Take 10 recent tasks you did. For each, decide: should this have been a subagent? Why or why not? Build intuition for the trade-off.
+**1. Subagent triage drill.** Take 10 recent tasks you did. For each, decide: should this have been a subagent? Why or why not? Build intuition for the trade-off.
 
-**2. Custom agent (2 hrs).** Define `.claude/agents/code-reviewer.md` (or `homework-grader`, `paper-summarizer`, `bug-reporter` — pick one you'd actually use). Required frontmatter: `name` + `description`. Tight system prompt. Read-only `tools:` allowlist if it's review-focused. Create it via `/agents` if you want it loaded without restarting.
+**2. Custom agent.** Define `.claude/agents/code-reviewer.md` (or `homework-grader`, `paper-summarizer`, `bug-reporter` — pick one you'd actually use). Required frontmatter: `name` + `description`. Tight system prompt. Read-only `tools:` allowlist if it's review-focused. Create it via `/agents` if you want it loaded without restarting.
 
-**3. The fan-out (3 hrs).** Pick a task that has independent sub-problems (e.g., "find every place we handle errors inconsistently across these 8 files"). Use a Plan subagent to enumerate, then spawn parallel Explore subagents — one per file. Compare results.
+**3. The fan-out.** Pick a task that has independent sub-problems (e.g., "find every place we handle errors inconsistently across these 8 files"). Use a Plan subagent to enumerate, then spawn parallel Explore subagents — one per file. Compare results.
 
-**4. Plan → Implement → Review (3 hrs).** Build a small feature using three subagents in sequence: one designs, one implements, one critiques. Note where the handoff is awkward — that's where prompting matters.
+**4. Plan → Implement → Review.** Build a small feature using three subagents in sequence: one designs, one implements, one critiques. Note where the handoff is awkward — that's where prompting matters.
 
-**5. The anti-exercise (1 hr).** Pick a task and *deliberately* over-architect it with subagents. Run it. Notice how much slower and more expensive it is than just doing it. Internalize.
+**5. The anti-exercise.** Pick a task and *deliberately* over-architect it with subagents. Run it. Notice how much slower and more expensive it is than just doing it. Internalize.
 
 ## Deliverable
 

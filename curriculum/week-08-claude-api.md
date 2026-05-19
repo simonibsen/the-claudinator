@@ -18,14 +18,14 @@
 
 ## Exercises
 
-**1. SDK setup (30 min).** Install the Python or TypeScript Anthropic SDK. Set up an API key (in a `.env`, never committed). Make your first request.
+**1. SDK setup.** Install the Python or TypeScript Anthropic SDK. Set up an API key (in a `.env`, never committed). Make your first request.
 
-**2. Three small apps (3 hrs).**
+**2. Three small apps.**
 - A summarizer (long input, short output).
 - A classifier returning structured JSON (use tool use or `response_format` if applicable).
 - A multi-turn assistant with conversation history.
 
-**3. Prompt caching (2 hrs).** Take one of the apps where you reuse a long system prompt. Add caching. Measure: tokens before/after, cost before/after. Document the savings.
+**3. Prompt caching.** Take one of the apps where you reuse a long system prompt. Add caching. Measure: tokens before/after, cost before/after. Document the savings.
 
 Key facts to know:
 - **Two TTLs:** 5-minute (default, `{"type": "ephemeral"}`) and 1-hour (`{"type": "ephemeral", "ttl": "1h"}`).
@@ -35,9 +35,9 @@ Key facts to know:
 - **Minimum cacheable length:** 4,096 tokens (Opus 4.7/4.6/4.5, Haiku 4.5); 1,024 tokens (Sonnet).
 - Track via `usage.cache_creation_input_tokens` and `usage.cache_read_input_tokens` in the response.
 
-**4. Model routing (1.5 hrs).** For each of your three apps, run with Haiku, Sonnet, and Opus. Compare quality, latency, cost. Pick the right one. Justify in writing.
+**4. Model routing.** For each of your three apps, run with Haiku, Sonnet, and Opus. Compare quality, latency, cost. Pick the right one. Justify in writing.
 
-**5. Cost dashboard (1 hr).** Add a simple cost logger to your apps: tokens in, tokens out, cache hits, $ per call. Print at the end of every run. (Make this a habit going forward.)
+**5. Cost dashboard.** Add a simple cost logger to your apps: tokens in, tokens out, cache hits, $ per call. Print at the end of every run. (Make this a habit going forward.)
 
 ## Deliverable
 
@@ -67,4 +67,4 @@ Use the Batch API for a job that doesn't need real-time response (overnight summ
 
 ## Sidebar — local models as a sandbox
 
-While you're here building API skills, build the *swap-the-backend* muscle. Set up Ollama with a 7B model (Claude Code can install + configure in 10 minutes), and add a `--backend` flag to one of your apps so it can route to a local model instead. You don't have to use local everywhere — but knowing how, and developing the reflex *"do I need an API model for this?"*, is a real AI engineering skill. After week 12, the `concentrations/local-llms.md` deep-dive turns this into a distillation pipeline. Worth previewing now.
+While you're here building API skills, build the *swap-the-backend* muscle. Set up Ollama with a 7B model (Claude Code can install + configure it for you), and add a `--backend` flag to one of your apps so it can route to a local model instead. You don't have to use local everywhere — but knowing how, and developing the reflex *"do I need an API model for this?"*, is a real AI engineering skill. After week 12, the `concentrations/local-llms.md` deep-dive turns this into a distillation pipeline. Worth previewing now.
