@@ -4,6 +4,15 @@ Notable changes to the curriculum. Newest first.
 
 ## 2026-05-19
 
+**Session-opening orient added to SKILL.md.** Previously the skill routed straight into mode-specific content on each invocation without telling the student where they were in the curriculum. Now every session opens with a tight 4-line orient:
+- Where you are (current module, focus, status)
+- Through-line check (flag if `~/.claude/` hasn't grown recently)
+- Common moves (compact menu)
+- One default-action question
+
+Skipped on continuations in the same session; runs on every fresh session. Upstream-update check folds into this block when relevant so the student sees update news in context, not as a separate intrusion.
+
+
 **Renamed: "week" → "module" throughout.** The "12-week curriculum" framing was misleading — Claude Code makes pacing wildly uneven and the calendar-week unit fights the deliverable-driven success criterion. Twelve modules, no fixed duration; a module is done when the deliverable is in git and the self-assessment is passed cold.
 
 - All 12 curriculum files renamed: `curriculum/week-NN-*.md` → `curriculum/module-NN-*.md` (via `git mv` so blame history follows).
