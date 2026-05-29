@@ -17,13 +17,13 @@ By the end of the 12 modules, you'll have:
 
 ## Who this is for
 
-Someone with **real coding experience** but limited applied-AI / professional-dev exposure. The intended baseline:
+You have **real coding experience** but limited applied-AI / professional-dev exposure. The baseline:
 
 - You write code fluently in at least one language (Python or TypeScript work best for the exercises).
 - You're comfortable with git, the command line, and reading docs.
 - You haven't built much that runs in production, written a design doc, or evaluated an AI system.
 
-Roughly: a CS undergrad past the data-structures-and-algorithms stage, a bootcamp grad with a real project under their belt, or a working engineer pivoting into AI. **Not** a first-time programmer.
+**Not** for a first-time programmer.
 
 Time commitment: a rhythm of Twelve modules, no fixed duration. **Hours per module varies a lot** based on Claude Code fluency — exercises that pre-Claude would have been 5 hours can be 30 minutes with the tool, while the genuinely thinking-heavy parts (design, debugging, evals) take the same time as ever. Don't target hours. A module is *done* when the deliverable is in git and you can answer the self-assessment cold.
 
