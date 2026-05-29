@@ -15,6 +15,9 @@
 - Docker's official "Get Started" + the multi-stage builds page.
 - Fly.io's "Hands-on" tutorial.
 - One canonical RAG post — try Pinecone's "Learn" guide or LangChain's docs (read for concepts, not the framework).
+- **Anthropic Cookbook — RAG** (`platform.claude.com/cookbook/`):
+  - `capabilities-retrieval-augmented-generation-guide` — from-scratch RAG walkthrough that mirrors Exercise 3 (no frameworks).
+  - `capabilities-contextual-embeddings-guide` — Anthropic's contextual-retrieval technique (Pass@10 went from 87% → 95% in their numbers). The right anchor for Exercise 4 ("the retrieval problem") and the Stretch.
 - Simon Willison's posts on embeddings, if available.
 
 ## Exercises
@@ -57,4 +60,7 @@
 
 ## Stretch
 
-Add a reranker step (a second model that scores retrieved chunks for relevance before sending to the generator). Measure whether it helps.
+Two options (pick one or do both):
+
+- **Reranker.** Add a second model that scores retrieved chunks for relevance before sending to the generator. Measure whether it helps.
+- **Contextual embeddings.** Reimplement Anthropic's contextual-retrieval technique from `platform.claude.com/cookbook/capabilities-contextual-embeddings-guide` on your own corpus. Report before/after Pass@k. This is a real, measurable technique with published numbers (87% → 95% Pass@10 in Anthropic's benchmark) — plugs directly into the eval discipline you'll build in module 10.

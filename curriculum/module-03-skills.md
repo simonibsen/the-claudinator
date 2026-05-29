@@ -26,12 +26,17 @@ All fields are optional. `description` is recommended so Claude knows when to lo
 | Field | Purpose |
 |---|---|
 | `description` | When Claude should auto-invoke (recommended) |
+| `when_to_use` | Trigger phrases / example requests, appended to `description`. **Shares the 1,536-char budget with `description`** — spend the budget where it earns the most invocations. |
 | `name` | Display name (defaults to dir name) |
 | `disable-model-invocation: true` | Only you can invoke (via `/`) — Claude won't auto-load |
 | `user-invocable: false` | Only Claude can invoke — hides from `/` menu |
-| `allowed-tools` | Pre-approve tools when the skill is active |
+| `allowed-tools` / `disallowedTools` | Pre-approve / deny tools when the skill is active |
 | `argument-hint` / `arguments` | Named positional args for `$ARGUMENTS` substitution |
 | `context: fork` + `agent: <type>` | Run the skill in a forked subagent |
+| `model`, `effort` | Pin the skill to a specific model or reasoning effort level |
+| `hooks` | Attach hooks scoped to this skill's lifetime |
+| `paths` | Scope the skill to specific paths (load only in matching dirs) |
+| `shell` | Declare a shell environment for the skill |
 
 ## Exercises
 

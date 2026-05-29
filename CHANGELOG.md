@@ -2,6 +2,27 @@
 
 Notable changes to the curriculum. Newest first.
 
+## 2026-05-28
+
+**Curriculum refresh — content audit + cookbook integration.** Triggered by a real-world surprise: a student running `#` to write a memory got the auto-memory system, not a CLAUDE.md prompt. The curriculum predated public docs for auto memory. Sweep that and other behavioral claims; integrate the Anthropic Cookbook.
+
+- **Module 1 — auto memory + permission-mode cycle.** `#` is no longer documented as a memory-shortcut prefix; objectives and exercise 1 rewritten to teach **auto memory** (`~/.claude/projects/<project>/memory/`) vs. CLAUDE.md as two parallel mechanisms with different writers. `shift+tab` reframed as **permission-mode cycle** (`default` → `acceptEdits` → `plan` + custom), not "toggle plan." New exercise 2 on the memory split. Sidebar on `.claude/rules/` for when CLAUDE.md outgrows 200 lines. Self-assessment grew from 5 → 7 questions. Productivity recipes gain `/verify` and `/run-skill-generator`.
+- **Module 2 — permission rule syntax + hook event list.** `Edit|Write` removed from permission examples (pipe-OR is hook-matcher syntax, not permission syntax). Hook event list gained `MessageDisplay`, `WorktreeCreate`, `WorktreeRemove`. Exercise 3 now points at bundled `/code-review`, `/code-review --fix`, `/simplify` before students write their own `/review` clone.
+- **Module 3 — skills frontmatter table.** Added `when_to_use` (shares the 1,536-char budget with `description` — directly relevant to the "description game" exercise). Also surfaced `disallowedTools`, `model`, `effort`, `hooks`, `paths`, `shell`.
+- **Module 7-11 — Anthropic Cookbook references inline in Readings.** Module 7: one-liner research agent, chief-of-staff agent, OpenAI Agents SDK migration. Module 8: `misc-prompt-caching`, `tool-use-extracting-structured-json`, `misc-speculative-prompt-caching` (stretch). Module 9: `capabilities-retrieval-augmented-generation-guide`, `capabilities-contextual-embeddings-guide`. Module 10: `misc-building-evals`, `misc-generate-test-cases`, `tool-evaluation-tool-evaluation`. Module 11: `claude-agent-sdk-06-the-vulnerability-detection-agent` (with caveat that the cookbook has no prompt-injection-attack recipe; Simon Willison + OWASP stay primary). Module 6 honestly skipped (cookbook has no MCP-server recipes; MCP coverage stays at `modelcontextprotocol.io`).
+- **Stretch deliverables — cookbook-sourced.** Module 7 alt: outcome-grader pattern for the polish pass. Module 9: contextual-embeddings reimplementation with before/after Pass@k. Module 10: evaluator-optimizer loop wired to the eval set.
+- **Reading list.** Anthropic Cookbook added under "Claude & agents (primary)" with one canonical pointer; module-level references point at specific recipes.
+- **Module 8 — Opus 4.8, strict tool use.** Prompt caching minimum-tokens list adds Opus 4.8 (4,096 tokens, same as 4.7/4.6/4.5/Haiku 4.5). Model-routing exercise updated to current top tier (Haiku 4.5 / Sonnet 4.6 / Opus 4.8) with a note that Opus 4.8's `effort` parameter defaults to `high`. New sidebar: `strict: true` on tool definitions guarantees JSON-schema conformance — the more reliable answer to Q3.
+- **Local LLMs concentration + reading list — unsloth and Ollama generations.** unsloth note updated: Apple Silicon training is now fully supported (was "in progress"). Plus NVIDIA RTX 30/40/50/Blackwell + AMD chat/data; Unsloth Studio gives a cross-platform UI. Ollama landscape paragraph adds Qwen 3.5/3.6, Gemma 4, Granite 4.1 as 2026 generations alongside the established Llama 3.3+/Phi 4/Mistral-Small 3.2 set.
+- **Style — "student" → "you".** Two third-person student references in `concentrations/local-llms.md` and `concentrations/capstone-options.md` rewritten to honor the SKILL.md "address as you" rule.
+
+**Sources verified this round:** `code.claude.com/docs/en/` (overview, memory, hooks, skills, sub-agents, commands, interactive-mode, permissions, quickstart, settings), `platform.claude.com/docs/en/about-claude/models/overview`, `platform.claude.com/docs/en/build-with-claude/prompt-caching`, `platform.claude.com/docs/en/agents-and-tools/tool-use/overview`, `platform.claude.com/cookbook/`, `modelcontextprotocol.io`, `github.com/github/spec-kit`, `anthropic.com/news`, `genai.owasp.org/llm-top-10`, `github.com/ml-explore/mlx-lm`, `github.com/unslothai/unsloth`, `ollama.com/library`.
+
+**Claims confirmed current, no edits needed:** OWASP LLM Top 10 (still 2025 edition; categories match), Sonnet 4.6 / Haiku 4.5 model IDs, MCP three-primitive / two-transport architecture, Spec Kit `/speckit.*` command set (already current in module 5), MLX-LM as canonical Apple Silicon LLM library.
+
+**Tier 4 audit note.** The first attempt at re-verifying claims was blocked at the harness level (WebFetch denied for the relevant docs). Worked around by fetching interactively from the main session; recommend pre-approving `docs.claude.com/*`, `platform.claude.com/*`, `github.com/*`, `genai.owasp.org/*`, `anthropic.com/*`, `ollama.com/*` in the user-level `settings.json` for future refresh runs.
+
+
 ## 2026-05-19
 
 **Session-opening orient added to SKILL.md.** Previously the skill routed straight into mode-specific content on each invocation without telling the student where they were in the curriculum. Now every session opens with a tight 4-line orient:

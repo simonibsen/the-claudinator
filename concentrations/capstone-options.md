@@ -17,7 +17,7 @@ For module 12. Four briefs at different shapes. Pick one — or invent one and v
 **Hard parts:** Retrieval quality on mixed PDF/slide content, spaced-repetition scheduling, quiz quality.
 **Easy parts:** The CLI scaffolding, basic RAG.
 
-**Why this is good:** Real use case (yourself). Visible at every demo. Clearly your work. Other students want to use it.
+**Why this is good:** Real use case (yourself). Visible at every demo. Clearly your work. People you'd show it to want to use it.
 
 ---
 

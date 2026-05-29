@@ -25,6 +25,9 @@
   - LLM09 — Misinformation
   - LLM10 — Unbounded Consumption
 - A postmortem of any AI-related security incident — search "prompt injection incident".
+- **Anthropic Cookbook — Security** (`platform.claude.com/cookbook/`):
+  - `claude-agent-sdk-06-the-vulnerability-detection-agent` — a read-only Agent SDK code-review agent with a threat-model → find → triage loop. Pairs with Exercise 1 by flipping the perspective: this is what an agent doing security review of *you* would look like.
+  - **Caveat:** the cookbook has no prompt-injection-attack recipe. Simon Willison + OWASP stay primary; the cookbook complements them.
 - The 12-factor app section on configuration.
 
 ## Exercises

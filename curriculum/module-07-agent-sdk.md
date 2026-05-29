@@ -17,6 +17,10 @@
 - Claude Agent SDK docs at `docs.claude.com/en/api/agent-sdk/overview` (or `code.claude.com/docs/en/agent-sdk`).
 - The official Python SDK repo: `github.com/anthropics/claude-agent-sdk-python`.
 - The TypeScript SDK: `@anthropic-ai/claude-agent-sdk` on npm.
+- **Anthropic Cookbook — Agent SDK** (`platform.claude.com/cookbook/`):
+  - `claude-agent-sdk-00-the-one-liner-research-agent` — the canonical smallest-possible Agent SDK example. Read this before Exercise 1; your "hello agent" should look like it.
+  - `claude-agent-sdk-01-the-chief-of-staff-agent` — a worked personal-productivity agent. Read this before Exercise 2 ("pick a useful target") to see how a real one is structured.
+  - `claude-agent-sdk-04-migrating-from-openai-agents-sdk` — direct support for Self-assessment Q1 (Agent SDK vs. alternatives).
 
 ## Exercises
 
@@ -27,6 +31,8 @@
 **3. Build it.** Implement. Use the SDK's built-in tool support and add at least one custom tool of your own. Real input, real output. Push to GitHub with a README a stranger could follow.
 
 **4. The polish pass.** Add: error handling (what if a tool fails?), streaming output (so the user sees progress), cost logging (print tokens and dollars per run), and a `--dry-run` flag.
+
+**Alt-version of the polish pass — outcome-grader pattern.** Instead of (or in addition to) the manual polish list, wire an outcome-grader after the main agent: a second agent that checks the result against an explicit rubric and either accepts it or sends it back for another pass. See `platform.claude.com/cookbook/managed-agents-cma-verify-with-outcome-grader` for the pattern. Strong fit when the work has a verifiable shape (output schema, tests pass, format constraints) and a weaker fit for open-ended tasks.
 
 **5. The honest tradeoff writeup.** When would Claude Code have been a better answer than your standalone agent? When wouldn't it?
 

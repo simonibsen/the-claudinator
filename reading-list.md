@@ -6,6 +6,7 @@ Canonical references for the curriculum. Read the docs before the tutorials. Tut
 
 - **Claude Code docs** — `code.claude.com/docs/en/` (overview, settings, hooks, skills, sub-agents, permissions). Read top to bottom once. Refer back constantly.
 - **Anthropic API docs** — `docs.claude.com/en/docs/` — Messages, Tool Use, Prompt Caching, Batch.
+- **Anthropic Cookbook** — `platform.claude.com/cookbook/` — notebook-style worked examples across tool use, RAG, evals, prompt caching, Agent SDK, and Managed Agents. Browse by section; specific module readings point at individual recipes.
 - **Skills documentation** — `code.claude.com/docs/en/skills`.
 - **Sub-agents documentation** — `code.claude.com/docs/en/sub-agents`.
 - **Agent SDK docs** — `docs.claude.com/en/api/agent-sdk/overview` (or `code.claude.com/docs/en/agent-sdk`).
@@ -29,7 +30,7 @@ Canonical references for the curriculum. Read the docs before the tutorials. Tut
 ## Local LLMs / fine-tuning
 
 - **Ollama** — `ollama.com` and its GitHub — easiest path to running models locally.
-- **unsloth** — `github.com/unslothai/unsloth` — fastest accessible LoRA fine-tuning on CUDA (Apple Silicon training support in progress).
+- **unsloth** — `github.com/unslothai/unsloth` — fastest accessible LoRA fine-tuning. Apple Silicon training fully supported as of May 2026; NVIDIA + AMD also covered. Cross-platform web UI via Unsloth Studio.
 - **MLX-LM** — `github.com/ml-explore/mlx-lm` — Apple Silicon native LLM inference and fine-tuning. Install with `pip install mlx-lm`.
 - **MLX core** — `github.com/ml-explore/mlx` — the underlying array framework.
 - **HuggingFace docs** — `huggingface.co/docs` — deepest reference for fine-tuning, datasets, model hub.

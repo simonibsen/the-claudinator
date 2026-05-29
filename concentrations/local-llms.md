@@ -60,7 +60,7 @@ That's it. The 30-minute "follow the README" tutorial collapses to a one-shot Cl
 | `qwen3:14b` | ~9GB | If you have the RAM, much smarter |
 | `mistral-small3.2:24b` | ~14GB | If you have a serious GPU |
 
-The landscape moves monthly — newer Llama (3.3+), Qwen (3.x), Gemma (3+), and Phi (4) generations have arrived. Don't memorize tags. Build the *framework* for choosing: how much VRAM you have, what task class (chat / code / structured output / vision), how much speed you need, and what's currently strong on the OS leaderboards.
+The landscape moves monthly. As of May 2026 the active generations to be aware of include Qwen 3.5 / 3.6 (vision + tools + thinking), Gemma 4 (vision + audio + tools + thinking), Granite 4.1 (enterprise-leaning, 3B/8B/30B), and the established Llama 3.3+, Phi 4, and Mistral-Small 3.2. Don't memorize tags. Build the *framework* for choosing: how much VRAM you have, what task class (chat / code / structured output / vision / multimodal), how much speed you need, and what's currently strong on the OS leaderboards.
 
 **Where to check current rankings:**
 - The classic `huggingface.co/spaces/open-llm-leaderboard` exists but the actual leaderboard space has been dormant since early 2025. Look for the **Model Comparator** space on Hugging Face for a current alternative.
@@ -216,7 +216,7 @@ A complementary pattern to distillation. Distillation collapses *one Claude task
 - Generating exam questions or flashcards from a corpus
 - Tagging or categorizing a large media library
 
-### Hard parts (where students screw this up)
+### Hard parts (where this goes wrong)
 
 - **Worker prompts need to be air-tight.** A local model has less context-recovery than Claude; a vague prompt gets you a lot of bad batched output.
 - **Validation is non-optional.** Sampling 5% of worker outputs and grading them is the difference between "this works" and "I think this works."
@@ -287,7 +287,7 @@ If your hardware is limiting you, *don't skip the distillation exercise* — ren
 
 ## What to read next
 
-- **unsloth** documentation — `github.com/unslothai/unsloth` (CUDA-primary; MLX training support in progress)
+- **unsloth** documentation — `github.com/unslothai/unsloth` (Apple Silicon training, MLX + GGUF inference all supported as of May 2026; NVIDIA RTX 30/40/50/Blackwell + DGX; AMD chat/data shipped, full AMD training coming. Multi-GPU with ongoing improvements. Unsloth Studio gives a cross-platform web UI.)
 - **MLX-LM** — `github.com/ml-explore/mlx-lm` (standalone repo). Install with `pip install mlx-lm`.
 - **HuggingFace fine-tuning guide** — official docs, deepest reference
 - **Hamel Husain on fine-tuning** — his posts on when fine-tuning actually helps (and when it doesn't)
