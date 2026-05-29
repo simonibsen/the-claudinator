@@ -7,7 +7,7 @@ By the end of this module, your `~/.claude/` directory should look meaningfully 
 ## Objectives
 
 1. Configure `settings.json` (user + project + project-local) deliberately, with a written reason for each setting.
-2. Understand the permissions system: rule syntax (`Bash(git *)`, `Edit|Write`, `Skill(name *)`, `mcp__server__.*`), the four scopes, and conditional permissions in hooks.
+2. Understand the permissions system: rule syntax (`Bash(git *)`, `Skill(name *)`, `mcp__server__.*`), the four scopes, and conditional permissions in hooks. **Note:** pipe-OR (`Edit|Write`) is **hook matcher** syntax, not permission rule syntax — permissions take one entry per tool.
 3. Write at least one hook that catches a class of mistakes you've made. Know the **complete event list** (not just `PreToolUse`/`PostToolUse`/`Stop`).
 4. Write 2-3 custom slash commands for tasks you do weekly.
 5. Open a PR on an OSS project, navigate review, and merge it.
@@ -34,10 +34,13 @@ By the end of this module, your `~/.claude/` directory should look meaningfully 
 
 - `Bash(git *)` — allow any git command via Bash
 - `Bash(rm *)` — deny anything that looks like an rm
-- `Edit|Write` — allow both Edit and Write
+- `Edit` — allow Edit (separate entry from Write — permissions don't take pipe-OR)
+- `Write` — allow Write
 - `Skill(deploy *)` — allow the deploy skill (and any args)
 - `mcp__memory__.*` — match all tools from one MCP server
 - `WebFetch(domain:docs.anthropic.com)` — domain-scoped matchers (where supported)
+
+**Watch out:** pipe-OR (`Edit|Write`) is hook **matcher** syntax (matches multiple tool names in one hook), not permission rule syntax. Mixing the two is a common new-user mistake — Claude will silently treat `Edit|Write` as an unknown tool name rather than as "Edit or Write."
 
 Write 5 allow rules and 3 deny rules for your own daily workflow. Commit to your dotfiles.
 
@@ -46,16 +49,17 @@ Write 5 allow rules and 3 deny rules for your own daily workflow. Commit to your
 **Awareness — the broader event list.** Beyond `PreToolUse`/`PostToolUse`/`Stop`, Claude Code supports many more hook events. Skim the list and pick one less-obvious event to experiment with:
 
 - Session lifecycle: `SessionStart`, `SessionEnd`, `Setup`
-- Prompt flow: `UserPromptSubmit`, `UserPromptExpansion`
+- Prompt flow: `UserPromptSubmit`, `UserPromptExpansion`, `MessageDisplay`
 - Tools: `PreToolUse`, `PermissionRequest`, `PermissionDenied`, `PostToolUse`, `PostToolUseFailure`, `PostToolBatch`
 - Agents: `SubagentStart`, `SubagentStop`, `TaskCreated`, `TaskCompleted`
 - Context: `PreCompact`, `PostCompact`, `InstructionsLoaded`, `ConfigChange`, `CwdChanged`, `FileChanged`
+- Worktrees: `WorktreeCreate`, `WorktreeRemove`
 - MCP: `Elicitation`, `ElicitationResult`
 - Other: `Notification`, `Stop`, `StopFailure`, `TeammateIdle`
 
 Hooks take handler types: `command` (shell), `http` (POST JSON), `mcp_tool`, `prompt` (model decision), `agent` (subagent verification). Don't try to use them all — just know they exist.
 
-**3. Custom slash commands.** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/review` (have the model critique the current diff), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this module*, not hypotheticals.
+**3. Custom slash commands.** Add 2-3 commands in `.claude/commands/` for repeated workflows — examples: `/test` (run your test suite with a useful flag set), `/prep-pr` (summarize staged changes as a PR description with test plan). Pick ones for workflows *you actually did this module*, not hypotheticals. **Before you write `/review`-style commands, check the bundled ones:** `/code-review`, `/code-review --fix`, and `/simplify` are shipped and battle-tested. Don't reinvent — write thin wrappers if you want project-specific defaults.
 
 **4. The OSS PR.** Find a project you actually use. Look at their issue tracker for `good-first-issue` or a typo/docs bug. Open the PR. Respond to review feedback. Get it merged.
 

@@ -13,7 +13,10 @@
 ## Readings
 
 - Anthropic API docs — Messages, Tool Use, Structured Outputs, Prompt Caching, Batch.
-- The `anthropic-cookbook` repo on GitHub.
+- **Anthropic Cookbook** (`platform.claude.com/cookbook/`):
+  - `misc-prompt-caching` — the worked baseline-vs-cached comparison that Exercise 3 effectively asks you to reproduce.
+  - `tool-use-extracting-structured-json` — directly supports Exercise 2's classifier and Self-assessment Q3.
+  - `misc-speculative-prompt-caching` — stretch material once basic caching is wired up.
 - One blog post on prompt caching economics (e.g. "Anthropic prompt caching saves us X").
 
 ## Exercises
@@ -32,10 +35,12 @@ Key facts to know:
 - **Cost ratios:** cache *write* is 1.25× base input (5-min) or 2× (1-hour); cache *read* is 0.1× base input.
 - **Cache hit requires 100% exact prefix match** up to the breakpoint. Lookback window is 20 blocks.
 - **Up to 4 breakpoints per request.** Hierarchy: `tools` → `system` → `messages` — a change at any level invalidates that level and below.
-- **Minimum cacheable length:** 4,096 tokens (Opus 4.7/4.6/4.5, Haiku 4.5); 1,024 tokens (Sonnet).
+- **Minimum cacheable length:** 4,096 tokens (Opus 4.8/4.7/4.6/4.5, Haiku 4.5); 1,024 tokens (Sonnet 4.6/4.5).
 - Track via `usage.cache_creation_input_tokens` and `usage.cache_read_input_tokens` in the response.
 
-**4. Model routing.** For each of your three apps, run with Haiku, Sonnet, and Opus. Compare quality, latency, cost. Pick the right one. Justify in writing.
+**4. Model routing.** For each of your three apps, run with Haiku 4.5, Sonnet 4.6, and Opus 4.8 (current top tier as of mid-2026). Compare quality, latency, cost. Pick the right one. Justify in writing. Note: Opus 4.8's `effort` parameter defaults to `high` everywhere — set it explicitly if you want lower-effort runs for cost or speed.
+
+**Strict tool use (new).** When you use tool-use for structured outputs, add `"strict": true` to the tool definition. This guarantees Claude's tool calls match your JSON schema exactly — no missing required fields, no extra keys. Without strict, the model usually conforms but doesn't *guarantee* it. Strict tool use is the more reliable answer to Self-assessment Q3.
 
 **5. Cost dashboard.** Add a simple cost logger to your apps: tokens in, tokens out, cache hits, $ per call. Print at the end of every run. (Make this a habit going forward.)
 

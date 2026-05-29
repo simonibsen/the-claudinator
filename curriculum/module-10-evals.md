@@ -14,7 +14,10 @@
 
 - Hamel Husain's blog — "Your AI Product Needs Evals" (or whatever the current canonical post is).
 - Eugene Yan's blog — evals posts.
-- Anthropic's evals documentation, if available.
+- **Anthropic Cookbook — Evals** (`platform.claude.com/cookbook/`):
+  - `misc-building-evals` — covers exactly the three eval types this module prescribes (code-based, human, model-based). Use as the canonical Anthropic reference.
+  - `misc-generate-test-cases` — synthetic test-data generation, the natural follow-on to Exercise 1 ("hand-write 20 cases").
+  - `tool-evaluation-tool-evaluation` — parallel-agent harness for evaluating tools. Stretch material; pairs nicely with module 6.
 - One post on LLM-as-judge pitfalls.
 
 ## Exercises
@@ -53,7 +56,10 @@
 
 ## Stretch
 
-Set up evals to run on every PR via GitHub Actions. Make them block merge if scores drop. Now your prompt-engineering has a regression suite.
+Two options (pick one or do both):
+
+- **CI evals.** Set up evals to run on every PR via GitHub Actions. Make them block merge if scores drop. Now your prompt-engineering has a regression suite.
+- **Evaluator-optimizer loop.** Wire the evaluator-optimizer pattern (`platform.claude.com/cookbook/patterns-agents-evaluator-optimizer`) onto your RAG generator, using your existing eval set as the judge rubric. Turns the eval harness from a regression suite into a self-improvement loop: the agent proposes a change, the judge scores it, the loop iterates. Limit iterations; watch for the judge rewarding length over quality.
 
 ## Sidebar — local models as judges (with caveats)
 
